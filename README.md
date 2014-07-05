@@ -4,12 +4,13 @@ PixelPainter
 Coloring pixels in a grid
 
 
-Create a class called PixelPainter  
-It's constructor will accept 2 arguments, **width** and **height**
+Create a function called PixelPainter  
+that will accept 2 arguments, **width** and **height**
 
-Write the PixelPainter class such that it returns a 'grid' and some 'control buttons'.  
+The PixelPainter function binds 'artboard' and 'controls' as it's properties.  
 The grid will be *width* cells wide, and *height* cells tall.  
-Each cell can be any width or height you choose, it should be a square.  
+Each cell can be any width or height you choose, it should be a square. 
+The PixelPainter function will return itself.  
 
 The *controls* will be 
 
@@ -22,24 +23,15 @@ This is a sketch of how the PixelPainter should look.
 ![sketch](http://i.imgur.com/yuku6aj.png)
 \**this is just a sample! bonus cookies for being creative!
 
-The final invocation should be similar to this:
+At the end of your script in PixelPainter, invoke the function similar to this:
 
-    var pixelPainter = new PixelPainter(20,20);
-    $("#container").append(pixelPainter.render());
+    var pixelPainter = PixelPainter(20,20);
+    $("#controls").append(pixelPainter.controls);
+    $("#artboard").append(pixelPainter.artboard);
 
-with the ability to do some nice options
-
-    var pixelPainter = new PixelPainter(80,90);
-    pixelPainter.cellSize = 8; // 8px by 8px
-    $("#container").html(pixelPainter.render());
-
-Document your options, and how to embed and use your PixelPainter.
-
-\**NOTE: you must somehow embed your PixelPainter into #container, though you cannot simply write directly to the document from inside of PixelPainter. so i should be able to port your class to another document and render PixelPainter into any container i choose.*
+\**Bonus: write the function to allow user configurable options such as _pixelSize_.*
 
 ###Files
   - index.html
-  - js/PixelPainter.js - define the class here
-  - js/app.js  - launch the app from here
+  - js/PixelPainter.js - define the function here
   - css/PixelPainter.css - PixelPainter specific css here
-  - *css/app.css*  - doesn't exist cause it's optional
