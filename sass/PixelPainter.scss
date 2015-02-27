@@ -1,22 +1,29 @@
-<<<<<<< HEAD
 @import "partials/reset";
 @import "partials/settings";
 
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 html{
-  background-color: $white;
+  // background-color: $brick_wall;
+  background-image: url('/images/brickwall.png');
 }
 
 
 body{
-  background-color: red;
+  // background-color: red;
   font-size: $base;
-  width: 700px;
+  width: 900px;
   margin: auto;
+  font-family: $font_marker;
+  text-shadow: 2px 2px 0.5px rgba(150, 150, 150, 1);
 }
 
 h1{
   font-size: 2em;
   text-align: center;
+  padding-top: 20px;
 }
 
 /* Layout */
@@ -30,21 +37,12 @@ h1{
 }
 
 #controls-container{
-  border: 5px solid $border_color;
-  width: 120px;
-  height: 220px;
+  box-shadow: 0 0 10px 2px rgba(0,0,0,0.25);
+  // border: 5px solid $border_color;
+  width: 130px;
+  height: 230px;
   margin: auto;
-  background-color: black;
-}
-
-#color-swatch {
-  // border-left: 1px solid $border_color;
-  // border-top: 1px solid $border_color;
-  border: 1px solid $border_color;
-  background-color: $white;
-  width: 18px;
-  height: 18px;
-  float: left;
+  // background-color: black;
 }
 
 .control-btn{
@@ -64,9 +62,10 @@ h1{
 
 #artboard{
   padding-top: 20px;
-  background-color: blue;
-  width: 500px;
+  // background-color: blue;
+  width: 700px;
   float: left;
+
 }
 
 #artboard-container{
@@ -74,22 +73,8 @@ h1{
 }
 
 #artboard-grid{
-
+  box-shadow: 0 0 10px 2px rgba(0,0,0,0.25);
 }
-
-
-
-
-
-=======
-*, *:before, *:after {
-  box-sizing: border-box;
-}
-
-html {
-  background: red;
-}
-
 
 .row {
   clear: both;
@@ -97,8 +82,7 @@ html {
 .cell {
   width: 20px;
   height: 20px;
-  border: 1px solid black;
+  // border: 1px solid black;
   float: left;
-  background: white;
+  background: rgba(255, 255, 255, 0);
 }
->>>>>>> mentalgrinds_master

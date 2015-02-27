@@ -2,6 +2,7 @@
 $(function () {
   var pixelPainter = new PixelPainter(35,35);
   $("#controls").append(pixelPainter.controls());
+  $("#controls").append(pixelPainter.controlBtn());
   $("#artboard").append(pixelPainter.artboard());
 });
 
@@ -53,11 +54,27 @@ PixelPainter.prototype.artboard = function() {
   });
   $artboardGrid.on('mouseover', '.cell', function () {
     if (isMouseDown) {
-      $(this).css({'background-color': '#000'});
+      $(this).css({'background-color': 'rgba(0,0,0,1)'});
     }
   });
   $artboardContainer.append($artboardGrid);
 
   return $artboardContainer;
+};
+
+PixelPainter.prototype.controlBtn = function(){
+  var $erase = $("<div>",{
+    "class" : "control-btn",
+    html : "erase"
+  });
+
+
+  var $clear = $("<div>", {
+    "class" : "control-btn",
+    html : "clear"
+  });
+  
+  return $clear, $erase;
+
 };
 
