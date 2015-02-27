@@ -1,3 +1,19 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 html {
   background: red;
+}
+
+
+.row {
+  clear: both;
+}
+.cell {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  float: left;
+  background: white;
 }
