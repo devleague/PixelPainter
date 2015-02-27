@@ -17,13 +17,15 @@ body{
   width: 900px;
   margin: auto;
   font-family: $font_marker;
-  text-shadow: 2px 2px 0.5px rgba(150, 150, 150, 1);
 }
 
 h1{
-  font-size: 2em;
+  font-size: 4em;
   text-align: center;
   padding-top: 20px;
+  color: $hot_pink;
+  text-shadow: 2px 2px 8px rgba(150, 150, 150, 1);
+
 }
 
 /* Layout */
@@ -47,16 +49,17 @@ h1{
 
 .control-btn{
   border-radius: 5px;
-  border: 1px solid $border_color;
-  width: 100px;
+  border: 1px solid $hot_pink;
+  width: 65%;
   margin: 20px auto;
   text-align: center;
   padding: 10px;
   background-color:$white;
+  text-shadow: 2px 2px 4px rgba(150, 150, 150, 1);
 
   &:hover{
     background-color: $dark_grey;
-    color: $white;
+    color: $hot_pink;
   }
 }
 

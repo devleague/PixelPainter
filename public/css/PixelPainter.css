@@ -46,13 +46,14 @@ body {
   font-size: 16px;
   width: 900px;
   margin: auto;
-  font-family: 'Permanent Marker', cursive;
-  text-shadow: 2px 2px 0.5px #969696; }
+  font-family: 'Megrim', cursive; }
 
 h1 {
-  font-size: 2em;
+  font-size: 4em;
   text-align: center;
-  padding-top: 20px; }
+  padding-top: 20px;
+  color: #FA11ED;
+  text-shadow: 2px 2px 8px #969696; }
 
 /* Layout */
 #controls {
@@ -69,15 +70,16 @@ h1 {
 
 .control-btn {
   border-radius: 5px;
-  border: 1px solid #000;
-  width: 100px;
+  border: 1px solid #FA11ED;
+  width: 65%;
   margin: 20px auto;
   text-align: center;
   padding: 10px;
-  background-color: #fff; }
+  background-color: #fff;
+  text-shadow: 2px 2px 4px #969696; }
   .control-btn:hover {
     background-color: #1E2A2D;
-    color: #fff; }
+    color: #FA11ED; }
 
 #artboard {
   padding-top: 20px;

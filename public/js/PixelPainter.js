@@ -49,6 +49,8 @@ PixelPainter.prototype.artboard = function() {
   }).mouseup(function () {
     isMouseDown = false;
   });
+
+  //applies color to artboard
   $artboardGrid.on('click', '.cell', function () {
     $(this).css({'background-color': '#000'});
   });
@@ -63,18 +65,25 @@ PixelPainter.prototype.artboard = function() {
 };
 
 PixelPainter.prototype.controlBtn = function(){
+  //choose a color from color swatch
+
+  //on click apply color to isPicked div
+  //shows the color chosen
+  var isPicked = $("<div>",{
+    "class" : "picked"
+  });
+
+  //erases colors applied
   var $erase = $("<div>",{
     "class" : "control-btn",
     html : "erase"
   });
 
-
+  //clear artboard
   var $clear = $("<div>", {
     "class" : "control-btn",
     html : "clear"
   });
   
-  return $clear, $erase;
-
 };
 
