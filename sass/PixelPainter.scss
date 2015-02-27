@@ -1,34 +1,49 @@
-@import "partials/settings";
 @import "partials/reset";
+@import "partials/settings";
+
+html{
+  background-color: $white;
+}
+
 
 body{
-  background-color: $white;
+  background-color: red;
   font-size: $base;
+  width: 700px;
+  margin: auto;
 }
 
 h1{
   font-size: 2em;
+  text-align: center;
 }
 
 /* Layout */
 #controls{
-  background-color: pink;
+  // background-color: pink;
   width: 200px;
   height: 500px;
+  padding-top: 20px;
+  float: left;
 
 }
 
 #controls-container{
-  
-}
-
-#color-swatch {
   border: 5px solid $border_color;
-  // border-left: 1px solid $border_color;
-  // border-top: 1px solid $border_color;
   width: 120px;
   height: 220px;
   margin: auto;
+  background-color: black;
+}
+
+#color-swatch {
+  // border-left: 1px solid $border_color;
+  // border-top: 1px solid $border_color;
+  border: 1px solid $border_color;
+  background-color: $white;
+  width: 18px;
+  height: 18px;
+  float: left;
 }
 
 .control-btn{
@@ -38,14 +53,23 @@ h1{
   margin: 20px auto;
   text-align: center;
   padding: 10px;
+  background-color:$white;
+
+  &:hover{
+    background-color: $dark_grey;
+    color: $white;
+  }
 }
 
 #artboard{
-
+  padding-top: 20px;
+  background-color: blue;
+  width: 500px;
+  float: left;
 }
 
 #artboard-container{
-
+  
 }
 
 #artboard-grid{
