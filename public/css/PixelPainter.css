@@ -39,7 +39,6 @@ table {
 *, *:before, *:after {
   box-sizing: border-box; }
 
-<<<<<<< HEAD
 html {
   background-image: url('/images/brickwall.png'); }
 
@@ -69,6 +68,12 @@ h1 {
   height: 230px;
   margin: auto; }
 
+#current-color {
+  height: 30px;
+  width: 100%;
+  background-color: #000;
+  margin-bottom: 10px; }
+
 .control-btn {
   border-radius: 5px;
   border: 1px solid #FA11ED;
@@ -84,21 +89,19 @@ h1 {
 
 #artboard {
   padding-top: 20px;
-  width: 700px;
   float: left; }
 
 #artboard-grid {
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.25); }
-=======
-body {
-  background: url(../images/brickwall.png); }
->>>>>>> mentalgrinds_master
 
 .row {
+  overflow: auto;
   clear: both; }
 
 .cell {
   width: 20px;
   height: 20px;
-  float: left;
-  background: rgba(255, 255, 255, 0); }
+  display: inline-block;
+  background: rgba(255, 255, 255, 0);
+  margin-right: -4px;
+  margin-bottom: -4px; }

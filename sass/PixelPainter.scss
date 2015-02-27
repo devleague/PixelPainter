@@ -47,6 +47,13 @@ h1{
   // background-color: black;
 }
 
+#current-color {
+  height: 30px;
+  width: 100%;
+  background-color: #000;
+  margin-bottom: 10px;
+}
+
 .control-btn{
   border-radius: 5px;
   border: 1px solid $hot_pink;
@@ -66,7 +73,7 @@ h1{
 #artboard{
   padding-top: 20px;
   // background-color: blue;
-  width: 700px;
+  // width: 700px;
   float: left;
 
 }
@@ -80,12 +87,15 @@ h1{
 }
 
 .row {
+  overflow: auto;
   clear: both;
 }
 .cell {
   width: 20px;
   height: 20px;
   // border: 1px solid black;
-  float: left;
+  display: inline-block;
   background: rgba(255, 255, 255, 0);
+  margin-right: -4px;
+  margin-bottom: -4px;
 }
