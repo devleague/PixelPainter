@@ -1,6 +1,6 @@
 // Document is ready
 $(function () {
-  var pixelPainter = new PixelPainter(35,35);
+  pixelPainter = new PixelPainter(35,35);
   $("#controls").append(pixelPainter.controls());
   $("#controls").append(pixelPainter.controlBtn());
   $("#artboard").append(pixelPainter.artboard());
@@ -9,7 +9,7 @@ $(function () {
 function PixelPainter (width, height) {
   this.width = width;
   this.height = height;
-  this.currentColor = '#fff';  
+  this.currentColor = '#000'; 
 }
 
 PixelPainter.prototype.buildGrid = function(columns, rows, gridEl, isColorSwatch) {
@@ -30,7 +30,7 @@ PixelPainter.prototype.buildRow = function(columns, rowNumber, isColorSwatch) {
         } else {
           color = this.getColor(rowNumber, 'greys');
         }
-        $cell.css({'background-color': color});
+        $cell.css({'background-color': color}).attr('data-color', color);
       }
       $row.append($cell);
     }
@@ -41,8 +41,27 @@ PixelPainter.prototype.buildRow = function(columns, rowNumber, isColorSwatch) {
 PixelPainter.prototype.controls = function() {
   var $controlsContainer = $('<div>', {'id': 'controls-container'});
   var $colorSwatch = $('<div>', {'id': 'color-swatch'});
+  var $currentColor = $('<div>', {'id': 'current-color', 'data-color': '#000'});
+
   this.buildGrid(6, 11, $colorSwatch, true);
-  $controlsContainer.append($colorSwatch);
+  $controlsContainer.append($currentColor).append($colorSwatch);
+
+  $colorSwatch.on('click', '.cell', function(){
+    var color = $(this).data('color');
+    $('#current-color').data('color', color).css({'background-color': color});
+  });
+
+  //erases colors applied
+  var $erase = $("<div>",{
+    "class" : "control-btn",
+    html : "erase"
+  });
+
+  //clear artboard
+  var $clear = $("<div>", {
+    "class" : "control-btn",
+    html : "clear"
+  });
   
   return $controlsContainer;
 };
@@ -61,11 +80,11 @@ PixelPainter.prototype.artboard = function() {
 
   //applies color to artboard
   $artboardGrid.on('click', '.cell', function () {
-    $(this).css({'background-color': '#000'});
+    $(this).css({'background-color': C4.pixelPainter.currentColor });
   });
   $artboardGrid.on('mouseover', '.cell', function () {
     if (isMouseDown) {
-      $(this).css({'background-color': 'rgba(0,0,0,1)'});
+      $(this).css({'background-color': C4.pixelPainter.currentColor });
     }
   });
   $artboardContainer.append($artboardGrid);
@@ -75,25 +94,6 @@ PixelPainter.prototype.artboard = function() {
 
 
 PixelPainter.prototype.controlBtn = function(){
-  //choose a color from color swatch
-
-  //on click apply color to isPicked div
-  //shows the color chosen
-  var isPicked = $("<div>",{
-    "class" : "picked"
-  });
-
-  //erases colors applied
-  var $erase = $("<div>",{
-    "class" : "control-btn",
-    html : "erase"
-  });
-
-  //clear artboard
-  var $clear = $("<div>", {
-    "class" : "control-btn",
-    html : "clear"
-  });
   
 };
 

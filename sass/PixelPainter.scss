@@ -41,8 +41,8 @@ h1{
 #controls-container{
   box-shadow: 0 0 10px 2px rgba(0,0,0,0.25);
   // border: 5px solid $border_color;
-  width: 130px;
-  height: 230px;
+  width: 120px;
+  height: 260px;
   margin: auto;
   // background-color: black;
 }
@@ -61,6 +61,13 @@ h1{
     background-color: $dark_grey;
     color: $hot_pink;
   }
+}
+
+#current-color {
+  width: 100%;
+  height: 30px;
+  margin-bottom: 10px; 
+  background-color: #000;
 }
 
 #artboard{
