@@ -1,3 +1,58 @@
-html {
-  background: red;
+@import "partials/settings";
+@import "partials/reset";
+
+body{
+  background-color: $white;
+  font-size: $base;
 }
+
+h1{
+  font-size: 2em;
+}
+
+/* Layout */
+#controls{
+  background-color: pink;
+  width: 200px;
+  height: 500px;
+
+}
+
+#controls-container{
+  
+}
+
+#color-swatch {
+  border: 5px solid $border_color;
+  // border-left: 1px solid $border_color;
+  // border-top: 1px solid $border_color;
+  width: 120px;
+  height: 220px;
+  margin: auto;
+}
+
+.control-btn{
+  border-radius: 5px;
+  border: 1px solid $border_color;
+  width: 100px;
+  margin: 20px auto;
+  text-align: center;
+  padding: 10px;
+}
+
+#artboard{
+
+}
+
+#artboard-container{
+
+}
+
+#artboard-grid{
+
+}
+
+
+
+
+
