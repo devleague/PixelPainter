@@ -1,8 +1,8 @@
 *, *:before, *:after {
   box-sizing: border-box; }
 
-html {
-  background: red; }
+body {
+  background: url(../images/brickwall.png); }
 
 .row {
   clear: both; }
