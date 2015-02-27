@@ -2,6 +2,7 @@
 $(function () {
   var pixelPainter = new PixelPainter(35,35);
   $("#controls").append(pixelPainter.controls());
+  $("#controls").append(pixelPainter.controlBtn());
   $("#artboard").append(pixelPainter.artboard());
 });
 
@@ -57,18 +58,45 @@ PixelPainter.prototype.artboard = function() {
   }).mouseup(function () {
     isMouseDown = false;
   });
+
+  //applies color to artboard
   $artboardGrid.on('click', '.cell', function () {
     $(this).css({'background-color': '#000'});
   });
   $artboardGrid.on('mouseover', '.cell', function () {
     if (isMouseDown) {
-      $(this).css({'background-color': '#000'});
+      $(this).css({'background-color': 'rgba(0,0,0,1)'});
     }
   });
   $artboardContainer.append($artboardGrid);
 
   return $artboardContainer;
 };
+
+
+PixelPainter.prototype.controlBtn = function(){
+  //choose a color from color swatch
+
+  //on click apply color to isPicked div
+  //shows the color chosen
+  var isPicked = $("<div>",{
+    "class" : "picked"
+  });
+
+  //erases colors applied
+  var $erase = $("<div>",{
+    "class" : "control-btn",
+    html : "erase"
+  });
+
+  //clear artboard
+  var $clear = $("<div>", {
+    "class" : "control-btn",
+    html : "clear"
+  });
+  
+};
+
 
 
 PixelPainter.prototype.getColor = function(indx, pallet) {
@@ -146,3 +174,4 @@ PixelPainter.prototype.getColor = function(indx, pallet) {
   };
   return colorSets[pallet][indx];
 };
+
