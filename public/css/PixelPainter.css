@@ -67,8 +67,8 @@ h1 {
 
 #controls-container {
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.25);
-  width: 130px;
-  height: 230px;
+  width: 120px;
+  height: 260px;
   margin: auto; }
 
 #current-color {
@@ -89,6 +89,12 @@ h1 {
   .control-btn:hover {
     background-color: #1E2A2D;
     color: #FA11ED; }
+
+#current-color {
+  width: 100%;
+  height: 30px;
+  margin-bottom: 10px;
+  background-color: #000; }
 
 #artboard {
   padding-top: 20px;
