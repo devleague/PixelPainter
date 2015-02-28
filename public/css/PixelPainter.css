@@ -46,7 +46,10 @@ body {
   font-size: 16px;
   width: 900px;
   margin: auto;
-  font-family: 'Megrim', cursive; }
+  font-family: 'Megrim', cursive;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none; }
 
 h1 {
   font-size: 4em;
@@ -67,6 +70,12 @@ h1 {
   width: 120px;
   height: 260px;
   margin: auto; }
+
+#current-color {
+  height: 30px;
+  width: 100%;
+  background-color: #000;
+  margin-bottom: 10px; }
 
 .control-btn {
   border-radius: 5px;
@@ -89,17 +98,19 @@ h1 {
 
 #artboard {
   padding-top: 20px;
-  width: 700px;
   float: left; }
 
 #artboard-grid {
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.25); }
 
 .row {
+  overflow: auto;
   clear: both; }
 
 .cell {
   width: 20px;
   height: 20px;
-  float: left;
-  background: rgba(255, 255, 255, 0); }
+  display: inline-block;
+  background: rgba(255, 255, 255, 0);
+  margin-right: 0;
+  margin-bottom: -3px; }
