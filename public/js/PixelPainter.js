@@ -1,6 +1,5 @@
 // Document is ready
 $(function () {
-
   var pixelPainter = new PixelPainter(35,30);
   $("#controls").append(pixelPainter.controls());
   $("#artboard").append(pixelPainter.artboard());
