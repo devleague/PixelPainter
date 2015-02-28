@@ -1,15 +1,22 @@
 // Document is ready
 $(function () {
-  var pixelPainter = new PixelPainter(20,20);
+  var pixelPainter = new PixelPainter(35,30);
   $("#controls").append(pixelPainter.controls());
   $("#artboard").append(pixelPainter.artboard());
 });
 
 function PixelPainter (width, height) {
   var self = this;
-  self.width = width;
-  self.height = height;
-  self.currentColor = '#000';
+  this.width = width;
+  this.height = height;
+  this.currentColor = '#000';
+  this.mouseIsDown = false;
+
+  $(document).mousedown(function () {
+    self.mouseIsDown = true;
+  }).mouseup(function () {
+    self.mouseIsDown = false;
+  });
 }
 
 PixelPainter.prototype.buildGrid = function(columns, rows, gridEl, isColorSwatch) {
@@ -39,6 +46,7 @@ PixelPainter.prototype.buildRow = function(columns, rowNumber, isColorSwatch) {
 };
 
 PixelPainter.prototype.controls = function() {
+  var self = this;
   var $controlsContainer = $('<div>', {'id': 'controls-container'});
   var $colorSwatch = $('<div>', {'id': 'color-swatch'});
   var $currentColor = $('<div>', {'id': 'current-color', 'data-color': '#000'});
@@ -55,23 +63,17 @@ PixelPainter.prototype.controls = function() {
 };
 
 PixelPainter.prototype.artboard = function() {
+  var self = this;
   var $artboardContainer = $('<div>', {'id': 'artboard-container'});
   var $artboardGrid = $('<div>', {'id': 'artboard-grid'});
   this.buildGrid(this.width, this.height, $artboardGrid);
-
-  var isMouseDown = false;
-  $artboardGrid.mousedown(function () {
-    isMouseDown = true;
-  }).mouseup(function () {
-    isMouseDown = false;
-  });
 
   //applies color to artboard
   $artboardGrid.on('click', '.cell', function () {
     $(this).css({'background-color': self.currentColor});
   });
   $artboardGrid.on('mouseover', '.cell', function () {
-    if (isMouseDown) {
+    if (self.mouseIsDown) {
       $(this).css({'background-color': self.currentColor});
     }
   });

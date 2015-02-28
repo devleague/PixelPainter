@@ -46,7 +46,10 @@ body {
   font-size: 16px;
   width: 900px;
   margin: auto;
-  font-family: 'Megrim', cursive; }
+  font-family: 'Megrim', cursive;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none; }
 
 h1 {
   font-size: 4em;
@@ -103,5 +106,5 @@ h1 {
   height: 20px;
   display: inline-block;
   background: rgba(255, 255, 255, 0);
-  margin-right: -4px;
-  margin-bottom: -4px; }
+  margin-right: 0;
+  margin-bottom: -3px; }

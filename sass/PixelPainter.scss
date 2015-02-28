@@ -17,6 +17,11 @@ body{
   width: 900px;
   margin: auto;
   font-family: $font_marker;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+
+
 }
 
 h1{
@@ -93,9 +98,8 @@ h1{
 .cell {
   width: 20px;
   height: 20px;
-  // border: 1px solid black;
   display: inline-block;
   background: rgba(255, 255, 255, 0);
-  margin-right: -4px;
-  margin-bottom: -4px;
+  margin-right: 0;
+  margin-bottom: -3px;
 }
