@@ -50,6 +50,7 @@ PixelPainter.prototype.controls = function() {
   var $controlsContainer = $('<div>', {'id': 'controls-container'});
   var $colorSwatch = $('<div>', {'id': 'color-swatch'});
   var $currentColor = $('<div>', {'id': 'current-color', 'data-color': '#000'});
+
   this.buildGrid(6, 11, $colorSwatch, true);
   $controlsContainer.append($currentColor).append($colorSwatch);
 
@@ -84,25 +85,6 @@ PixelPainter.prototype.artboard = function() {
 
 
 PixelPainter.prototype.controlBtn = function(){
-  //choose a color from color swatch
-
-  //on click apply color to isPicked div
-  //shows the color chosen
-  var isPicked = $("<div>",{
-    "class" : "picked"
-  });
-
-  //erases colors applied
-  var $erase = $("<div>",{
-    "class" : "control-btn",
-    html : "erase"
-  });
-
-  //clear artboard
-  var $clear = $("<div>", {
-    "class" : "control-btn",
-    html : "clear"
-  });
   
 };
 
