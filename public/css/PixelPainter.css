@@ -40,7 +40,7 @@ table {
   box-sizing: border-box; }
 
 html {
-  background-image: url('/images/brickwall.png'); }
+  background-image: url('/images/brickwall_2.png'); }
 
 body {
   font-size: 16px;
@@ -68,14 +68,8 @@ h1 {
 #controls-container {
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.25);
   width: 120px;
-  height: 260px;
+  height: 250px;
   margin: auto; }
-
-#current-color {
-  height: 30px;
-  width: 100%;
-  background-color: #000;
-  margin-bottom: 10px; }
 
 .control-btn {
   border-radius: 5px;
@@ -87,13 +81,12 @@ h1 {
   background-color: #fff;
   text-shadow: 2px 2px 4px #969696; }
   .control-btn:hover {
-    background-color: #1E2A2D;
-    color: #FA11ED; }
+    background-color: transparent;
+    color: #fff; }
 
 #current-color {
   width: 100%;
   height: 30px;
-  margin-bottom: 10px;
   background-color: #000; }
 
 #artboard {
@@ -114,3 +107,7 @@ h1 {
   background: rgba(255, 255, 255, 0);
   margin-right: 0;
   margin-bottom: -3px; }
+  .cell:hover {
+    box-shadow: inset 0px 0px 9px white; }
+  .cell.selected {
+    box-shadow: inset 0px 0px 10px 4px white; }
