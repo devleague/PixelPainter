@@ -90,11 +90,17 @@ PixelPainter.prototype.controls = function() {
   this.buildGrid(6, 11, $colorSwatch, true);
   $controlsContainer.append($currentColor).append($colorSwatch);
 
+  var $blackCell = $colorSwatch.find('[data-row="0"][data-col="5"]');
+  $blackCell.addClass('selected');
+
   // Attach 
   $colorSwatch.on('click', '.cell', function () {
     var color = $(this).data('color'); 
     self.currentColor = color;
     $('#current-color').data('color', self.currentColor).css({'background-color': self.currentColor});
+    $colorSwatch.find('.cell').removeClass('selected');
+    $('#current-color').removeClass('selected');
+    $(this).addClass('selected');
   });
   
   // add Erase button
@@ -102,7 +108,8 @@ PixelPainter.prototype.controls = function() {
   $eraseButton.bind('click', function () {
     var color = 'rgba(0,0,0,0)'; 
     self.currentColor = color;
-    $('#current-color').data('color', self.currentColor).css({'background-color': self.currentColor});
+    $('#current-color').data('color', self.currentColor).css({'background-color': self.currentColor}).addClass('selected');
+    $colorSwatch.find('.cell').removeClass('selected');
   });
   $controlsContainer.append($eraseButton);
   
@@ -111,6 +118,10 @@ PixelPainter.prototype.controls = function() {
   $clearButton.bind('click', function () {
     var $allCells = $('#artboard-grid .cell');
     $allCells.css({'background-color': 'rgba(0,0,0,0)'}).data('color', 'rgba(0,0,0,0)');
+    self.currentColor = '#000';
+    $('#current-color').data('color', self.currentColor).css({'background-color': self.currentColor});
+    $colorSwatch.find('.cell').removeClass('selected');
+    $blackCell.addClass('selected');
   });
   $controlsContainer.append($clearButton);
 
