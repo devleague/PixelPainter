@@ -1,8 +1,8 @@
 // Document is ready
 $(function () {
   var pixelPainter = new PixelPainter(30,30);
-  $("#controls").append(pixelPainter.controls());
   $("#artboard").append(pixelPainter.artboard());
+  $("#controls").append(pixelPainter.controls());
 });
 
 function PixelPainter (width, height) {
@@ -77,6 +77,20 @@ function PixelPainter (width, height) {
     return colorSets[pallet][indx];
   }; // end .getColor()
 
+  this.saveArtboard = function (artboardGridEl) {
+    var artboard = {
+      dimensions: {numberOfColumns: null, numberOfRows: null},
+      cells: []
+    };
+    
+    artboard.dimensions.numberOfColumns = artboardGridEl.data('numberOfColumns');
+    artboard.dimensions.numberOfRows = artboardGridEl.data('numberOfRows');
+    
+    artboardGridEl.find('.cell').each(function (indx, cell) {
+      artboard.cells.push({row: $(cell).data('row'), col: $(cell).data('col'), color: $(cell).data('color')});
+    });
+  };
+
 } // End of PixelPainter
 
 // Public methods
@@ -111,7 +125,6 @@ PixelPainter.prototype.controls = function() {
     $('#current-color').data('color', self.currentColor).css({'background-color': self.currentColor}).addClass('selected');
     $colorSwatch.find('.cell').removeClass('selected');
   });
-  $controlsContainer.append($eraseButton);
   
   // add Clear button
   var $clearButton = $('<div>', {'id': 'clear-button', 'class': 'control-btn', 'text': 'Clear'});
@@ -123,7 +136,14 @@ PixelPainter.prototype.controls = function() {
     $colorSwatch.find('.cell').removeClass('selected');
     $blackCell.addClass('selected');
   });
-  $controlsContainer.append($clearButton);
+
+  var $saveButton = $('<div>', {'id': 'save-button', 'class': 'control-btn', 'text': 'Save'});
+  
+  $saveButton.bind('click', function () {
+    self.saveArtboard($('#artboard-grid'));
+  });
+
+  $controlsContainer.append([$eraseButton, $clearButton, $saveButton]);
 
   return $controlsContainer;
 };
