@@ -1,0 +1,113 @@
+/* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  margin: 0;
+  padding: 0; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.clearfix:after {
+  content: " ";
+  /* Older browser do not support empty content */
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both; }
+
+/* Fonts */
+/* Colors */
+*, *:before, *:after {
+  box-sizing: border-box; }
+
+html {
+  background-image: url('/images/brickwall_2.png'); }
+
+body {
+  font-size: 16px;
+  width: 900px;
+  margin: auto;
+  font-family: 'Megrim', cursive;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none; }
+
+h1 {
+  font-size: 4em;
+  text-align: center;
+  padding-top: 20px;
+  color: #FA11ED;
+  text-shadow: 2px 2px 8px #969696; }
+
+/* Layout */
+#controls {
+  width: 200px;
+  height: 500px;
+  padding-top: 20px;
+  float: left; }
+
+#controls-container {
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.25);
+  width: 120px;
+  height: 250px;
+  margin: auto; }
+
+.control-btn {
+  border-radius: 5px;
+  border: 1px solid #FA11ED;
+  width: 65%;
+  margin: 20px auto;
+  text-align: center;
+  padding: 10px;
+  background-color: #fff;
+  text-shadow: 2px 2px 4px #969696; }
+  .control-btn:hover {
+    background-color: transparent;
+    color: #fff; }
+
+#current-color {
+  width: 100%;
+  height: 30px;
+  background-color: #000; }
+
+#artboard {
+  padding-top: 20px;
+  float: left; }
+
+#artboard-grid {
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.25); }
+
+.row {
+  overflow: auto;
+  clear: both; }
+
+.cell {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0);
+  margin-right: 0;
+  margin-bottom: -3px; }
+  .cell:hover {
+    box-shadow: inset 0px 0px 9px white; }
+  .cell.selected {
+    box-shadow: inset 0px 0px 10px 4px white; }

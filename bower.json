@@ -1,0 +1,20 @@
+{
+  "name": "PixelPainter",
+  "version": "0.0.0",
+  "homepage": "https://github.com/mentalgrinds/PixelPainter",
+  "authors": [
+    "Jesse Copeland <jesse.copeland@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3"
+  }
+}

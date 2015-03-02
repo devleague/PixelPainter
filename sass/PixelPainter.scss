@@ -1,0 +1,110 @@
+@import "partials/reset";
+@import "partials/settings";
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html{
+  // background-color: $brick_wall;
+  background-image: url('/images/brickwall_2.png');
+}
+
+
+body{
+  // background-color: red;
+  font-size: $base;
+  width: 900px;
+  margin: auto;
+  font-family: $font_marker;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+
+
+}
+
+h1{
+  font-size: 4em;
+  text-align: center;
+  padding-top: 20px;
+  color: $hot_pink;
+  text-shadow: 2px 2px 8px rgba(150, 150, 150, 1);
+
+}
+
+/* Layout */
+#controls{
+  width: 200px;
+  height: 500px;
+  padding-top: 20px;
+  float: left;
+
+}
+
+#controls-container{
+  box-shadow: 0 0 10px 2px rgba(0,0,0,0.25);
+  width: 120px;
+  height: 250px;
+  margin: auto;
+}
+
+.control-btn{
+  border-radius: 5px;
+  border: 1px solid $hot_pink;
+  width: 65%;
+  margin: 20px auto;
+  text-align: center;
+  padding: 10px;
+  background-color:$white;
+  text-shadow: 2px 2px 4px rgba(150, 150, 150, 1);
+
+  &:hover{
+    background-color: rgba(0,0,0,0);
+    color: $white;
+  }
+}
+
+#current-color {
+  width: 100%;
+  height: 30px; 
+  background-color: #000;
+}
+
+#artboard{
+  padding-top: 20px;
+  // background-color: blue;
+  // width: 700px;
+  float: left;
+
+}
+
+#artboard-container{
+  
+}
+
+#artboard-grid{
+  box-shadow: 0 0 10px 2px rgba(0,0,0,0.25);
+}
+
+.row {
+  overflow: auto;
+  clear: both;
+}
+.cell {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0);
+  margin-right: 0;
+  margin-bottom: -3px;
+
+  &:hover {
+    box-shadow: inset 0px 0px 9px rgba(255,255,255, 1);
+  }
+
+  &.selected{
+    box-shadow: inset 0px 0px 10px 4px rgba(255,255,255, 1);
+
+  }
+}
