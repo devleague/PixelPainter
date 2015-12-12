@@ -1,5 +1,12 @@
-.Cells {width: 20px;
-    height: 20px;
-    padding: 2px;
-    border: 2px solid black;
-  }
+.grid { margin:1em auto; border-collapse:collapse }
+.grid td {
+    cursor:pointer;
+    width:30px; height:30px;
+    border:1px solid #ccc;
+    text-align:center;
+    font-family:sans-serif; font-size:13px
+}
+.grid td.clicked {
+    background-color:yellow;
+    font-weight:bold; color:red;
+}

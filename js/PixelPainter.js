@@ -1,28 +1,37 @@
 window.onload = function () {
+var paint = function() {
+  event.target.style.background = cellColor;
+};
 
-(function PixelPainter () {
-  var mnDiv = document.getElementById('pixelPainter');
-  // this.width = width;
-  // this.height = height;
-  var divs= document.createElement('div');
+var lastClicked;
+var grid = clickableGrid(30, 40, paint);
+var pallette = clickableGrid(5, 5);
+var cellColor = "black";
+    //el.className='clicked';
+    // if (lastClicked) lastClicked.className='';
+    // lastClicked = el;
 
+document.body.appendChild(pallette);
+document.body.appendChild(grid);
 
-  for (var i = 1; i <= 10; i++) {
-    var row = document.createElement("div");
-    row.className="Rows";
-    for (var j = 1; j <= 10; j++) {
-      var cell = document.createElement("div");
-      cell.className= "Cells";
-      row.appendChild(cell);
-
-
+function clickableGrid( rows, cols, fn){
+    var grid = document.createElement('table');
+    grid.className = 'grid';
+    for (var r=0;r<rows;++r){
+        var tr = grid.appendChild(document.createElement('tr'));
+        for (var c=0;c<cols;++c){
+            var cell = tr.appendChild(document.createElement('td'));
+              cell.addEventListener('click', fn)
+            //     return function(){
+            //         callback(el,r,c,i);
+            //     };
+            // })(cell,r,c,i),false);
+        }
     }
+    return grid;
+}
 
-    mnDiv.appendChild(row);
+                //console.log(event.target.style);
+                //(function(el,r,c,i){
 
-  }
-  console.log(document.getElementById('pixelPainter'));
-
-  //var test = new PixelPainter(15, 30);
-})();
 };
