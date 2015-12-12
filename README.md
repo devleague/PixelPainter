@@ -1,6 +1,6 @@
 PixelPainter
 ============
-
+My Change!  Done by Brad! and more changes
 > Coloring pixels in a grid
 
 ![sketch](http://i.imgur.com/6kLmYWp.png)
