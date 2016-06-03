@@ -25,11 +25,17 @@ describe('createGrid', function () {
   });
 
   describe('columns parameter', function () {
-    it('no column value is provided, columns should equal the number of rows', function () {
+    it('if no column value is provided, columns should equal the number of rows', function () {
       expect(createGrid(1).children).to.have.length(1);
       expect(createGrid(1).children[0].children).to.have.length(1);
       expect(createGrid(10).children).to.have.length(10);
       expect(createGrid(10).children[0].children).to.have.length(10);
+    });
+    it('if a column value is provided, that should be the number of columns returned', function () {
+      expect(createGrid(1, 10).children).to.have.length(1);
+      expect(createGrid(1, 10).children[0].children).to.have.length(10);
+      expect(createGrid(10, 5).children).to.have.length(10);
+      expect(createGrid(10, 5).children[0].children).to.have.length(5);
     });
   });
 
