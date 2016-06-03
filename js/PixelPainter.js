@@ -24,61 +24,32 @@ function createGrid (rows, columns, attributes) {
   var columnCount = 0;
   var attCount = 0;
 
-  // function addRowAttribute () {
-  //   while(attCount < Object.keys(attributes).length) {
-  //     row.setAttribute(Object.keys(attributes)[attCount], attributes[Object.keys(attributes)[attCount]]);
-  //     attCount++;
-  //   }
-  //   attCount = 0;
-  // }
-  // function addColumnAttribute () {
-  //   while(attCount < Object.keys(attributes).length) {
-  //     column.setAttribute(Object.keys(attributes)[attCount], attributes[Object.keys(attributes)[attCount]]);
-  //     attCount++;
-  //   }
-  //   attCount = 0;
-  // }
-
-  // if attributes exist, apply it to the first row and column
-  // if(attributes) {
-  //   //addRowAttribute();
-  //   //addColumnAttribute();
-  //   row.className += " row";
-  //   column.className += " column";
-  // }
-  // while(rowCount < rows) {
-
-  //   // if one or multiple columns
-  //   if(columns) {
-  //     //console.log("Adding multiple columns");
-  //     while(columnCount < columns) {
-  //       // if attributes exists
-  //       if(attributes) {
-  //         //addColumnAttribute();
-  //       }
-  //     }
-  //     row.appendChild(column);
-  //     column = document.createElement("div");
-  //     column.className = "column";
-  //     columnCount++;
-  //   }
-  //   // if no columns
-  //   else {
-  //     // if attributes exists
-  //     if(attributes) {
-  //       //addColumnAttribute();
-  //     }
-  //     row.appendChild(column);
-  //     column = document.createElement("div");
-  //     column.className = "column";
-  //     columnCount++;
-  //   }
-  //   grid.appendChild(row);
-  //   row = document.createElement("div");
-  //   row.className = "row";
-  //   rowCount++;
-  //   columnCount = 0;
-  //   attCount = 0;
-  // }
-  // return grid;
+  row.className = "row";
+  column.className = "column";
+  while(rowCount < rows) {
+    grid.appendChild(row);
+    // if one or multiple columns
+    if(columns) {
+      //console.log("Adding multiple columns");
+      while(columnCount < columns) {
+        row.appendChild(column);
+        column = document.createElement("div");
+        column.className = "column";
+        columnCount++;
+      }
+    }
+    // if no columns
+    else {
+      row.appendChild(column);
+      column = document.createElement("div");
+      column.className = "column";
+      columnCount++;
+    }
+    row = document.createElement("div");
+    row.className = "row";
+    rowCount++;
+    columnCount = 0;
+    attCount = 0;
+  }
+  return grid;
 }

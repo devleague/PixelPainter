@@ -45,7 +45,7 @@ describe('columns', function() {
 
 describe('attributes', function() {
   it('If no column value is provided, all attributes should get applied to each grid element', function() {
-
+    expect()
   });
 
 });
