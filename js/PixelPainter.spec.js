@@ -17,6 +17,11 @@ describe('createGrid', function () {
     it('should return an HTMLElement', function () {
       expect(createGrid(1)).to.be.an.instanceof(HTMLElement);
     });
+
+    it('should return the same number of rows as provided', function () {
+      expect(createGrid(1).childNodes).to.have.length(1);
+      expect(createGrid(10).childNodes).to.have.length(10);
+    });
   });
 
 });
