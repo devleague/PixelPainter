@@ -29,7 +29,8 @@ describe('createGrid', function(){
     });
     it('should return the same number of rows as provided', function() {
       //createGrid(1) Should return an HTMLElement with 1 child.
-      expect(createGrid(1)).to.satisfy(function(){return HTMLElement;});
+      expect(createGrid(1).childElementCount).to.equal(1);
+      expect(createGrid(10).childElementCount).to.equal(10);
     });
   });
 });
