@@ -24,4 +24,13 @@ describe('createGrid', function () {
     });
   });
 
+  describe('columns parameter', function () {
+    it('no column value is provided, columns should equal the number of rows', function () {
+      expect(createGrid(1).children).to.have.length(1);
+      expect(createGrid(1).children[0].children).to.have.length(1);
+      expect(createGrid(10).children).to.have.length(10);
+      expect(createGrid(10).children[0].children).to.have.length(10);
+    });
+  });
+
 });
