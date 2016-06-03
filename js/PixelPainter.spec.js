@@ -19,8 +19,8 @@ describe('createGrid', function () {
     });
 
     it('should return the same number of rows as provided', function () {
-      expect(createGrid(1).childNodes).to.have.length(1);
-      expect(createGrid(10).childNodes).to.have.length(10);
+      expect(createGrid(1).children).to.have.length(1);
+      expect(createGrid(10).children).to.have.length(10);
     });
   });
 
