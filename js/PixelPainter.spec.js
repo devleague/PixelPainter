@@ -23,15 +23,21 @@ describe('rows parameter', function () {
   });
 
   it('should return the same number of rows as provided', function() {
-    expect (createGrid(1).childNodes).to.have.length(1);
-    expect(createGrid(10).childNodes).to.have.length(10);
+    expect(createGrid(1).children).to.have.length(1);
+    expect(createGrid(10).children).to.have.length(10);
+  });
+});
+
+describe('columns parameter', function () {
+  it('if no column value is provided, columns should equal the number of rows', function (){
+    expect(createGrid(1).children[0].childElementCount).to.equal(1);
+    expect(createGrid(10).children[0].childElementCount).to.equal(10);
   });
 
+  it('if a column value is provided, that should be the number of columns returned', function (){
+     expect(createGrid(1, 10).children[0].childElementCount).to.equal(10);
+    expect(createGrid(10, 5).children[0].childElementCount).to.equal(5);
+  });
 });
-
-describe.skip('columns parameter', function (){
-  it('if no column value is provided, columns should equal the number');
-});
-
 
 });
