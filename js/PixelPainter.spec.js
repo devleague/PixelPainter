@@ -39,4 +39,22 @@ describe('createGrid', function () {
     });
   });
 
+  describe('attributes parameter', function () {
+    it('if no column value is provided, all attributes should get applied to each grid element', function () {
+      expect(createGrid(1, {}).children).to.have.length(1);
+      expect(createGrid(1, {}).children[0].attributes).to.have.length(0);
+      expect(createGrid(1, {}).children[0].children).to.have.length(1);
+      expect(createGrid(1, {}).children[0].children[0].attributes).to.have.length(0);
+      expect(createGrid(10, {class: 'grid'}).children).to.have.length(10);
+      expect(createGrid(10, {class: 'grid'}).children[0].className).to.equal('grid');
+      expect(createGrid(10, {class: 'grid'}).children[0].children).to.have.length(10);
+      expect(createGrid(10, {class: 'grid'}).children[0].children[0].className).to.equal('grid');
+      expect(createGrid(10, {class: 'grid', style: 'background-color: black'}).children).to.have.length(10);
+      expect(createGrid(10, {class: 'grid', style: 'background-color: black'}).children[0].className).to.equal('grid');
+      expect(createGrid(10, {class: 'grid', style: 'background-color: black'}).children[0].style.backgroundColor).to.equal('black');
+      expect(createGrid(10, {class: 'grid', style: 'background-color: black'}).children[0].children).to.have.length(10);
+      expect(createGrid(10, {class: 'grid', style: 'background-color: black'}).children[0].children[0].className).to.equal('grid');
+      expect(createGrid(10, {class: 'grid', style: 'background-color: black'}).children[0].children[0].style.backgroundColor).to.equal('black');
+    });
+  });
 });
