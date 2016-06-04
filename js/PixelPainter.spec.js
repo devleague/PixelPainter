@@ -56,5 +56,11 @@ describe('createGrid', function () {
       expect(createGrid(10, {class: 'grid', style: 'background-color: black'}).children[0].children[0].className).to.equal('grid');
       expect(createGrid(10, {class: 'grid', style: 'background-color: black'}).children[0].children[0].style.backgroundColor).to.equal('black');
     });
+    it('if a column value is provided, that should be the number of columns returned, along with the attributes applied', function () {
+      expect(createGrid(10, 5, {class: 'grid'}).children).to.have.length(10);
+      expect(createGrid(10, 5, {class: 'grid'}).children[0].className).to.equal('grid');
+      expect(createGrid(10, 5, {class: 'grid'}).children[0].children).to.have.length(5);
+      expect(createGrid(10, 5, {class: 'grid'}).children[0].children[0].className).to.equal('grid');
+    });
   });
 });
