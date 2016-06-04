@@ -16,6 +16,14 @@ function createGrid (rows, columns, attributes) {
     throw new Error("Rows cannot be an empty Object.");
   }
 
+  if(typeof columns !== 'number') {
+    attributes = columns;
+    columns = 1;
+  }
+  else if(columns === undefined) {
+    columns = 1;
+  }
+
   var grid = document.createElement("div");
   var row = document.createElement("div");
   var column = document.createElement("div");
@@ -28,18 +36,7 @@ function createGrid (rows, columns, attributes) {
   column.className = "column";
   while(rowCount < rows) {
     grid.appendChild(row);
-    // if one or multiple columns
-    if(columns) {
-      //console.log("Adding multiple columns");
-      while(columnCount < columns) {
-        row.appendChild(column);
-        column = document.createElement("div");
-        column.className = "column";
-        columnCount++;
-      }
-    }
-    // if no columns
-    else {
+    while(columnCount < columns) {
       row.appendChild(column);
       column = document.createElement("div");
       column.className = "column";
