@@ -45,7 +45,9 @@ describe('columns', function() {
 
 describe('attributes', function() {
   it('If no column value is provided, all attributes should get applied to each grid element', function() {
-    expect()
+    expect(createGrid(1, {}).getElementsByClassName("row").length).to.equal(1);
+    expect(createGrid(1, {}).getElementsByClassName("column").length).to.equal(1);
+
   });
 
 });

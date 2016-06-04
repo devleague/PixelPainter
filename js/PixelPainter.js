@@ -18,12 +18,20 @@ function createGrid (rows, columns, attributes) {
   }
 
   // column checks
-  if(typeof columns !== 'number') {
-    attributes = columns;
+  if(columns === undefined && attributes === undefined) {
     columns = 1;
+    attributes = {};
   }
   else if(columns === undefined) {
     columns = 1;
+    attributes = {};
+  }
+  else if(typeof columns !== 'number') {
+    attributes = columns;
+    columns = rows;
+  }
+  else if(attributes === undefined) {
+    attributes = {};
   }
 
   var grid = document.createElement("div");
@@ -32,21 +40,32 @@ function createGrid (rows, columns, attributes) {
 
   var rowCount = 0;
   var columnCount = 0;
+  var att;
   var attCount = 0;
 
-  row.className = "row";
-  column.className = "column";
+  // row.className = "row";
+  // column.className = "column";
 
   while(rowCount < rows) {
+    while(attCount < (Object.keys(attributes).length)) {
+      row.setAttribute(Object.keys(attributes)[attCount], attributes[Object.keys(attributes)[attCount]]);
+      attCount++;
+    }
+    row.className += " row";
+    attCount = 0;
     grid.appendChild(row);
     while(columnCount < columns) {
+      while(attCount < (Object.keys(attributes).length)) {
+        column.setAttribute(Object.keys(attributes)[attCount], attributes[Object.keys(attributes)[attCount]]);
+        attCount++;
+      }
+      column.className += " column";
+      attCount = 0;
       row.appendChild(column);
       column = document.createElement("div");
-      column.className = "column";
       columnCount++;
     }
     row = document.createElement("div");
-    row.className = "row";
     rowCount++;
     columnCount = 0;
     attCount = 0;
