@@ -6,6 +6,7 @@
  * @returns {HTMLElement} – The DOM element containing the grid of divs
  */
 function createGrid (rows, columns, attributes) {
+  // row checks
   if(rows < 0) {
     throw new Error("Rows must be a positive number.");
   }
@@ -16,6 +17,7 @@ function createGrid (rows, columns, attributes) {
     throw new Error("Rows cannot be an empty Object.");
   }
 
+  // column checks
   if(typeof columns !== 'number') {
     attributes = columns;
     columns = 1;
@@ -34,6 +36,7 @@ function createGrid (rows, columns, attributes) {
 
   row.className = "row";
   column.className = "column";
+
   while(rowCount < rows) {
     grid.appendChild(row);
     while(columnCount < columns) {
