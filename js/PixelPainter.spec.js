@@ -10,9 +10,8 @@ describe('createGrid', function () {
     expect(createGrid(1)).to.be.an.instanceof(HTMLElement);
   });
 
-describe('createRows', function () {
+describe('rows parameter', function () {
   it('should accept non-negative values', function (){
-    // expect(createGrid.bind()).to.be.above(0);
     expect(createGrid.bind(null)).to.throw(Error);
     expect(createGrid.bind(null, {})).to.throw(Error);
     expect(createGrid.bind(null, -1)).to.throw(Error);
@@ -22,9 +21,15 @@ describe('createRows', function () {
   it('should return an HTMLElement', function(){
     expect(createGrid(1)).to.be.an.instanceof(HTMLElement);
   });
+
+  it('should return the same number of rows as provided', function() {
+    expect (createGrid(1).childNodes).to.have.length(1);
+    expect(createGrid(10).childNodes).to.have.length(10);
+  });
+
 });
 
-describe.skip('columns', function (){
+describe.skip('columns parameter', function (){
   it('if no column value is provided, columns should equal the number');
 });
 
