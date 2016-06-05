@@ -19,11 +19,11 @@ function createGrid (rows, columns, attributes) {
 
   // column checks
   if(columns === undefined && attributes === undefined) {
-    columns = 1;
+    columns = rows;
     attributes = {};
   }
   else if(columns === undefined) {
-    columns = 1;
+    columns = rows;
     attributes = {};
   }
   else if(typeof columns !== 'number') {
@@ -42,9 +42,6 @@ function createGrid (rows, columns, attributes) {
   var columnCount = 0;
   var att;
   var attCount = 0;
-
-  // row.className = "row";
-  // column.className = "column";
 
   while(rowCount < rows) {
     while(attCount < (Object.keys(attributes).length)) {
