@@ -31,10 +31,8 @@ function createGrid(rows, columns, attributes) {
       row.appendChild(column);
 
       for (var prop in attributes){
-        if (attributes.hasOwnProperty(prop)){
-          //var attachAttributes = document.createAttribute(attributes);
-          column.value = attributes;
-          column.setAttributeNode(attachAttributes);
+        if (attributes.hasOwnProperty(prop)){//if the var prop exists on the object
+          column.setAttribute(prop, attributes[prop]);
         }
       }
     }

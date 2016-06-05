@@ -48,11 +48,14 @@ describe('createGrid', function(){
 
   describe('attributes', function(){
     it('If no column value is provided, all attributes should get applied to each grid element', function(){
+      var tenGrid = createGrid(10, {class: 'grid', style: "color: blue"});
       // Should return an html element with 1 row, each with 1 column, each with no attributes.
-      console.log(createGrid(1, {id: "testing"}));
-      //expect(createGrid(1, {}).children[0].childElementCount.to.equal(1));
-      //expect(createGrid(10, {class: 'grid'}).children[9].childElementCount.to.equal(10));
-      expect(createGrid(10, 5, {class: 'grid'}).children[9].childElementCount.to.equal(5));
+      expect(createGrid(1, {}).children[0].children[0].attributes.length).to.equal(1);
+      expect(tenGrid.children[0].children[9].getAttribute("class")).to.equal("grid");
+      expect(tenGrid.children[0].children[9].getAttribute("style")).to.equal("color: blue");
+    });
+    it('If a column value is provided, that should be the number of columns returned, along with the attributes applied.', function(){
+      expect(createGrid(10, 5, {class: 'grid'}).children[0].children[0].getAttribute("class")).to.equal("grid");
     });
   });
 });
