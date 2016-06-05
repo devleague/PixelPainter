@@ -40,4 +40,14 @@ describe('columns parameter', function () {
   });
 });
 
+describe('attributes', function (){
+  it('if no column value is provided, all attributes should get applied to each grid element', function (){
+    expect(createGrid(1, {}).children[0].children[0].attribute).to.have.length(0);
+    expect(createGrid(10, {class: 'grid'}).children[0].children[0].getAttribute('class')).to.equal('grid');
+    var tenGrid = createGrid(10, {class: 'grid', style: 'background-color: black'});
+    expect(tenGrid.children[0].children[0].getAttribute('class')).to.equal('grid');
+    expect(tenGrid.children[0].children[0].getAttribute('style')).to.equal('background-color: black');
+  });
+});
+
 });
