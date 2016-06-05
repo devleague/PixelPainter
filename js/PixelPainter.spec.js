@@ -20,6 +20,7 @@ describe('createGrid', function(){
   it('should return an "HTMLElement"', function() {
     expect(createGrid(1)).to.be.an.instanceOf(HTMLElement);
   });
+
   describe('rows', function() {
     it('should only accept a non-negative number', function() {
       expect(createGrid.bind(null)).to.throw();
@@ -29,8 +30,26 @@ describe('createGrid', function(){
     });
     it('should return the same number of rows as provided', function() {
       //createGrid(1) Should return an HTMLElement with 1 child.
-      expect(createGrid(1).childElementCount).to.equal(1);
-      expect(createGrid(10).childElementCount).to.equal(10);
+      expect(createGrid(1).childElementCount).to.equal(1);//Should return an HTMLElement with 1 child
+      expect(createGrid(10).childElementCount).to.equal(10);//Should return an html element with 10 children.
+    });
+  });
+
+  describe('columns', function(){
+    it('If no column value is provided, columns should equal the number of rows.', function(){
+      expect(createGrid(1).children[0].childElementCount).to.equal(1);//Should return an html element with 1 row, each with 1 column.
+      expect(createGrid(10).children[0].childElementCount).to.equal(10);//Should return an html element with 10 rows, each with 10 columns.
+    });
+    it('If a column value is provided, that should be the number of columns returned.', function(){
+      expect(createGrid(1, 10).children[0].childElementCount).to.equal(10);//Should return an html element with 1 row, each with 10 columns.
+      expect(createGrid(10, 5).children[9].childElementCount).to.equal(5);// Should return an html element with 10 rows, each with 5 columns.
+    });
+  });
+
+  describe('attributes', function(){
+    it('If no column value is provided, all attributes should get applied to each grid element', function(){
+      // Should return an html element with 1 row, each with 1 column, each with no attributes.
+      expect(createGrid(1, {}).children[0].childElementCount.to.equal(1));
     });
   });
 });
