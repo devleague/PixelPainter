@@ -7,12 +7,16 @@ function createGrid(rows, columns, attributes) {
   var columnLength = columns;
 
   if (columns < 0 || typeof columns !== 'number'){
+    if (typeof columns === 'object'){
+      attributes = columns;
+    }
     columnLength = rows;
   }
 
-  if (typeof attributes != 'object'){
-    console.log('noooo');
+  if (attributes === undefined || typeof attributes !== 'object'){
+    attributes = {};
   }
+
   var gridElement = document.createElement("div");
 
   //create the row
@@ -25,9 +29,17 @@ function createGrid(rows, columns, attributes) {
       var column = document.createElement("div");
       column.className = "column";
       row.appendChild(column);
+
+      for (var prop in attributes){
+        if (attributes.hasOwnProperty(prop)){
+          //var attachAttributes = document.createAttribute(attributes);
+          column.value = attributes;
+          column.setAttributeNode(attachAttributes);
+        }
+      }
     }
-      for (var k = 0; k < )
   }
+
   console.log(gridElement);
 
   //create the elements in the row
