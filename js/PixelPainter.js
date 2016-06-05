@@ -89,8 +89,25 @@ function sanityCheck () {
 var grid = document.getElementById("grid");
 grid.appendChild(createGrid(10,10));
 
-var button = document.createElement("button");
-button.addEventListener("mouseover", sanityCheck);
-var columns = document.getElementsByClassName("column");
+var columns = document.querySelectorAll(".column");
+var options = {
+  class: "column",
+  onclick: color
+};
 
-columns[0].appendChild(button);
+for(var i = 0; i < columns.length; i++) {
+  addAttributes(columns[i], options);
+}
+
+function color(event) {
+  event.target.style.backgroundColor = "red";
+}
+// assign random colors
+// function color(event) {
+//   var letters = '0123456789ABCDEF'.split('');
+//     var color = '#';
+//     for (var i = 0; i < 6; i++ ) {
+//         color += letters[Math.floor(Math.random() * 16)];
+//     }
+//     event.target.style.backgroundColor = color;
+// }
