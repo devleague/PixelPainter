@@ -7,6 +7,12 @@ function createGrid (rows, columns, attributes) {
     throw new Error('Should only accept a non-negative number');
   }
 
+  if (columns === undefined || columns === null) {
+
+    columns = rows;
+
+  }
+
   for (i = 1; i <= rows; i ++) {
 
     var row = document.createElement('div');
