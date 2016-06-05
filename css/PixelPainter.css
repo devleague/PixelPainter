@@ -1,0 +1,19 @@
+.column {
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: white;
+    display: inline-block;
+    border-style: solid;
+    border-width: thin;
+    border-spacing: 0px;
+}
+
+button {
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color: white;
+  display: inline-block;
+  border-style: solid;
+  border-width: thin;
+  border-spacing: 0px;
+}

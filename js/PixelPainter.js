@@ -72,20 +72,25 @@ function createGrid (rows, columns, attributes) {
   return grid;
 }
 
+function addAttributes(element, attributes){
+  if(typeof attributes === "object"){
+    Object.keys(attributes).forEach(function(attribute){
+      element[attribute] = attributes[attribute];
+    });
+  }else{
+    throw new TypeError('attributes must be an Object!!!');
+  }
+}
+
+function sanityCheck () {
+  console.log("sanity check!");
+}
+
 var grid = document.getElementById("grid");
 grid.appendChild(createGrid(10,10));
 
 var button = document.createElement("button");
-button.addEventListener('mouseover', function () {
-  console.log("sanity check.");
-});
+button.addEventListener("mouseover", sanityCheck);
+var columns = document.getElementsByClassName("column");
 
-var columns = grid.querySelectorAll("column");
-
-Array.prototype.forEach.call(columns, function() {
-  columns.appendChild(button);
-  button = document.createElement("button");
-  button.addEventListener('mouseover', function () {
-  console.log("sanity check.");
-  });
-});
+columns[0].appendChild(button);
