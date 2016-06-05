@@ -1,13 +1,38 @@
 .column {
-    height: 2.5rem;
-    width: 2.5rem;
+    height: 30px;
+    width: 30px;
     background-color: white;
     display: inline-block;
     border-style: solid;
     border-width: thin;
 }
 
-* {
-  float: left;
-  clear: none;
+body {
+  font-size: 0;
+}
+
+h1{
+  font-size: 50px;
+}
+#left_side {
+    width:25%;
+    height:100%;
+    display:inline-block;
+    margin:0;
+    padding:0;
+}
+
+#middle-space {
+width:50%;
+    height:100%;
+    display:inline-block;
+    margin:0;
+    padding:0;
+}
+#right_side {
+    width:50%;
+    height:100%;
+    display:inline-block;
+    margin:0;
+    padding:0;
 }

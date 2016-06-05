@@ -86,21 +86,41 @@ function sanityCheck () {
   console.log("sanity check!");
 }
 
-var grid = document.getElementById("grid");
+var grid = document.getElementById("right-side");
 grid.appendChild(createGrid(10,10));
 
-var columns = document.querySelectorAll(".column");
+var columns = grid.querySelectorAll(".column");
 var options = {
   class: "column",
-  onclick: color
+  //onmousedown: color,
+  onmousedown: mouseIsDown,
+  onmouseup: mouseIsUp,
+  onmousemove: color
+  //onclick: stopColoring
 };
 
-for(var i = 0; i < columns.length; i++) {
+for (var i = 0; i < columns.length; i++) {
   addAttributes(columns[i], options);
 }
 
+var mouseDown = 0;
+function mouseIsDown() {
+  mouseDown = 1;
+}
+function mouseIsUp() {
+  mouseDown = 0;
+}
 function color(event) {
-  event.target.style.backgroundColor = "red";
+  //sanityCheck();
+  if(mouseDown === 1) {
+    event.target.style.backgroundColor = "red";
+  }
+}
+
+function stopColoring(event) {
+  //sanityCheck();
+  event.target.style.backgroundColor = "white";
+  event.target.onmousemove = null;
 }
 // assign random colors
 // function color(event) {
@@ -111,3 +131,7 @@ function color(event) {
 //     }
 //     event.target.style.backgroundColor = color;
 // }
+
+// Color Picker
+var colorPicker = document.getElementById("left-side");
+colorPicker.appendChild(createGrid(10, 10));
