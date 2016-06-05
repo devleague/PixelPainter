@@ -40,7 +40,6 @@ function createGrid (rows, columns, attributes) {
   var grid = document.createElement("div");
   var row = document.createElement("div");
   var column = document.createElement("div");
-
   var rowCount = 0;
   var columnCount = 0;
   var att;
@@ -72,3 +71,21 @@ function createGrid (rows, columns, attributes) {
   }
   return grid;
 }
+
+var grid = document.getElementById("grid");
+grid.appendChild(createGrid(10,10));
+
+var button = document.createElement("button");
+button.addEventListener('mouseover', function () {
+  console.log("sanity check.");
+});
+
+var columns = grid.querySelectorAll("column");
+
+Array.prototype.forEach.call(columns, function() {
+  columns.appendChild(button);
+  button = document.createElement("button");
+  button.addEventListener('mouseover', function () {
+  console.log("sanity check.");
+  });
+});
