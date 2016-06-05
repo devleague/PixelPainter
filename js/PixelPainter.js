@@ -51,7 +51,7 @@ function createGrid(rows, columns, attributes) {
   //console.log("Columns" + column);
   //console.log("Rows" + row);
 
-  return gridElement;
+  return pixelPainter.appendChild(gridElement);
 }
 
 
