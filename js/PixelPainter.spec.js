@@ -13,20 +13,26 @@ describe('createGrid', function () {
   describe('rows', function () {
 
     it('Should only accept a non-negative number', function () {
-      expect(createGrid()).to.throw(Error);
-      expect(createGrid({})).to.throw(Error);
-      expect(createGrid(-1)).to.throw(Error);
-      expect(createGrid(1)).to.not.throw(Error);
+      expect(createGrid.bind(this)).to.throw(Error);
+      expect(createGrid.bind(this, {})).to.throw(Error);
+      expect(createGrid.bind(this, -1)).to.throw(Error);
+      expect(createGrid.bind(this, 1)).to.not.throw(Error);
     });
 
     it('Should return an HTMLElement', function () {
-      expect(createGrid(1)).to.be.an.instanceof(Function);
+      expect(createGrid.bind(this, 1)).to.be.an.instanceof(Function);
     });
 
     it('Should return the same number of rows as provided', function (){
-      expect(createGrid(1).children).to.have.a.length(1);
-      expect(createGrid(10).children).to.have.a.length(10);
+      expect(createGrid(1).children).to.have.length(1);
+      expect(createGrid(10).children).to.have.length(10);
+    });
+  });
 
+  describe('columns', function () {
+
+    it('If no column value is provided, columns should equal the number of rows', function () {
+      expect(createGrid(1))
     });
   });
 
