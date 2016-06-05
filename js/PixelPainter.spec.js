@@ -76,7 +76,14 @@ describe('attributes', function() {
       .getElementsByClassName("grid column")
       .length)
       .to.equal(50);
-
+    expect(createGrid(10, 5, {class: 'grid'})
+      .querySelectorAll("div.grid")[0]
+      .className)
+      .to.equal('grid row');
+    expect(createGrid(10, 5, {class: 'grid'})
+      .querySelectorAll("div.grid")[0]
+      .firstElementChild
+      .className)
+      .to.equal('grid column');
   });
-
 });
