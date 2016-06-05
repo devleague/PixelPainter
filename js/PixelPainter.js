@@ -28,7 +28,6 @@ function createGrid(row, column, attributes) {
   //loop to create number of rows and columns in each row
   for (var i = 0; i < row; i++) {
     var rowElement = document.createElement("div");
-    addAttributes(rowElement, attributes);
     gridElement.appendChild(rowElement);
     for (var j = 0; j < column; j++) {
       var columnElement = document.createElement("div");
