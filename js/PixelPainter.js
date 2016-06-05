@@ -7,7 +7,10 @@
  */
 function createGrid (rows, columns, attributes) {
   // row checks
-  if(rows < 0) {
+  if(typeof rows !== 'number') {
+    throw new Error("Rows must be a number.");
+  }
+  else if(rows < 0) {
     throw new Error("Rows must be a positive number.");
   }
   else if(rows === undefined) {
