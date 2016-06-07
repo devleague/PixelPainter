@@ -1,13 +1,14 @@
+//function to create grid with specified number of rows and columns as well as attributes
 function createGrid(row, column, attributes) {
   //check if row value is a non-negative number
   if (typeof row !== 'number' || row < 0){
     throw new Error();
   }
-  //if column value not provided (or provided as an object and attributes value not provided), set attributes to column
+  //if column value not provided (i.e. provided as an object and intended as attributes value), set attributes to column
   if (typeof column === 'object' && attributes === undefined){
     attributes = column;
   }
-  //if column value not provided or not a number (and attributes value provided), set column equal to rows
+  //if column value not provided or not a number (i.e. intended as attributes value provided), set column equal to rows
   if (column === undefined || isNaN(column)){
     column = row;
   }
