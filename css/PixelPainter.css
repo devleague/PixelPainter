@@ -1,0 +1,12 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.paint{
+  border: 1px black solid;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+}
+
