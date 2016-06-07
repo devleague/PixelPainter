@@ -53,10 +53,17 @@ Array.prototype.forEach.call(paintCells, function (cell) {
   cell.style.backgroundColor = getRandomColor();
 });
 
+//add event listener to clicks in paint cells
+Array.prototype.forEach.call(paintCells, function (cell) {
+  cell.addEventListener("click", pickColor);
+});
+
 //create blank canvas grid
 var canvasGrid = createGrid(15, 15, {class: "canvas"});
 canvasGrid.id = "pp-canvas";
 paintContainer.appendChild(canvasGrid);
+//select all canvas cells (to apply event listener)
+var canvasCells = document.querySelectorAll(".canvas");
 
 //function to generate random colors
 function getRandomColor() {
@@ -68,3 +75,12 @@ function getRandomColor() {
   return hex;
 }
 
+//function to pick color and start painting canvas
+function pickColor(event) {
+  var getColor = event.target.style.backgroundColor;
+  Array.prototype.forEach.call(canvasCells, function (cell) {
+    cell.addEventListener("click", function (event) {
+      event.target.style.backgroundColor = getColor;
+    });
+  });
+}
