@@ -89,13 +89,38 @@ function getRandomColor() {
   return hex;
 }
 
-//function to pick color and start painting canvas
+//add event listener to start paint canvas - starts painting when mouse button clicked
+Array.prototype.forEach.call(canvasCells, function (cell) {
+  cell.addEventListener("mousedown", startColor);
+});
+//add event listener to stop painting canvas - stops painting when mouse button released
+Array.prototype.forEach.call(canvasCells, function (cell) {
+  cell.addEventListener("mouseup", endColor);
+});
+
+//set default paint color to white
+var getColor = "#FFFFFF";
+//function to pick and store color chosen
 function pickColor(event) {
-  var getColor = event.target.style.backgroundColor;
+  getColor = event.target.style.backgroundColor;
+}
+
+//function allowing canvas to receive current paint color
+function coloring(event) {
+  event.target.style.backgroundColor = getColor;
+}
+
+//function allowing user to drag paint
+function startColor(event) {
   Array.prototype.forEach.call(canvasCells, function (cell) {
-    cell.addEventListener("click", function (event) {
-      event.target.style.backgroundColor = getColor;
-    });
+    cell.addEventListener("mousemove", coloring);
+  });
+}
+
+//function stopping paint
+function endColor(event) {
+  Array.prototype.forEach.call(canvasCells, function (cell) {
+    cell.removeEventListener("mousemove", coloring);
   });
 }
 
