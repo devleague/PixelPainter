@@ -58,6 +58,13 @@ Array.prototype.forEach.call(paintCells, function (cell) {
   cell.addEventListener("click", pickColor);
 });
 
+//erase color buttton
+var eraseButton = document.createElement("button");
+eraseButton.className = "erase-button";
+eraseButton.innerHTML = "ERASE";
+paintContainer.appendChild(eraseButton);
+eraseButton.addEventListener("click", eraseColor);
+
 //create blank canvas grid
 var canvasGrid = createGrid(15, 15, {class: "canvas"});
 canvasGrid.id = "pp-canvas";
@@ -81,6 +88,15 @@ function pickColor(event) {
   Array.prototype.forEach.call(canvasCells, function (cell) {
     cell.addEventListener("click", function (event) {
       event.target.style.backgroundColor = getColor;
+    });
+  });
+}
+
+//function to erase color from individual canvas cells
+function eraseColor(event) {
+  Array.prototype.forEach.call(canvasCells, function (cell) {
+    cell.addEventListener("click", function (event) {
+      event.target.style.backgroundColor = "#FFFFFF";
     });
   });
 }
