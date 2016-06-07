@@ -53,6 +53,11 @@ Array.prototype.forEach.call(paintCells, function (cell) {
   cell.style.backgroundColor = getRandomColor();
 });
 
+//create blank canvas grid
+var canvasGrid = createGrid(15, 15, {class: "canvas"});
+canvasGrid.id = "pp-canvas";
+paintContainer.appendChild(canvasGrid);
+
 //function to generate random colors
 function getRandomColor() {
   var chars = "0123456789ABCDEF";
@@ -62,3 +67,4 @@ function getRandomColor() {
   }
   return hex;
 }
+
