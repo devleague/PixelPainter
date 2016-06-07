@@ -38,3 +38,27 @@ function createGrid(row, column, attributes) {
   }
   return gridElement;
 }
+
+//create container to hold both paint and blank canvas
+var paintContainer = document.querySelector("#pixelPainter");
+
+//create grid for color palette
+var paintGrid = createGrid(2, 25, {class: "paint"});
+paintGrid.id = "pp-paint";
+paintContainer.appendChild(paintGrid);
+var paintCells = document.querySelectorAll(".paint");
+
+//puts random colors in paintgrid cells
+Array.prototype.forEach.call(paintCells, function (cell) {
+  cell.style.backgroundColor = getRandomColor();
+});
+
+//function to generate random colors
+function getRandomColor() {
+  var chars = "0123456789ABCDEF";
+  var hex = "#";
+  for (var i = 0; i < 6; i++) {
+    hex += chars[parseInt(Math.random() * 16)];
+  }
+  return hex;
+}
