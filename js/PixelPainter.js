@@ -65,6 +65,13 @@ eraseButton.innerHTML = "ERASE";
 paintContainer.appendChild(eraseButton);
 eraseButton.addEventListener("click", eraseColor);
 
+//clear canvas buttton
+var clearButton = document.createElement("button");
+clearButton.className = "clear-button";
+clearButton.innerHTML = "CLEAR";
+paintContainer.appendChild(clearButton);
+clearButton.addEventListener("click", clearCanvas);
+
 //create blank canvas grid
 var canvasGrid = createGrid(15, 15, {class: "canvas"});
 canvasGrid.id = "pp-canvas";
@@ -99,4 +106,11 @@ function eraseColor(event) {
       event.target.style.backgroundColor = "#FFFFFF";
     });
   });
+}
+
+//function to clear canvas
+function clearCanvas(event) {
+  Array.prototype.forEach.call(canvasCells, function (cell) {
+    cell.style.backgroundColor = "#FFFFFF";
+    });
 }
