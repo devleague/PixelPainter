@@ -3,10 +3,17 @@
   padding: 0;
 }
 
+.canvas{
+  border: 1px pink solid;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  background-color: #FFFFFF;
+}
+
 .paint{
   border: 1px black solid;
   width: 15px;
   height: 15px;
   display: inline-block;
 }
-
