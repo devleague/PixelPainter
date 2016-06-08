@@ -11,29 +11,36 @@ body{
   background-color: pink;
 }
 
-h1{
-  font-family: 'Amatic SC', cursive;
-  font-size: 2.5em;
-  color: red;
-  text-align: center;
-}
-
 #pixelPainter{
   /* container for all elements */
-  margin: 0 auto;
+  margin: 25px auto;
   width: 800px;
   height: 525px;
   box-sizing: border-box;
 }
 
 .left{
-  /* left container (color palette & buttons) */
+  /* left container (title, color palette, buttons) */
   width: 198px;
   height: 525px;
   float: left;
-  background: url("../img/paint.png");
-  background-repeat: no-repeat;
-  background-position: bottom center;
+}
+
+.title{
+  background-color: #6496c8;
+  width: 125px;
+  height: 125px;
+  margin: 0 auto;
+  border-radius: 50%;
+  padding-top: 20px;
+}
+
+h1{
+  font-family: 'Amatic SC', cursive;
+  font-size: 2.5em;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 40px;
 }
 
 #pp-paint{
