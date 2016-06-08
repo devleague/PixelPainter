@@ -57,6 +57,17 @@ button{
   padding: 5px;
   font-size: 0.75em;
   font-family: 'Quicksand', sans-serif;
+  color: #FFFFFF;
+  background-color: #6496c8;
+  border: none;
+}
+
+button:hover{
+  background-color: #346392;
+}
+
+button:active{
+  background-color: #27496d;
 }
 
 .right{
