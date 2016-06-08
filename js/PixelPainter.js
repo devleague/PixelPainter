@@ -43,9 +43,12 @@ function createGrid(row, column, attributes) {
 var paintContainer = document.querySelector("#pixelPainter");
 
 //create grid for color palette
-var paintGrid = createGrid(2, 25, {class: "paint"});
+var left = document.createElement("div");
+left.className = "left";
+var paintGrid = createGrid(15, 4, {class: "paint"});
 paintGrid.id = "pp-paint";
-paintContainer.appendChild(paintGrid);
+left.appendChild(paintGrid);
+paintContainer.appendChild(left);
 var paintCells = document.querySelectorAll(".paint");
 
 //puts random colors in paintgrid cells
@@ -62,20 +65,23 @@ Array.prototype.forEach.call(paintCells, function (cell) {
 var eraseButton = document.createElement("button");
 eraseButton.className = "erase-button";
 eraseButton.innerHTML = "ERASE";
-paintContainer.appendChild(eraseButton);
+left.appendChild(eraseButton);
 eraseButton.addEventListener("click", eraseColor);
 
 //clear canvas buttton
 var clearButton = document.createElement("button");
 clearButton.className = "clear-button";
 clearButton.innerHTML = "CLEAR";
-paintContainer.appendChild(clearButton);
+left.appendChild(clearButton);
 clearButton.addEventListener("click", clearCanvas);
 
 //create blank canvas grid
+var right = document.createElement("div");
+right.className = "right";
 var canvasGrid = createGrid(15, 15, {class: "canvas"});
 canvasGrid.id = "pp-canvas";
-paintContainer.appendChild(canvasGrid);
+right.appendChild(canvasGrid);
+paintContainer.appendChild(right);
 //select all canvas cells (to apply event listener)
 var canvasCells = document.querySelectorAll(".canvas");
 
