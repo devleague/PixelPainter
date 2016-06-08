@@ -42,9 +42,16 @@ function createGrid(row, column, attributes) {
 //create container to hold both paint and blank canvas
 var paintContainer = document.querySelector("#pixelPainter");
 
-//create grid for color palette
+//create left container and title
 var left = document.createElement("div");
 left.className = "left";
+var title = document.createElement("div");
+title.className = "title";
+var header = document.querySelector("h1");
+title.appendChild(header);
+left.appendChild(title);
+
+//create grid for color palette
 var paintGrid = createGrid(15, 4, {class: "paint"});
 paintGrid.id = "pp-paint";
 left.appendChild(paintGrid);
