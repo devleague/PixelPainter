@@ -1,19 +1,84 @@
+@import url(https://fonts.googleapis.com/css?family=Amatic+SC:400,700);
+@import url(https://fonts.googleapis.com/css?family=Quicksand:400,700,300);
+
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-.canvas{
-  border: 1px pink solid;
-  width: 25px;
-  height: 25px;
-  display: inline-block;
-  background-color: #FFFFFF;
+body{
+  background-color: pink;
+}
+
+h1{
+  font-family: 'Amatic SC', cursive;
+  font-size: 2.5em;
+  color: red;
+  text-align: center;
+}
+
+#pixelPainter{
+  /* container for all elements */
+  margin: 0 auto;
+  width: 800px;
+  height: 525px;
+  box-sizing: border-box;
+}
+
+.left{
+  /* left container (color palette & buttons) */
+  width: 198px;
+  height: 525px;
+  float: left;
+  background: url("../img/paint.png");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+}
+
+#pp-paint{
+  /* paint palette */
+  width: 80px;
+  margin: 5px auto;
 }
 
 .paint{
-  border: 1px black solid;
+  /* individual paint cells */
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+button{
+  clear: left;
+  display: block;
+  width: 75px;
+  margin: 5px auto;
+  padding: 5px;
+  font-size: 0.75em;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.right{
+  /* right container (canvas) */
+  width: 600px;
+  height: 525px;
+  float: right;
+  background: url("../img/canvas.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#pp-canvas{
+  /* blank canvas */
+  margin: 40px 0 0 45px;
+}
+
+.canvas{
+  /* individual canvas cells */
+  border: 1px white dotted;
   width: 15px;
   height: 15px;
   display: inline-block;
+  background-color: #FFFFFF;
 }
