@@ -78,7 +78,7 @@ clearButton.addEventListener("click", clearCanvas);
 //create blank canvas grid
 var right = document.createElement("div");
 right.className = "right";
-var canvasGrid = createGrid(15, 15, {class: "canvas"});
+var canvasGrid = createGrid(30, 34, {class: "canvas"});
 canvasGrid.id = "pp-canvas";
 right.appendChild(canvasGrid);
 paintContainer.appendChild(right);
