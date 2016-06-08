@@ -8,29 +8,36 @@
 }
 
 body {
+  display: flex;
   font-size: 0;
 }
 
 h1{
   font-size: 50px;
 }
+
+/*body > div {
+  display: inline-block;
+  padding: 1em;
+}*/
+
 #left_side {
-    width:25%;
-    height:100%;
+    width:35%;
+    height:50%;
     display:inline-block;
     margin:0;
     padding:0;
 }
 
 #middle-space {
-width:50%;
+    width:15%;
     height:100%;
     display:inline-block;
     margin:0;
     padding:0;
 }
 #right_side {
-    width:50%;
+    width:40%;
     height:100%;
     display:inline-block;
     margin:0;

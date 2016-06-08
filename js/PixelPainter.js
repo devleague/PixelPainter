@@ -78,7 +78,7 @@ function addAttributes(element, attributes){
       element[attribute] = attributes[attribute];
     });
   }else{
-    throw new TypeError('attributes must be an Object!!!');
+    throw new TypeError('attributes must be an Object');
   }
 }
 
@@ -92,11 +92,9 @@ grid.appendChild(createGrid(10,10));
 var columns = grid.querySelectorAll(".column");
 var options = {
   class: "column",
-  //onmousedown: color,
   onmousedown: mouseIsDown,
   onmouseup: mouseIsUp,
   onmousemove: color
-  //onclick: stopColoring
 };
 
 for (var i = 0; i < columns.length; i++) {
@@ -119,19 +117,26 @@ function color(event) {
 
 function stopColoring(event) {
   //sanityCheck();
-  event.target.style.backgroundColor = "white";
+  //event.target.style.backgroundColor = "white";
   event.target.onmousemove = null;
 }
-// assign random colors
-// function color(event) {
-//   var letters = '0123456789ABCDEF'.split('');
-//     var color = '#';
-//     for (var i = 0; i < 6; i++ ) {
-//         color += letters[Math.floor(Math.random() * 16)];
-//     }
-//     event.target.style.backgroundColor = color;
-// }
+
+//assign random colors to squares
+function colorRandom() {
+  var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
 
 // Color Picker
 var colorPicker = document.getElementById("left-side");
-colorPicker.appendChild(createGrid(10, 10));
+colorPicker.appendChild(createGrid(5, 5));
+var pickerColumns = colorPicker.querySelectorAll(".column");
+
+for (var i = 0; i < pickerColumns.length; i++) {
+  pickerColumns[i].style.backgroundColor = colorRandom();
+  console.log(pickerColumns[i].style.backgroundColor);
+}
