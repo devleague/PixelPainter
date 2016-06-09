@@ -1,3 +1,5 @@
+var paintColor = null;
+
 /**
  * Creates a grid of elements.
  * @param {number} rows – The number of rows in the grid.
@@ -86,6 +88,29 @@ function sanityCheck () {
   console.log("sanity check!");
 }
 
+// Color Picker
+var colorPicker = document.getElementById("left-side");
+colorPicker.appendChild(createGrid(5, 5));
+var pickerColumns = colorPicker.querySelectorAll(".column");
+var pickerOptions = {
+  class: "column",
+  onclick: selectColor
+};
+
+// assign colors to colorPicker
+for (var i = 0; i < pickerColumns.length; i++) {
+  pickerColumns[i].style.backgroundColor = colorRandom();
+  //pickerColumns[i].onClick = selectColor(pickerColumns[i].style.backgroundColor);
+  addAttributes(pickerColumns[i], pickerOptions);
+}
+
+// clicking on a color sets global variable paintColor
+function selectColor(event, color) {
+  paintColor = getComputedStyle(event.target).backgroundColor;
+  console.log("Changing to color :" + paintColor);
+}
+
+// Pixel Painter grid
 var grid = document.getElementById("right-side");
 grid.appendChild(createGrid(10,10));
 
@@ -111,7 +136,7 @@ function mouseIsUp() {
 function color(event) {
   //sanityCheck();
   if(mouseDown === 1) {
-    event.target.style.backgroundColor = "red";
+    event.target.style.backgroundColor = paintColor;
   }
 }
 
@@ -128,15 +153,7 @@ function colorRandom() {
     for (var i = 0; i < 6; i++ ) {
         color += letters[Math.floor(Math.random() * 16)];
     }
-    return color;
+    paintColor = color;
+    return paintColor;
 }
 
-// Color Picker
-var colorPicker = document.getElementById("left-side");
-colorPicker.appendChild(createGrid(5, 5));
-var pickerColumns = colorPicker.querySelectorAll(".column");
-
-for (var i = 0; i < pickerColumns.length; i++) {
-  pickerColumns[i].style.backgroundColor = colorRandom();
-  console.log(pickerColumns[i].style.backgroundColor);
-}
