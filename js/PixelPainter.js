@@ -38,6 +38,12 @@ function createGrid(rows, columns, attributes) {
     }
   }
 
+  document.getElementById("pixelPainter").addEventListener("click", changeColor);
+
+  function changeColor() {
+    document.getElementById("pixelPainter").style.backgroundColor = "purple";
+  }
+
   console.log(gridElement);
 
   //create the elements in the row
