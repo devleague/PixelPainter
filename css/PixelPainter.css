@@ -9,3 +9,7 @@ div.column {
   border-color: #666 #aaa #bbb #888;
   background-color:#000;
 }
+
+.column:active{
+  background-color:blue;
+}
