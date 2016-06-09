@@ -38,10 +38,20 @@ function createGrid(rows, columns, attributes) {
     }
   }
 
-  document.getElementById("pixelPainter").addEventListener("click", changeColor);
+  setEventHandlers();
+
+  function setEventHandlers(){
+    gridElement.forEach(function(x){
+      document.getElementById("pixelPainter").addEventListener('click', changeColor);
+    });
+  }
+
+
+  //document.getElementById("pixelPainter").addEventListener("click", changeColor);
 
   function changeColor() {
-    document.getElementById("pixelPainter").style.backgroundColor = "purple";
+    document.currentTarget.style.backgroundColor = "purple";
+
   }
 
   console.log(gridElement);
