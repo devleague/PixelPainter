@@ -58,9 +58,21 @@ left.appendChild(paintGrid);
 paintContainer.appendChild(left);
 var paintCells = document.querySelectorAll(".paint");
 
-//puts random colors in paintgrid cells
-Array.prototype.forEach.call(paintCells, function (cell) {
-  cell.style.backgroundColor = getRandomColor();
+//puts colors in paintgrid cells
+var colors =["#3B208B", "#624DA2", "#8979B9", "#B1A6D1", "#D8D2E8",
+"#92278F", "#A852A5", "#BE7DBC", "#D3A9D2", "#E9D4E9",
+"#EB208C", "#EF4DA3", "#F379BA", "#F7A6D1", "#FBD2E8",
+"#ED1F24", "#FF3333", "#FF6666", "#FF9999", "#FFCCCC",
+"#FA7513", "#FB9142", "#FCAC71", "#FDC8A1", "#FEE3D0",
+"#FFBF00", "#FFCC33", "#FFD966", "#FFE599", "#FFF2CC",
+"#FFE900", "#FFED33", "#FFF266", "#FFF699", "#FFFBCC",
+"#AFD136", "#BFDA5E", "#CFE386", "#DFEDAF", "#EFF6D7",
+"#3EB549", "#65C46D", "#8BD392", "#B2E1B6", "#D8F0DB",
+"#00B4C4", "#33C3D0", "#66D2DC", "#99E1E7", "#CCF0F3",
+"#0049DF", "#336DE5", "#6692EC", "#99B6F2", "#CCDBF9",
+"#000000", "#333333", "#666666", "#999999", "#FFFFFF"];
+Array.prototype.forEach.call(paintCells, function (cell, idx) {
+  cell.style.backgroundColor = colors[idx];
 });
 
 //add event listener to clicks in paint cells
@@ -91,16 +103,6 @@ right.appendChild(canvasGrid);
 paintContainer.appendChild(right);
 //select all canvas cells (to apply event listener)
 var canvasCells = document.querySelectorAll(".canvas");
-
-//function to generate random colors
-function getRandomColor() {
-  var chars = "0123456789ABCDEF";
-  var hex = "#";
-  for (var i = 0; i < 6; i++) {
-    hex += chars[parseInt(Math.random() * 16)];
-  }
-  return hex;
-}
 
 //add event listener to start paint canvas - starts painting when mouse button clicked
 Array.prototype.forEach.call(canvasCells, function (cell) {
