@@ -1,0 +1,132 @@
+@import url(https://fonts.googleapis.com/css?family=Amatic+SC:400,700);
+@import url(https://fonts.googleapis.com/css?family=Quicksand:400,700,300);
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background: url("../img/bg.jpg");
+}
+
+#pixelPainter{
+  /* container for all elements */
+  margin: 25px auto;
+  width: 800px;
+  height: 525px;
+  box-sizing: border-box;
+}
+
+.left{
+  /* left container (title, color palette, buttons) */
+  width: 198px;
+  height: 525px;
+  float: left;
+}
+
+.title{
+  /* circular header container*/
+  background-color: #FF8DB8;
+  width: 125px;
+  height: 125px;
+  margin: 5px auto 10px;
+  border-radius: 50%;
+  padding-top: 20px;
+}
+
+.title{
+  position:relative;
+  -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3);
+  box-shadow:0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.title:after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  -webkit-box-shadow:0 0 40px rgba(0,0,0,0.8);
+  box-shadow:0 0 40px rgba(0,0,0,0.8);
+  bottom:0px;
+  left:10%;
+  right:10%;
+  width:80%;
+  height:70%;
+  -moz-border-radius:100%;
+  border-radius:100%;
+}
+
+h1{
+  width: 120px;
+  height: 120px;
+  line-height: 40px;
+  margin-top: -18px;
+  margin-left: 2px;
+  padding: 15px;
+  border-radius: 50%;
+  border: 2px #FFFFFF dashed;
+  font-family: "Amatic SC", cursive;
+  font-size: 2.5em;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+#pp-paint{
+  /* paint palette */
+  width: 106px;
+  margin: 10px auto 10px;
+  border: 3px #FFFFFF solid;
+}
+
+.paint{
+  /* individual paint cells */
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+button{
+  clear: left;
+  display: block;
+  width: 75px;
+  margin: 5px auto;
+  padding: 5px;
+  font-size: 0.75em;
+  font-family: "Quicksand", sans-serif;
+  color: #FFFFFF;
+  background-color: #FF8DB8;
+  border: none;
+}
+
+button:hover{
+  background-color: #B25176;
+}
+
+button:active{
+  background-color: #823B56;
+}
+
+.right{
+  /* right container (canvas) */
+  width: 600px;
+  height: 525px;
+  float: right;
+  background: url("../img/canvas.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#pp-canvas{
+  /* blank canvas */
+  margin: 40px 0 0 45px;
+}
+
+.canvas{
+  /* individual canvas cells */
+  border: 1px #FFFFFF dotted;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  background-color: #FFFFFF;
+}
