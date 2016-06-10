@@ -8,7 +8,7 @@
 }
 
 body{
-  background-color: pink;
+  background: url("../img/bg.jpg");
 }
 
 #pixelPainter{
@@ -27,26 +27,56 @@ body{
 }
 
 .title{
-  background-color: #6496c8;
+  /* circular header container*/
+  background-color: #FF8DB8;
   width: 125px;
   height: 125px;
-  margin: 0 auto;
+  margin: 5px auto 10px;
   border-radius: 50%;
   padding-top: 20px;
 }
 
+.title{
+  position:relative;
+  -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3);
+  box-shadow:0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.title:after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  -webkit-box-shadow:0 0 40px rgba(0,0,0,0.8);
+  box-shadow:0 0 40px rgba(0,0,0,0.8);
+  bottom:0px;
+  left:10%;
+  right:10%;
+  width:80%;
+  height:70%;
+  -moz-border-radius:100%;
+  border-radius:100%;
+}
+
 h1{
-  font-family: 'Amatic SC', cursive;
+  width: 120px;
+  height: 120px;
+  line-height: 40px;
+  margin-top: -18px;
+  margin-left: 2px;
+  padding: 15px;
+  border-radius: 50%;
+  border: 2px #FFFFFF dashed;
+  font-family: "Amatic SC", cursive;
   font-size: 2.5em;
   color: #FFFFFF;
   text-align: center;
-  line-height: 40px;
 }
 
 #pp-paint{
   /* paint palette */
-  width: 80px;
-  margin: 5px auto;
+  width: 106px;
+  margin: 10px auto 10px;
+  border: 3px #FFFFFF solid;
 }
 
 .paint{
@@ -63,18 +93,18 @@ button{
   margin: 5px auto;
   padding: 5px;
   font-size: 0.75em;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   color: #FFFFFF;
-  background-color: #6496c8;
+  background-color: #FF8DB8;
   border: none;
 }
 
 button:hover{
-  background-color: #346392;
+  background-color: #B25176;
 }
 
 button:active{
-  background-color: #27496d;
+  background-color: #823B56;
 }
 
 .right{
@@ -94,7 +124,7 @@ button:active{
 
 .canvas{
   /* individual canvas cells */
-  border: 1px white dotted;
+  border: 1px #FFFFFF dotted;
   width: 15px;
   height: 15px;
   display: inline-block;
