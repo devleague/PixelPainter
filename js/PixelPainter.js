@@ -52,7 +52,7 @@ title.appendChild(header);
 left.appendChild(title);
 
 //create grid for color palette
-var paintGrid = createGrid(15, 4, {class: "paint"});
+var paintGrid = createGrid(12, 5, {class: "paint"});
 paintGrid.id = "pp-paint";
 left.appendChild(paintGrid);
 paintContainer.appendChild(left);
