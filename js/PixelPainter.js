@@ -44,12 +44,28 @@ function pixelPainter(width, height, attributes){
   var paintContainer = document.getElementById('pixelPainter');
   var colorsGrid = createGrid(6, 11, {class: 'colors'});
   colorsGrid.id = "pp-colors";
+  var indivColor = colorsGrid.querySelectorAll('.colors');
+  for (var i = 0; i < indivColor.length; i++){
+    indivColor[i].style.backgroundColor = randomColorPalette();
+  }
+
   paintContainer.appendChild(colorsGrid);
   var canvasGrid = createGrid(width, height);
   canvasGrid.id = "pp-canvas";
   paintContainer.appendChild(canvasGrid);
-  document.innerHTML = paintContainer;
 }
+
+function randomColorPalette(colors){
+  var rgbValues = '0123456789ABCDEF'.split('');
+  var color = '#';
+  for (var i = 0; i < 6; i++){
+    color += rgbValues[Math.floor(Math.random() * 16)].toString(16);
+  }
+  return color;
+}
+
+
+
 
 
 
