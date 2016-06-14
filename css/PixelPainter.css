@@ -1,0 +1,34 @@
+div.columns {
+  border-style: outset;
+  border-width: 1px;
+  height: 20px;
+  width: 20px;
+  float: left;
+}
+
+div.rows {
+  height: 20px;
+  width: 55%;
+  float: left;
+}
+
+#pp-colors {
+  display: inline-block;
+  float: left;
+}
+
+#pp-canvas{
+  display: inline-block;
+  float: left;
+  width: 75%;
+  margin-left: 20px;
+}
+
+div.colors {
+  border-style: solid;
+  border-width: thin;
+  border-color: lightgray;
+  height: 10px;
+  width: 10px;
+  float: left;
+}
