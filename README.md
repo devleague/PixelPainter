@@ -18,7 +18,7 @@ The `height` and `width` attributes set the size of the **canvas**. Each cell of
 
 The height and width of the **color swatch** will be determined by the colors available which you, the developer, will set.
 
-Do not edit the `index.html` file. You will generate all of your html markup using jQuery and inserting newly generated elements into the dom using jQuery.
+Do not edit the `index.html` file. You will generate all of your html markup using DOM selectors.
 
 ## Bonus Round
 Develop a way for PixelPainter to accept an configuration object at the moment of instatiation while still supporting the passing in two parameters, as mentioned previously.
