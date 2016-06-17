@@ -10,6 +10,7 @@ window.onload = function(){
   var rowHeight = 20;
   var rowWidth = 20;
   var countDiv = 0;
+  var fillOnHover = false;
 
   var currentColor;
 
@@ -17,9 +18,19 @@ window.onload = function(){
     currentColor = this.style.backgroundColor;
   };
 
-  //try 2 functions, one for click, one for mouse hover
   var clickGrid = function(){
     this.style.backgroundColor = currentColor;
+    fillOnHover = true;
+  };
+
+  var doFillOnHover = function() {
+    if (fillOnHover === true){
+      this.style.backgroundColor = currentColor;
+    }
+  };
+
+  var mouseUpUpdate = function(){
+    fillOnHover = false;
   };
 
   var colorSelection = ['#000000', '#000000', '#ff0000', '#00ff00', '#0000ff', '#ffff00', '#00ffff', '#ff00ff', '#c0c0c0', '#ffffff'];
@@ -38,7 +49,7 @@ window.onload = function(){
         newColorCell.className = 'squares';
         newColorCell.style.backgroundColor = colorSelection[countDiv];
         newColorCell.addEventListener('click', clickColor);
-
+        //maybe mouse up changes x?  WRONG AREA
         document.getElementById('rows' + i).appendChild(newColorCell);
       }
   }
@@ -57,6 +68,8 @@ window.onload = function(){
           newCell.className = 'gridSquares';
 
           newCell.addEventListener('mousedown', clickGrid);
+          newCell.addEventListener('mouseover', doFillOnHover);
+          newCell.addEventListener('mouseup', mouseUpUpdate);
 
           document.getElementById('gridRows' + k).appendChild(newCell);
       }
