@@ -20,16 +20,11 @@ The height and width of the **color swatch** will be determined by the colors av
 
 Do not edit the `index.html` file. You will generate all of your html markup using DOM selectors.
 
-## Bonus Round
-Develop a way for PixelPainter to accept an configuration object at the moment of instatiation while still supporting the passing in two parameters, as mentioned previously.
-
-An example of the configuration object may look like:
-
-```javascript
-{
-  width: 6,
-  height: 6,
-  gridSize: 10,
-  colorSwatch: ["#000000", "#0000FF", "#00FFFF", "#FFFFFF"]
-}
-```
+## Stretch Goals
+1. Code Review with an instructor or TA
+2. Make the app responsive to tablets and mobile devices using media queries
+3. Make it 'portfolio quality'
+4. Implment stamps or shapes
+5. Implement a fill option that fills a shape with a color.
+5. Write a function that saves the data pixel grid.
+6. Deploy the app using [Github pages](https://help.github.com/articles/user-organization-and-project-pages/#project-pages)
