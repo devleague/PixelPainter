@@ -1,0 +1,45 @@
+.colorclass{
+  display: inline-block;
+  background-color: #0000ff;
+  height: 250px;
+  width: 100px;
+  border: 3px solid black;
+}
+
+.squares{
+  display: inline-block;
+  background-color: #000000;
+  height: 50px;
+  width: 75px;
+  border: 1px solid black;
+}
+
+.cRows{
+  background-color: #00ff00;
+  height: 50px;
+  width: 300px;
+}
+
+.gridclass{
+  height: 50px;
+  width: 500px;
+  border: 0px;
+  float: right;
+}
+
+.gridSquares{
+  background-color: #ffffff;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  border: 1px solid black;
+  float: right;
+}
+
+.gRows{
+  background-color: #dcdcdc;
+  height: 20px;
+  width: 555px;
+  border: 1px;
+  float: right;
+}
