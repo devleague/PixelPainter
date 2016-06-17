@@ -27,4 +27,4 @@ Do not edit the `index.html` file. You will generate all of your html markup usi
 4. Implment stamps or shapes
 5. Implement a fill option that fills a shape with a color.
 5. Write a function that saves the data pixel grid.
-6. Deploy the app using [Github pages](https://help.github.com/articles/user-organization-and-project-pages/#project-pages)
+6. Deploy the app using [Github pages](https://help.github.com/articles/creating-project-pages-manually/)
