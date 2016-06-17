@@ -18,7 +18,7 @@ The `height` and `width` attributes set the size of the **canvas**. Each cell of
 
 The height and width of the **color swatch** will be determined by the colors available which you, the developer, will set.
 
-Do not edit the `index.html` file. You will generate all of your html markup using DOM selectors.
+Do not edit the `index.html` file. You will generate all of your html markup using the DOM API.
 
 ## Stretch Goals
 1. Code Review with an instructor or TA
