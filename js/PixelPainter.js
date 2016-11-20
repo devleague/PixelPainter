@@ -45,3 +45,35 @@ var mainContainer = (function() {
 
 // run and assign to variable named 'page'
 var page = mainContainer();
+
+// iife that generates paint area
+var genPaintGrid = (function(height, width) {
+  var tempStr = "";
+  var paintGrid;
+  var gridArr = [];
+  var row;
+  var cell;
+
+  paintGrid = document.createElement('div');
+  paintGrid.className = 'paint-grid';
+
+  // generate grid
+  for(var i = 1; i <= height; i++) {
+    row = document.createElement('div');
+    row.className = "rows";
+    for(var j = 1; j <= width; j++) {
+      cell = document.createElement('div');
+      cell.className = "r" + i + "c" + j;
+      cell.style.display = "inline-block";
+      cell.style.height = "10px";
+      cell.style.width = "10px";
+      cell.style.backgroundColor = "white";
+      row.appendChild(cell);
+    }
+    paintGrid.appendChild(row);
+    page.grid.appendChild(paintGrid);
+  }
+});
+
+// run and assign to variable named
+var paint = genPaintGrid(10, 10);
