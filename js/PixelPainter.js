@@ -1,3 +1,4 @@
-( function () {
+( function grid() {
   //some line of code
-})
+})();
+
