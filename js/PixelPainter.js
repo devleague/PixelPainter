@@ -10,22 +10,32 @@ var SPACE = ' ';
 var PIXELS = 'pixels';
 var FIRST_ROW = 1;
 var FIRST_COLUMN = 1;
+var ROW = 'row';
+var ROWS = 'rows';
+var BLACK = "#000000";
+var WHITE = "#ffffff";
 
 // variables
 var gridHeight = 10;
 var gridWidth = 10;
+var foregroundColor = BLACK;
+var backgroundColor = WHITE;
+var mouseDown = false;
 
 // selector (simulating jQuery)
-function $(elementName) {
+function $(elementName, index) {
   elementName = elementName.trim();
   var firstChar = elementName.charAt(FIRST_CHAR);
+  var selection;
   if(firstChar === ID_SELECTOR) {
     elementName = elementName.substr(FROM_SECOND_CHAR);
-    return document.getElementById(elementName);
+    selection = document.getElementById(elementName);
   }else if(firstChar === CLASS_SELECTOR) {
     elementName = elementName.substr(FROM_SECOND_CHAR);
-    return document.getElementsByClassName(elementName)[FIRST_ITEM];
+    selection = document.getElementsByClassName(elementName);
   }
+
+  return selection;
 }
 
 // iife that creates basic framing
@@ -77,7 +87,7 @@ var genPaintGrid = (function(height, width) {
   // generate grid
   for(var rowNum = FIRST_ROW; rowNum <= height; rowNum++) { // i = rows
     row = document.createElement('div');
-    row.className = 'rows';
+    row.className = ROW + rowNum + SPACE + ROWS;
     for(var columnNum = FIRST_COLUMN; columnNum <= width; columnNum++) { // j = columns
       cell = document.createElement('div');
       cell.className = ROW_INIT + rowNum + COLUMN_INIT + columnNum + SPACE + PIXELS;
