@@ -1,13 +1,30 @@
+// const (var as substitute before ES6)
+var FIRST_CHAR = 0;
+var FROM_SECOND_CHAR = 1;
+var FIRST_ITEM = 0;
+var ID_SELECTOR = '#';
+var CLASS_SELECTOR = '.';
+var ROW_INIT = 'r';
+var COLUMN_INIT = 'c';
+var SPACE = ' ';
+var PIXELS = 'pixels';
+var FIRST_ROW = 1;
+var FIRST_COLUMN = 1;
+
+// variables
+var gridHeight = 10;
+var gridWidth = 10;
+
 // selector (simulating jQuery)
 function $(elementName) {
   elementName = elementName.trim();
-  var firstChar = elementName.charAt(0);
-  if(firstChar === '#') {
-    elementName = elementName.substr(1);
+  var firstChar = elementName.charAt(FIRST_CHAR);
+  if(firstChar === ID_SELECTOR) {
+    elementName = elementName.substr(FROM_SECOND_CHAR);
     return document.getElementById(elementName);
-  }else if(firstChar === '.') {
-    elementName = elementName.substr(1);
-    return document.getElementsByClassName(elementName)[0];
+  }else if(firstChar === CLASS_SELECTOR) {
+    elementName = elementName.substr(FROM_SECOND_CHAR);
+    return document.getElementsByClassName(elementName)[FIRST_ITEM];
   }
 }
 
@@ -58,16 +75,12 @@ var genPaintGrid = (function(height, width) {
   paintGrid.className = 'paint-grid';
 
   // generate grid
-  for(var i = 1; i <= height; i++) {
+  for(var rowNum = FIRST_ROW; rowNum <= height; rowNum++) { // i = rows
     row = document.createElement('div');
-    row.className = "rows";
-    for(var j = 1; j <= width; j++) {
+    row.className = 'rows';
+    for(var columnNum = FIRST_COLUMN; columnNum <= width; columnNum++) { // j = columns
       cell = document.createElement('div');
-      cell.className = "r" + i + "c" + j;
-      cell.style.display = "inline-block";
-      cell.style.height = "10px";
-      cell.style.width = "10px";
-      cell.style.backgroundColor = "white";
+      cell.className = ROW_INIT + rowNum + COLUMN_INIT + columnNum + SPACE + PIXELS;
       row.appendChild(cell);
     }
     paintGrid.appendChild(row);
@@ -75,9 +88,11 @@ var genPaintGrid = (function(height, width) {
   }
 
   // grid location selector
-  function grid(row, height) {
-    var tempStr = "";
-    tempStr = ".r" + (row + 1) + "c" + (height + 1);
+  function grid(row, column) {
+    var tempStr;
+    var newRow = --row;
+    var newColumn = --column;
+    tempStr = CLASS_SELECTOR + ROW_INIT + newRow + COLUMN_INIT + newColumn;
     return $(tempStr);
   }
 
@@ -87,4 +102,4 @@ var genPaintGrid = (function(height, width) {
 });
 
 // run and assign to variable named
-var paint = genPaintGrid(10, 10);
+var paint = genPaintGrid(gridHeight, gridWidth);
