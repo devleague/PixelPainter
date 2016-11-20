@@ -73,6 +73,17 @@ var genPaintGrid = (function(height, width) {
     paintGrid.appendChild(row);
     page.grid.appendChild(paintGrid);
   }
+
+  // grid location selector
+  function grid(row, height) {
+    var tempStr = "";
+    tempStr = ".r" + (row + 1) + "c" + (height + 1);
+    return $(tempStr);
+  }
+
+  return {
+    grid: grid
+  };
 });
 
 // run and assign to variable named
