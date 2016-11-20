@@ -1,9 +1,4 @@
 // const (var as substitute before ES6)
-var FIRST_CHAR = 0;
-var FROM_SECOND_CHAR = 1;
-var FIRST_ITEM = 0;
-var ID_SELECTOR = '#';
-var CLASS_SELECTOR = '.';
 var ROW_INIT = 'r';
 var COLUMN_INIT = 'c';
 var SPACE = ' ';
@@ -21,22 +16,6 @@ var gridWidth = 10;
 var foregroundColor = BLACK;
 var backgroundColor = WHITE;
 var mouseDown = false;
-
-// selector (simulating jQuery)
-function $(elementName, index) {
-  elementName = elementName.trim();
-  var firstChar = elementName.charAt(FIRST_CHAR);
-  var selection;
-  if(firstChar === ID_SELECTOR) {
-    elementName = elementName.substr(FROM_SECOND_CHAR);
-    selection = document.getElementById(elementName);
-  }else if(firstChar === CLASS_SELECTOR) {
-    elementName = elementName.substr(FROM_SECOND_CHAR);
-    selection = document.getElementsByClassName(elementName);
-  }
-
-  return selection;
-}
 
 // iife that creates basic framing
 var mainContainer = (function() {
@@ -113,3 +92,7 @@ var genPaintGrid = (function(height, width) {
 
 // run and assign to variable named
 var paint = genPaintGrid(gridHeight, gridWidth);
+
+$('.pixels')[0].addEventListener('click', function() {
+  this.style.backgroundColor = foregroundColor;
+});
