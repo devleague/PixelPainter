@@ -11,7 +11,7 @@ var COLOR = {
   BLACK: '#000000',
   WHITE: '#ffffff'
 };
-var DEVICE = {
+var DEVICES = {
   MOUSE: 'mouse',
   KEYBOARD: 'keyboard'
 };
@@ -31,12 +31,12 @@ var MOUSE = {
 };
 
 // variables
-var gridHeight = 10;
-var gridWidth = 10;
+var gridHeight = 150;
+var gridWidth = 100;
 var foregroundColor = COLOR.BLACK;
 var backgroundColor = COLOR.WHITE;
-var mouseDown = false;
 var drawMode = 'trace';
+var painting = false;
 
 // iife that creates basic framing
 var mainContainer = (function() {
@@ -113,14 +113,24 @@ var genPaintGrid = (function(height, width) {
 // run and assign to variable named
 var paint = genPaintGrid(gridHeight, gridWidth);
 
-// paint grid actions
-$('.grid').onEvent(DEVICE.MOUSE, MOUSE.DOWN, function() {
-  $('.pixels').onEvent(DEVICE.MOUSE, MOUSE.MOVE, function() {
-    this.style.backgroundColor = foregroundColor;
+// trigger draw function
+$('.grid').onEvent(DEVICES.MOUSE, MOUSE.DOWN, function() {
+  painting = true;
+  $('.pixels').onEvent(DEVICES.MOUSE, MOUSE.OVER, function() {
+    draw(this);
   });
 });
-$('.paint-grid').onEvent(DEVICE.MOUSE, MOUSE.UP, function() {
-  $('.pixels').noEvent(DEVICE.MOUSE, MOUSE.MOVE, function() {
-    this.style.backgroundColor = foregroundColor;
-  });
+$('.grid').onEvent(DEVICES.MOUSE, MOUSE.UP, function() {
+  painting = false;
 });
+
+// draw function
+function draw(item) {
+  switch(drawMode) {
+    case 'trace':
+      if(painting) {
+        item.style.backgroundColor = 'black';
+      }
+      break;
+  }
+}

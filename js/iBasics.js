@@ -4,7 +4,6 @@ var iBasics = (function(){
   function _mapping(item) {
     function _from(arrayOfOrigin) {
       function _to(arrayOfDestination) {
-        item = item.trim();
         for(i = 0; i < arrayOfOrigin.length; i++) {
           if(arrayOfOrigin[i] === item) {
             return arrayOfDestination[i];

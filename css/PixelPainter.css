@@ -21,8 +21,8 @@ body {
   height: calc(100% - 20px);
   display: inline-block;
   padding: 10px;
-  overflow-y: auto;
-  overflow-x: auto;
+  overflow-y: scroll;
+  overflow-x: scroll;
   cursor: crosshair;
 }
 
@@ -57,7 +57,7 @@ body {
   background-color: white;
 }
 
-.pixels:hover, .pixels:active {
+.pixels:hover {
   border: solid 1px black;
   height: 8px;
   width: 8px;

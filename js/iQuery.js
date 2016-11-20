@@ -27,6 +27,7 @@ var iQuery = (function(elementName) {
     _selection = document.getElementsByClassName(elementName);
   }else{
     console.log("Not a class nor an id");
+    _selection = elementName;
   }
 
   // add event handler
@@ -34,8 +35,7 @@ var iQuery = (function(elementName) {
     if(firstChar === ID_SELECTOR) {
 
     }else if(firstChar === CLASS_SELECTOR){
-      if(device === DEVICE.MOUSE) {
-        console.log("onEvent triggered");
+      if(device === DEVICES.MOUSE) {
         _addMouseEventsForClass(action, myFunction);
       }
     }
@@ -55,16 +55,16 @@ var iQuery = (function(elementName) {
     var _selectionLength = _selection.length;
     for(var i = 0; i < _selectionLength; i++) {
       _selection[i].addEventListener(_mouseAction, myFunction);
-      console.log("onEvent triggered");
     }
   }
 
   // remove event handler
   function _noEvent(device, action, myFunction) {
-    console.log("noEvent triggered");
+    console.log('triggered no');
     if(firstChar === ID_SELECTOR) {
+
     }else if(firstChar === CLASS_SELECTOR){
-      if(device === DEVICE.MOUSE) {
+      if(device === DEVICES.MOUSE) {
         _removeMouseEventsForClass(action, myFunction);
       }
     }
@@ -75,14 +75,14 @@ var iQuery = (function(elementName) {
     var _mouseAction = _mapMouseActions(action);
     var _selectionLength = _selection.length;
     for(var i = 0; i < _selectionLength; i++) {
-      _selection[i].removeEventListener(_mouseAction, myFunction);
+      _selection[i].removeEventListener(_mouseAction, arguments.callee, false);
     }
   }
 
   return {
     item: _selection,
-    onEvent: _onEvent
-    // noEvent: _noEvent
+    onEvent: _onEvent,
+    noEvent: _noEvent
   };
 });
 
