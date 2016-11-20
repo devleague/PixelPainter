@@ -23,6 +23,7 @@ body {
   padding: 10px;
   overflow-y: auto;
   overflow-x: auto;
+  cursor: crosshair;
 }
 
 .palette {
@@ -60,5 +61,4 @@ body {
   border: solid 1px black;
   height: 8px;
   width: 8px;
-  cursor: crosshair;
 }

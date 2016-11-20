@@ -7,15 +7,36 @@ var FIRST_ROW = 1;
 var FIRST_COLUMN = 1;
 var ROW = 'row';
 var ROWS = 'rows';
-var BLACK = "#000000";
-var WHITE = "#ffffff";
+var COLOR = {
+  BLACK: '#000000',
+  WHITE: '#ffffff'
+};
+var DEVICE = {
+  MOUSE: 'mouse',
+  KEYBOARD: 'keyboard'
+};
+var MOUSE = {
+  CLICK: 'click',
+  DOUBLE_CLICK: 'doubleClick',
+  ENTER: 'enter',
+  OVER: 'over',
+  MOVE: 'move',
+  DOWN: 'down',
+  UP: 'up',
+  RIGHT_CLICK: 'rightClick',
+  WHEEL: 'wheel',
+  LEAVE: 'leave',
+  OUT: 'out',
+  SELECT: 'select'
+};
 
 // variables
 var gridHeight = 10;
 var gridWidth = 10;
-var foregroundColor = BLACK;
-var backgroundColor = WHITE;
+var foregroundColor = COLOR.BLACK;
+var backgroundColor = COLOR.WHITE;
 var mouseDown = false;
+var drawMode = 'trace';
 
 // iife that creates basic framing
 var mainContainer = (function() {
@@ -54,7 +75,6 @@ var page = mainContainer();
 
 // iife that generates paint area
 var genPaintGrid = (function(height, width) {
-  var tempStr = "";
   var paintGrid;
   var gridArr = [];
   var row;
@@ -77,7 +97,7 @@ var genPaintGrid = (function(height, width) {
   }
 
   // grid location selector
-  function grid(row, column) {
+  function _grid(row, column) {
     var tempStr;
     var newRow = --row;
     var newColumn = --column;
@@ -86,13 +106,21 @@ var genPaintGrid = (function(height, width) {
   }
 
   return {
-    grid: grid
+    grid: _grid
   };
 });
 
 // run and assign to variable named
 var paint = genPaintGrid(gridHeight, gridWidth);
 
-$('.pixels')[0].addEventListener('click', function() {
-  this.style.backgroundColor = foregroundColor;
+// paint grid actions
+$('.grid').onEvent(DEVICE.MOUSE, MOUSE.DOWN, function() {
+  $('.pixels').onEvent(DEVICE.MOUSE, MOUSE.MOVE, function() {
+    this.style.backgroundColor = foregroundColor;
+  });
+});
+$('.paint-grid').onEvent(DEVICE.MOUSE, MOUSE.UP, function() {
+  $('.pixels').noEvent(DEVICE.MOUSE, MOUSE.MOVE, function() {
+    this.style.backgroundColor = foregroundColor;
+  });
 });

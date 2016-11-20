@@ -4,49 +4,87 @@ var FROM_SECOND_CHAR = 1;
 var FIRST_ITEM = 0;
 var ID_SELECTOR = '#';
 var CLASS_SELECTOR = '.';
+var DEVICES = {
+  MOUSE: 'mouse',
+  KEYBOARD: 'keyboard'
+};
 
 // variables
 
 
 // selector (simulating jQuery)
-function $(elementName) {
+var iQuery = (function(elementName) {
   elementName = elementName.trim();
   var firstChar = elementName.charAt(FIRST_CHAR);
-  var selection;
-
-  // when no index is passed in
-  if(index === undefined) {
-    index = 1;
-  }
+  var _selection;
 
   // select class or id
   if(firstChar === ID_SELECTOR) {
     elementName = elementName.substr(FROM_SECOND_CHAR);
-    selection = document.getElementById(elementName);
+    _selection = document.getElementById(elementName);
   }else if(firstChar === CLASS_SELECTOR) {
     elementName = elementName.substr(FROM_SECOND_CHAR);
-    selection = document.getElementsByClassName(elementName);
+    _selection = document.getElementsByClassName(elementName);
+  }else{
+    console.log("Not a class nor an id");
   }
 
-  // event handler
-  function onEvent(device, action, myFunction) {
+  // add event handler
+  function _onEvent(device, action, myFunction) {
     if(firstChar === ID_SELECTOR) {
 
     }else if(firstChar === CLASS_SELECTOR){
-      if(device === 'mouse') {
-        mouseEventsForClass(action, myFunction);
+      if(device === DEVICE.MOUSE) {
+        console.log("onEvent triggered");
+        _addMouseEventsForClass(action, myFunction);
       }
     }
   }
 
-  // event handler -> class -> mouse
-  function mouseEventsForClass(action, myFunction) {
+  // map mouse actions
+  function _mapMouseActions(action) {
+    var myActionList = ['click', 'doubleClick', 'enter', 'over', 'move', 'down', 'up', 'rightClick', 'wheel', 'leave', 'out', 'select'];
+    var mouseActionList = ['click', 'dblclick', 'mouseenter', 'mouseover', 'mousemove', 'mousedown', 'mouseup', 'contextmenu', 'wheel', 'mouseleave', 'mouseout', 'select'];
+    var mouseAction = to.mapping(action).from(myActionList).to(mouseActionList);
+    return mouseAction;
+  }
 
-    iBasics.map(action).from(actionList).to(mouseActions);
-    for(var i = 0; i < selection.length; i++) {
-
+  // add event handler -> class -> mouse
+  function _addMouseEventsForClass(action, myFunction) {
+    var _mouseAction = _mapMouseActions(action);
+    var _selectionLength = _selection.length;
+    for(var i = 0; i < _selectionLength; i++) {
+      _selection[i].addEventListener(_mouseAction, myFunction);
+      console.log("onEvent triggered");
     }
   }
 
-  return selection;
-}
+  // remove event handler
+  function _noEvent(device, action, myFunction) {
+    console.log("noEvent triggered");
+    if(firstChar === ID_SELECTOR) {
+    }else if(firstChar === CLASS_SELECTOR){
+      if(device === DEVICE.MOUSE) {
+        _removeMouseEventsForClass(action, myFunction);
+      }
+    }
+  }
+
+  // remove event handler -> class -> mouse
+  function _removeMouseEventsForClass(action, myFunction) {
+    var _mouseAction = _mapMouseActions(action);
+    var _selectionLength = _selection.length;
+    for(var i = 0; i < _selectionLength; i++) {
+      _selection[i].removeEventListener(_mouseAction, myFunction);
+    }
+  }
+
+  return {
+    item: _selection,
+    onEvent: _onEvent
+    // noEvent: _noEvent
+  };
+});
+
+// assign to "$"
+var $ = iQuery;
