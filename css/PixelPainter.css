@@ -1,0 +1,11 @@
+#grid {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+td, tr {
+  height: 50px;
+  width: 50px;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
