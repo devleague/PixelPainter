@@ -1,0 +1,21 @@
+.square{
+  border: 2px solid black;
+  width: 5px;
+  height: 5px
+}
+
+.grid{
+  border: 2px solid black;
+}
+
+.pixels{
+  border: 2px solid black;
+}
+
+.pallete{
+  border: 2px solid black;
+}
+
+.palletebutton{
+  border: 2px solid black;
+}
