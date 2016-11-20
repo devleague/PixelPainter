@@ -1,3 +1,16 @@
+// selector (simulating jQuery)
+function $(elementName) {
+  elementName = elementName.trim();
+  var firstChar = elementName.charAt(0);
+  if(firstChar === '#') {
+    elementName = elementName.substr(1);
+    return document.getElementById(elementName);
+  }else if(firstChar === '.') {
+    elementName = elementName.substr(1);
+    return document.getElementsByClassName(elementName)[0];
+  }
+}
+
 // iife that creates basic framing
 var mainContainer = (function() {
   var outerFrame = document.createElement('div');
