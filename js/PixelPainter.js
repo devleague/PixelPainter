@@ -235,18 +235,22 @@ var generatePaletteGrid = (function() {
 
 colorPalette = generatePaletteGrid();
 
-// this goes into the div framework section for the BUTTONS
+//buttons
+var createButtons = (function() {
+  var buttonErase = document.createElement("button");
+  buttonErase.className = "button-erase";
 
-// var buttonErase = document.createElement("button");
-// buttonErase.className = "button-erase";
-// buttons.appendChild(buttonErase);
+  var buttonEraseText = document.createTextNode("Erase");
+  buttonErase.appendChild(buttonEraseText);
 
-// var buttonEraseText = document.createTextNode("Erase");
-// buttonErase.appendChild(buttonEraseText);
+  var buttonClear = document.createElement("button");
+  buttonClear.className = "button-clear";
 
-// var buttonClear = document.createElement("button");
-// buttonClear.className = "button-clear";
-// buttons.appendChild(buttonClear);
+  var buttonClearText = document.createTextNode("Clear");
+  buttonClear.appendChild(buttonClearText);
 
-// var buttonClearText = document.createTextNode("Clear");
-// buttonClear.appendChild(buttonClearText);
+  page.buttons.appendChild(buttonErase);
+  page.buttons.appendChild(buttonClear);
+});
+
+toolButtons = createButtons();
