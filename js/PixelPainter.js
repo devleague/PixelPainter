@@ -11,7 +11,8 @@ var CLASS = {
   PIXELS: 'pixels',
   FIRST_CELL: 'r1c1',
   ROW: 'row',
-  ROWS: 'rows'
+  ROWS: 'rows',
+  COLORS: 'colors'
 };
 var COLOR = {
   BLACK: '#000000',
@@ -37,8 +38,8 @@ var MOUSE = {
 };
 
 // variables
-var gridHeight = 200;
-var gridWidth = 200;
+var gridHeight = 100;
+var gridWidth = 100;
 var foregroundColor = COLOR.BLACK;
 var backgroundColor = COLOR.WHITE;
 var drawMode = 'trace';
@@ -223,11 +224,9 @@ var generatePaletteGrid = (function() {
 
     for(var j = ZERO; j < columnNum; j++){
       var td = document.createElement("td");
-      td.className = "cell";
-      td.id = CLASS.ROW_INIT + (i + INDEX_OFFSET) + CLASS.COLUMN_INIT + (j + INDEX_OFFSET);
+      td.className = CLASS.ROW_INIT + (i + INDEX_OFFSET) + CLASS.COLUMN_INIT + (j + INDEX_OFFSET) + SPACE + CLASS.COLORS;
       td.style.backgroundColor = colors[i][j];
       row.appendChild(td);
-      
     }
   }
   page.palette.appendChild(table);
@@ -254,3 +253,8 @@ var createButtons = (function() {
 });
 
 toolButtons = createButtons();
+
+// use color palette to select color
+$(CLASS.SELECTOR + CLASS.COLORS).onEvent(DEVICES.MOUSE, MOUSE.CLICK, function() {
+  foregroundColor = this.style.backgroundColor;
+});
