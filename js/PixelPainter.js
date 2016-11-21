@@ -209,29 +209,31 @@ function draw(item) {
 }
 
 // generate palette grid
-function generatePaletteGrid() {
+var generatePaletteGrid = (function() {
   var table = document.createElement("table");
   var colors = [["#ff0000", "#ffb200", "#ffd400"], ["#fff200", "#2eff00", "#01a82b"], ["#00fff6", "#0050f2", "#cd62ea"], ["#754d2a","#dddddd", "#000000"]];
+  var columnNum = 3;
+  var rowNum = 4;
   
-  for(var i = 0; i < 4; i++){
+  for(var i = ZERO; i < rowNum; i++){
     var row = document.createElement("tr");
     row.className = "row";
     table.appendChild(row);
 
 
-    for(var j = 0; j < 3; j++){
+    for(var j = ZERO; j < columnNum; j++){
       var td = document.createElement("td");
       td.className = "cell";
-      td.id = "row" + i + "td" + j;
+      td.id = CLASS.ROW_INIT + (i + INDEX_OFFSET) + CLASS.COLUMN_INIT + (j + INDEX_OFFSET);
       td.style.backgroundColor = colors[i][j];
       row.appendChild(td);
       
     }
   }
   page.palette.appendChild(table);
-}
+});
 
-generatePaletteGrid();
+colorPalette = generatePaletteGrid();
 
 // this goes into the div framework section for the BUTTONS
 
