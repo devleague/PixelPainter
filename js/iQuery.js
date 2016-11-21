@@ -60,7 +60,6 @@ var iQuery = (function(elementName) {
 
   // remove event handler
   function _noEvent(device, action, myFunction) {
-    console.log('triggered no');
     if(firstChar === ID_SELECTOR) {
 
     }else if(firstChar === CLASS_SELECTOR){
@@ -79,10 +78,20 @@ var iQuery = (function(elementName) {
     }
   }
 
+  // check if doesnt exist
+  function _doesntExist() {
+    if(firstChar === ID_SELECTOR && _selection === null) {
+      return true;
+    }else if(firstChar === CLASS_SELECTOR && _selection.length === 0){
+      return true;
+    }
+  }
+
   return {
-    item: _selection,
-    onEvent: _onEvent,
-    noEvent: _noEvent
+    item: _selection, // return selected item(id) or array(class)
+    onEvent: _onEvent, // addEventListener
+    noEvent: _noEvent, // removeEventListener
+    doesntExist: _doesntExist // check if item does not exist
   };
 });
 

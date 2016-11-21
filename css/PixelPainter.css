@@ -21,8 +21,7 @@ body {
   height: calc(100% - 20px);
   display: inline-block;
   padding: 10px;
-  overflow-y: scroll;
-  overflow-x: scroll;
+  overflow-y: auto;
   cursor: crosshair;
 }
 
@@ -44,6 +43,7 @@ body {
 
 .paint-grid {
   margin: auto;
+  float: left;
 }
 
 .rows {
