@@ -58,40 +58,9 @@ var iQuery = (function(elementName) {
     }
   }
 
-  // remove event handler
-  function _noEvent(device, action, myFunction) {
-    if(firstChar === ID_SELECTOR) {
-
-    }else if(firstChar === CLASS_SELECTOR){
-      if(device === DEVICES.MOUSE) {
-        _removeMouseEventsForClass(action, myFunction);
-      }
-    }
-  }
-
-  // remove event handler -> class -> mouse
-  function _removeMouseEventsForClass(action, myFunction) {
-    var _mouseAction = _mapMouseActions(action);
-    var _selectionLength = _selection.length;
-    for(var i = 0; i < _selectionLength; i++) {
-      _selection[i].removeEventListener(_mouseAction, arguments.callee, false);
-    }
-  }
-
-  // check if doesnt exist
-  function _doesntExist() {
-    if(firstChar === ID_SELECTOR && _selection === null) {
-      return true;
-    }else if(firstChar === CLASS_SELECTOR && _selection.length === 0){
-      return true;
-    }
-  }
-
   return {
     item: _selection, // return selected item(id) or array(class)
-    onEvent: _onEvent, // addEventListener
-    noEvent: _noEvent, // removeEventListener
-    doesntExist: _doesntExist // check if item does not exist
+    onEvent: _onEvent
   };
 });
 
