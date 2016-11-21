@@ -2,26 +2,24 @@ console.log("palette grid here");
 
 function generatePaletteGrid() {
 	var table = document.createElement("table");
-	var colors = [["#ff0000", "#ef641f", "#ffa500"], ["#ffee00", "#2eff00", "#01a82b"], ["#00f2da", "#0050f2", "#020b72"], ["#8501c1","#ffffff", "#000000"]];
+	var colors = [["#ff0000", "#ffb200", "#ffd400"], ["#fff200", "#2eff00", "#01a82b"], ["#00fff6", "#0050f2", "#cd62ea"], ["#754d2a","#dddddd", "#000000"]];
 	
-	for(var i = 0; i < 4; i++){ 
-		console.log("var i row", i);
+	for(var i = 0; i < 4; i++){
 		var row = document.createElement("tr");
-		row.className = "row" + i;
+		row.className = "row";
 		table.appendChild(row);
 
 
 		for(var j = 0; j < 3; j++){
-			console.log("var jcell", j);
 			var td = document.createElement("td");
-			td.className = "row" + i + "td" + j;
-			console.log(td.className);
+			td.className = "cell";
+			td.id = "row" + i + "td" + j;
 			td.style.backgroundColor = colors[i][j];
 			row.appendChild(td);
 			
 		}
 	}
-	palette.appendChild(table);
+	page.palette.appendChild(table);
 }
 
 generatePaletteGrid();
