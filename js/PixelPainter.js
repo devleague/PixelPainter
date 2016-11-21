@@ -207,3 +207,50 @@ function draw(item) {
       break;
   }
 }
+
+// generate palette grid
+var generatePaletteGrid = (function() {
+  var table = document.createElement("table");
+  var colors = [["#ff0000", "#ffb200", "#ffd400"], ["#fff200", "#2eff00", "#01a82b"], ["#00fff6", "#0050f2", "#cd62ea"], ["#754d2a","#dddddd", "#000000"]];
+  var columnNum = 3;
+  var rowNum = 4;
+  
+  for(var i = ZERO; i < rowNum; i++){
+    var row = document.createElement("tr");
+    row.className = "row";
+    table.appendChild(row);
+
+
+    for(var j = ZERO; j < columnNum; j++){
+      var td = document.createElement("td");
+      td.className = "cell";
+      td.id = CLASS.ROW_INIT + (i + INDEX_OFFSET) + CLASS.COLUMN_INIT + (j + INDEX_OFFSET);
+      td.style.backgroundColor = colors[i][j];
+      row.appendChild(td);
+      
+    }
+  }
+  page.palette.appendChild(table);
+});
+
+colorPalette = generatePaletteGrid();
+
+//buttons
+var createButtons = (function() {
+  var buttonErase = document.createElement("button");
+  buttonErase.className = "button-erase";
+
+  var buttonEraseText = document.createTextNode("Erase");
+  buttonErase.appendChild(buttonEraseText);
+
+  var buttonClear = document.createElement("button");
+  buttonClear.className = "button-clear";
+
+  var buttonClearText = document.createTextNode("Clear");
+  buttonClear.appendChild(buttonClearText);
+
+  page.buttons.appendChild(buttonErase);
+  page.buttons.appendChild(buttonClear);
+});
+
+toolButtons = createButtons();
