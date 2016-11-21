@@ -37,8 +37,8 @@ var MOUSE = {
 };
 
 // variables
-var gridHeight = 100;
-var gridWidth = 100;
+var gridHeight = 200;
+var gridWidth = 200;
 var foregroundColor = COLOR.BLACK;
 var backgroundColor = COLOR.WHITE;
 var drawMode = 'trace';
@@ -138,18 +138,10 @@ var genPaintGrid = (function() {
       if(rowNum <= currentHeight) { // for existing rows
         _makeNewColumn((currentWidth + ONE), width, rowNum, false); // add new columns
       }else{ // for new rows
+        canvas.push([]);
         _makeNewColumn(FIRST, width, rowNum, true);
       }
     }
-    // for(var rowNum = (currentHeight + 1); rowNum < (currentHeight + extraRows); rowNum++) {
-    //   row = document.createElement('div');
-    //   row.className = CLASS.ROW + rowNum + SPACE + CLASS.ROWS;
-    //   if(extraColumns > 0) {
-    //     _makeNewColumn(FIRST,  columnNum);
-    //   }
-    //   //page.paintGrid.push();
-    //   extraRows--;
-    // }
   }
 
   // generate columns (cells in each row)
@@ -161,18 +153,14 @@ var genPaintGrid = (function() {
         startColumnNum = currentWidth + 1;
         notJumped = false;
       }
+      if(newRow) {
+        canvas[rowNum - INDEX_OFFSET].push(COLOR.WHITE);
+      }
       cell = document.createElement('div');
       cell.className =  CLASS.ROW_INIT + rowNum +
                         CLASS.COLUMN_INIT + columnNum +
                         SPACE + CLASS.PIXELS;
       currRow.appendChild(cell);
-      // cell = document.createElement('div');
-      // cell.className =  CLASS.ROW_INIT + rowNum +
-      //                   CLASS.COLUMN_INIT + columnNum +
-      //                   SPACE + CLASS.PIXELS;
-      // searchQuery = CLASS.SELECTOR + CLASS.ROW + rowNum;
-      // $(searchQuery).item[FIRST - INDEX_OFFSET].appendChild(cell);
-      //canvas[rowNum - INDEX_OFFSET].push(COLOR.WHITE);
     }
   }
 
