@@ -1,5 +1,5 @@
 var mainBody = document.getElementById('pixelPainter');
-var colorArray = ['#7F7F7F', 'blue', 'green', 'purple', 'yellow', 'pink', 'magenta'];
+var colorArray = ['#7F7F7F', '#000', '#4990E2', '#9012FE', '#417505', '#7ED321', '#F8E81C', '#F6A623', '#D0011B'];
 var colorChoice = 'black';
 var colorButtons = [];
 var currentColorOfLoop;

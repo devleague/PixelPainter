@@ -7,20 +7,15 @@ h1 {
   font-size: 2em;
   color: #333;
 }
-#pixelPainter {
-}
-
 .square{
   border: 2px solid red;
   width: 5px;
   height: 5px
 }
-
 .grid{
   display: inline-block;
-  padding: 0 30px 20px 0;
+  padding: 0 20px 0 0;
 }
-
 .pixels{
   height: 50px;
   width: 50px;
@@ -29,7 +24,6 @@ h1 {
 .pixels:hover{
   cursor:crosshair;
 }
-
 .pallete{
   vertical-align: top;
   display: inline-block;
@@ -40,8 +34,8 @@ h1 {
   border: 0.5px solid #F3F3F3;
 }
 .palletebutton{
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   margin: 10px 0;
 }
 .palletebutton:hover{
@@ -50,7 +44,7 @@ h1 {
 .miscButtons{
   display: inline-block;
   vertical-align:bottom;
-  margin: 0;
+  margin-left: -62px;
 }
 .miscButtons > button {
   font-family: 'Tahoma', 'Arial', sans-serif;
@@ -62,4 +56,8 @@ h1 {
   border-radius: 5px;
   display: block;
   background: linear-gradient(#fff, #f3f3f3);
+}
+.miscButtons > button:hover {
+  background: linear-gradient(#f3f3f3, #fff);
+
 }
