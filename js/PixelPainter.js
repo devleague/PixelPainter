@@ -1,5 +1,5 @@
 var mainBody = document.getElementById('pixelPainter');
-var colorArray = ['red', 'blue', 'green', 'purple', 'yellow', 'pink', 'magenta'];
+var colorArray = ['#7F7F7F', 'blue', 'green', 'purple', 'yellow', 'pink', 'magenta'];
 var colorChoice = 'black';
 var colorButtons = [];
 var currentColorOfLoop;
@@ -13,6 +13,7 @@ function createColorGrid(){
     mainBody.appendChild(miscButtons);
     var clearButton = document.createElement('button');
     miscButtons.appendChild(clearButton);
+    clearButton.innerHTML = 'Clear';
 
     clearButton.addEventListener('click', function(){
       console.log('tets');
@@ -31,8 +32,8 @@ function createColorGrid(){
     colorButtons[j] = document.createElement('div');
     colorButtons[j].className = "palleteButton";
     pallete.appendChild(colorButtons[j]);
-    colorButtons[j].style.width = 20;
-    colorButtons[j].style.height = 20;
+    // colorButtons[j].style.width = 20;
+    // colorButtons[j].style.height = 20;
     colorButtons[j].style.backgroundColor = currentColorOfLoop;
     colorButtons[j].addEventListener('click', function(n){
       colorChoice = this.style.backgroundColor;
