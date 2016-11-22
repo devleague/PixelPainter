@@ -1,8 +1,44 @@
-// window.onload = function pixelPainterModule() {
-
 var pixelPainterModule = (function() {
 
-  // createGrid(10,10);
+  // GRID FORM INPUTS //
+
+  var gridSizeForm = document.createElement('form');
+  gridSizeForm.id = 'gridForm';
+  pixelPainter.appendChild(gridSizeForm);
+
+  var inputBoxWidth = document.createElement('input');
+  inputBoxWidth.setAttribute('type', 'text');
+  inputBoxWidth.setAttribute('placeholder', 'Width');
+  gridSizeForm.appendChild(inputBoxWidth);
+
+  var inputBoxHeight = document.createElement('input');
+  inputBoxHeight.setAttribute('type', 'text');
+  inputBoxHeight.setAttribute('placeholder', 'Height');
+  gridSizeForm.appendChild(inputBoxHeight);
+
+  // GRID CREATE BUTTON //
+
+  var gridButton = document.createElement('div');
+  gridButton.id = 'grid-button';
+  gridButton.innerHTML = 'CREATE GRID';
+  pixelPainter.appendChild(gridButton);
+  gridButton.addEventListener('click', function() {
+    createGrid(document.getElementById("gridForm").elements[0].value, document.getElementById("gridForm").elements[1].value);
+    console.log('grid created!');
+  });
+
+  // DELETE GRID //
+
+  var deleteGrid = document.createElement('div');
+  deleteGrid.id = 'delete-grid';
+  deleteGrid.innerHTML = 'DELETE GRID';
+  pixelPainter.appendChild(deleteGrid);
+  deleteGrid.addEventListener('click', function() {
+    pixelPainter.removeChild(grid);
+    console.log('grid deleted');
+  });
+
+  // CREATE GRID FUNCTION //
 
   function createGrid(width, height) {
     var table = document.createElement('table');
@@ -24,9 +60,7 @@ var pixelPainterModule = (function() {
     }
   }
 
-  /*document.getElementById('grid').addEventListener('click', function(){
-      this.style.backgroundColor = selectedColor;
-  });  */
+  // COLOR PALETTE //
 
   var selectedColor;
 
@@ -70,70 +104,20 @@ var pixelPainterModule = (function() {
     clear();
   });
 
-  // GRID SIZE BUTTON //
-
   // ERASE BUTTON //
 
-
-
-  /*document.getElementById(0).addEventListener('click', function (){
-    selectedColor = colorArray[0];
-    console.log(selectedColor);
+  var eraseButton = document.createElement('div');
+  eraseButton.id = 'erase-button';
+  eraseButton.innerHTML = 'ERASE';
+  pixelPainter.appendChild(eraseButton);
+  eraseButton.addEventListener('click', function() {
+    console.log('eraser active');
+    selectedColor = 'white';
   });
-
-  document.getElementById(1).addEventListener('click', function (){
-    selectedColor = colorArray[1];
-    console.log(selectedColor);
-  });
-
-  document.getElementById(2).addEventListener('click', function (){
-    selectedColor = colorArray[2];
-    console.log(selectedColor);
-  });
-
-  document.getElementById(3).addEventListener('click', function (){
-    selectedColor = colorArray[3];
-    console.log(selectedColor);
-  });
-
-  document.getElementById(4).addEventListener('click', function (){
-    selectedColor = colorArray[4];
-    console.log(selectedColor);
-  });
-
-
-  document.getElementById(5).addEventListener('click', function (){
-    selectedColor = colorArray[5];
-    console.log(selectedColor);
-  });
-
-  document.getElementById(6).addEventListener('click', function (){
-    selectedColor = colorArray[6];
-    console.log(selectedColor);
-  });
-
-  document.getElementById(7).addEventListener('click', function (){
-    selectedColor = colorArray[7];
-    console.log(selectedColor);
-  });
-
-  document.getElementById(8).addEventListener('click', function (){
-    selectedColor = colorArray[8];
-    console.log(selectedColor);
-  });
-
-  document.getElementById(9).addEventListener('click', function (){
-    selectedColor = colorArray[9];
-    console.log(selectedColor);
-  });*/
-
-
-  function erase() {
-  }
 
   return {
     clear: clear,
-    erase: erase,
     createGrid: createGrid
   };
+
 })();
