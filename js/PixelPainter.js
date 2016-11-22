@@ -1,3 +1,4 @@
+
 //This is the container that holds the paint palette and buttons
 var paintContainer = document.querySelector("pixelPainter");
 
@@ -38,4 +39,5 @@ function randomColor(colors) {
   }
   return color;
 }
+
 
