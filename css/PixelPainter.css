@@ -4,8 +4,16 @@
 }
 
 td, tr {
-  height: 50px;
-  width: 50px;
+  height: 20px;
+  width: 20px;
   border-collapse: collapse;
   border: 1px solid black;
+}
+
+#clear-button {
+  border: 1px black solid;
+  padding: 5px;
+  border-radius: 5px;
+  width: 60px;
+  text-align: center;
 }
