@@ -1,0 +1,63 @@
+body {
+  background: #F0F0F0;
+}
+h1 {
+  font-family: 'Tahoma', 'Arial', sans-serif;
+  font-weight: 300;
+  font-size: 2em;
+  color: #333;
+}
+.square{
+  border: 2px solid red;
+  width: 5px;
+  height: 5px
+}
+.grid{
+  display: inline-block;
+  padding: 0 20px 0 0;
+}
+.pixels{
+  height: 50px;
+  width: 50px;
+  background: #fff;
+}
+.pixels:hover{
+  cursor:crosshair;
+}
+.pallete{
+  vertical-align: top;
+  display: inline-block;
+  background: #F8F8F8;
+  padding: 10px 15px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 5px;
+  border: 0.5px solid #F3F3F3;
+}
+.palletebutton{
+  height: 30px;
+  width: 30px;
+  margin: 10px 0;
+}
+.palletebutton:hover{
+  cursor: pointer;
+}
+.miscButtons{
+  display: inline-block;
+  vertical-align:bottom;
+  margin-left: -62px;
+}
+.miscButtons > button {
+  font-family: 'Tahoma', 'Arial', sans-serif;
+  color: #333;
+  font-size: 16px;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.2);
+  padding: 10px 30px;
+  border: 0.5px solid #F3F3F3;
+  border-radius: 5px;
+  display: block;
+  background: linear-gradient(#fff, #f3f3f3);
+}
+.miscButtons > button:hover {
+  background: linear-gradient(#f3f3f3, #fff);
+
+}
