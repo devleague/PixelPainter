@@ -27,7 +27,7 @@ function createGrid() {
     paintContainer.appendChild(container);
   }
 
-function magic() 
+function magic()
   {let r = function () { return Math.floor(Math.random()*256);};
     return "rgb(" + r() + "," + r() + "," + r() + ")";
   }
@@ -41,8 +41,8 @@ function createCanvas() {
         canvas.parentNode.removeChild(canvas);
     }
 
-    let canvasTotal = 30;
-    let pixelSize = 15;
+    let canvasTotal = 25;
+    let pixelSize = 20;
 
     let insideCanvas = document.createElement("div");
     insideCanvas.id = "randomBlock";
@@ -86,7 +86,7 @@ paintContainer.appendChild(clearButton);
 clearButton.addEventListener("click", clearCanvas);
 
 //select all canvas cells (to apply event listener)
-let canvasCells = document.querySelectorAll(".canvas");
+let canvasCells = document.querySelectorAll("#canvas");
 
 //add event listener to start paint canvas - starts painting when mouse button clicked
 Array.prototype.forEach.call(canvasCells, function (cell) {
@@ -98,7 +98,7 @@ Array.prototype.forEach.call(canvasCells, function (cell) {
 });
 
 //set default paint color to white
-let getColor = "#FFFFFF";
+let resetColor = "#FFFFFF";
 
 //function to pick and store color chosen
 function pickColor(event) {
@@ -107,7 +107,7 @@ function pickColor(event) {
 
 //function allowing canvas to receive current paint color
 function coloring(event) {
-  event.target.style.backgroundColor = getColor;
+  event.target.style.backgroundColor = pickColor();
 }
 
 //function allowing user to drag paint
