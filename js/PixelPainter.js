@@ -24,6 +24,66 @@ var outline = document.getElementById('grid');
 	pallette.width = 150;
 	pallette.style.border = '1px solid';
 	pixelPainter.appendChild(pallette);
+	var colorPallette = document.getElementById('colors');
+
+	if(colorPallette.getContext){
+		var colorCtx = colorPallette.getContext('2d');
+
+		colorCtx.fillStyle = 'red';
+		colorCtx.fillRect(0,0, 50, 50);
+		colorCtx.strokeRect(0,0, 50, 50);
+
+		colorCtx.fillStyle = 'green';
+		colorCtx.fillRect(50, 0, 50, 50);
+		colorCtx.strokeRect(50,0, 50, 50);
+
+		colorCtx.fillStyle = 'blue';
+		colorCtx.fillRect(100,0,50,50);
+		colorCtx.strokeRect(100,0, 50, 50);
+
+		colorCtx.fillStyle = 'yellow';
+		colorCtx.fillRect(0,50,50,50);
+		colorCtx.strokeRect(0,50, 50, 50);
+
+		colorCtx.fillStyle = 'orange';
+		colorCtx.fillRect(50,50,50,50);
+		colorCtx.strokeRect(50,50, 50, 50);
+
+		colorCtx.fillStyle = 'purple';
+		colorCtx.fillRect(100, 50, 50, 50);
+		colorCtx.strokeRect(100,50, 50, 50);
+	
+		colorCtx.fillStyle = 'pink';
+		colorCtx.fillRect(0,100,50,50);
+		colorCtx.strokeRect(0,100, 50, 50);
+
+		colorCtx.fillStyle = 'brown';
+		colorCtx.fillRect(50,100,50,50);
+		colorCtx.strokeRect(50,100, 50, 50);
+
+		colorCtx.fillStyle = 'black';
+		colorCtx.fillRect(100,100,50,50);
+		colorCtx.strokeRect(100,100, 50, 50);
+
+		colorCtx.fillStyle = 'gray';
+		colorCtx.fillRect(0,150,50,50);
+		colorCtx.strokeRect(0,150, 50, 50);
+
+		colorCtx.fillStyle = 'white';
+		colorCtx.fillRect(50,150,50,50);
+		colorCtx.strokeRect(50,150, 50, 50);
+
+		colorCtx.fillStyle = 'gold';
+		colorCtx.fillRect(100,150,50,50);
+		colorCtx.strokeRect(100,150, 50, 50);
+
+
+
+
+
+
+
+	}
 }
 
 grid();
