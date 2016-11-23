@@ -64,4 +64,25 @@ function createCanvas() {
     }
     paintContainer.appendChild(insideCanvas);
   }
+
   createCanvas();
+
+let eraseButton = document.createElement("button");
+ eraseButton.className = "eraseBtn";
+ eraseButton.innerHTML = "ERASE";
+ paintContainer.appendChild(eraseButton);
+ eraseButton.addEventListener("click", eraseCell);
+
+ function eraseCell(event) {
+   Array.prototype.forEach.call(canvasCells, function (cell) {
+     cell.addEventListener("click", function (event) {
+       event.target.style.backgroundColor = "#FFFFFF";
+     });
+   });
+ }
+
+ let clearButton = document.createElement("button");
+ clearButton.className = "clearBtn";
+ clearButton.innerHTML = "CLEAR";
+ paintContainer.appendChild(clearButton);
+ clearButton.addEventListener("click", clearCanvas);

@@ -1,10 +1,10 @@
-body{
+body {
   background-image: url("../img/BG-Image-PixelPainter.jpg");
   background-size: cover; 
   overflow: hidden;
 }
 
-h1{
+h1 {
   width: 125px;
   height: 100px;
   line-height: 40px;
@@ -12,11 +12,12 @@ h1{
   margin-left: 20px;
   padding: 15px;
   border-radius: 10%;
-  border: 2px #FFFFFF solid;
-  color: #FFFFFF;
+  border: 2px #000 solid;
+  color: #000;
+  box-shadow: 20%;
  }
 
-#pixelPainter{
+#pixelPainter {
   container for all elements
   margin: 25px auto;
   width: 75%;
@@ -57,3 +58,37 @@ border-color: black;
 box-sizing: border-box;
 float: right; 
 }
+
+.eraseBtn {
+margin-bottom: 20%;
+clear: left;
+}
+
+.clearBtn {
+clear: right;
+margin-top: 20%;
+margin-left: 5%
+}
+
+button {
+display: inline;
+width: 125px;
+height: 125px;
+margin: 5px auto;
+padding: 5px;
+font-size: 25px;
+font-style: oblique;
+color: black;
+border-radius: 50%;
+border: none;
+ }
+
+button:hover {
+  background-color: green;
+
+ }
+ 
+ button:active {
+   background-color: red;
+ }
+ 
