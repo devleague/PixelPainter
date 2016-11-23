@@ -117,8 +117,10 @@ var genPaintGrid = (function() {
   function _render() {
     if(currentHeight !== height && currentWidth !== width) {
       _makeNewRow();
+    }else{
+      $('.rows').delete();
+      _renderFromArray();
     }
-    _renderFromArray();
   }
 
   // render from array
@@ -275,12 +277,11 @@ $(CLASS.SELECTOR + CLASS.COLORS).onEvent(DEVICES.MOUSE, MOUSE.CLICK, function() 
 });
 
 // button functions 
-$(".button-clear").onEvent(DEVICES.MOUSE, MOUSE.CLICK, function () {
+$(".button-clear").onEvent(DEVICES.MOUSE, MOUSE.CLICK, function() {
   console.log("sanity check");
   paint.render();
 });
 
-$(".button-erase").onEvent(DEVICES.MOUSE, MOUSE.CLICK, function () {
-  console.log("erase me");
+$(".button-erase").onEvent(DEVICES.MOUSE, MOUSE.CLICK, function() {
   foregroundColor = COLOR.WHITE;
 });
