@@ -58,9 +58,27 @@ var iQuery = (function(elementName) {
     }
   }
 
+  // delete element
+  function _delete() {
+    if(firstChar === ID_SELECTOR) {
+
+    }else if(firstChar === CLASS_SELECTOR){
+      _deleteAllClass();
+    }
+  }
+
+  // delete element -> all class
+  function _deleteAllClass() {
+    var _selectionLength = _selection.length;
+    for(var i = 0; i < _selectionLength; i++) {
+      _selection[i].delete();
+    }
+  }
+
   return {
     item: _selection, // return selected item(id) or array(class)
-    onEvent: _onEvent
+    onEvent: _onEvent, // add event listener
+    delete: _delete
   };
 });
 
