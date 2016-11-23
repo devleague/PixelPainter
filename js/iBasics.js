@@ -17,39 +17,17 @@ var iBasics = (function(){
     return { from: _from };
   }
 
-  // comparing things
-  function _comparing() {
-    function _if(item) {
-      // detect item type
-      var itemType = typeof item;
+  // string stuff
+  function _deleting(delStr) {
+    function _from(originStr) {
 
-      // functions for comparing numbers
-      function _isBiggerThan(number) {
-        return item > number;
-      }
-      function _isSmallerThan(number) {
-        return item < number;
-      }
-      function _isEqualTo(number) {
-        return item === number;
-      }
-
-      //return functions according to item type
-      switch(itemType) {
-        case 'number':
-          return {
-            isBiggerThan: _isBiggerThan,
-            isSmallerThan: _isSmallerThan,
-            isEqualTo: _isEqualTo
-          };
-      }
     }
-    return { if: _if };
+    return { from: _from };
   }
 
   return{
     mapping: _mapping,
-    comparing: _comparing
+    deleting: _deleting
   };
 });
 

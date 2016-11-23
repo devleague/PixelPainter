@@ -38,7 +38,7 @@ var MOUSE = {
 };
 
 // variables
-var gridHeight = 100;
+var gridHeight = 75;
 var gridWidth = 100;
 var foregroundColor = COLOR.BLACK;
 var backgroundColor = COLOR.WHITE;
@@ -88,7 +88,6 @@ var page = mainContainer();
 
 // iife that generates paint area
 var genPaintGrid = (function() {
-  var gridArr = [];
   var height;
   var width;
   var row;
@@ -187,14 +186,19 @@ paint.render();
 // trigger draw function
 $('.grid').onEvent(DEVICES.MOUSE, MOUSE.DOWN, function() {
   painting = true;
-  $('.pixels').onEvent(DEVICES.MOUSE, MOUSE.OVER, function() {
-    draw(this);
-  });
-  $('.pixels').onEvent(DEVICES.MOUSE, MOUSE.SELECT, function() {
-    this.style.backgroundColor = foregroundColor;
-  });
 });
 $('.grid').onEvent(DEVICES.MOUSE, MOUSE.UP, function() {
+  painting = false;
+});
+$('.grid').onEvent(DEVICES.MOUSE, MOUSE.LEAVE, function() {
+  painting = false;
+});
+$('.pixels').onEvent(DEVICES.MOUSE, MOUSE.OVER, function() {
+  draw(this);
+});
+$('.pixels').onEvent(DEVICES.MOUSE, MOUSE.DOWN, function() {
+  painting = true;
+  draw(this);
   painting = false;
 });
 
@@ -204,9 +208,18 @@ function draw(item) {
     case 'trace':
       if(painting) {
         item.style.backgroundColor = foregroundColor;
+        savePaintToCanvas(item);
       }
       break;
   }
+}
+
+// save to canvas array
+function savePaintToCanvas(pixel) {
+  var pixelRow;
+  var pixelColumn;
+  var pixelClassName = pixel.className;
+  console.log(pixelClassName);
 }
 
 // generate palette grid
@@ -215,7 +228,7 @@ var generatePaletteGrid = (function() {
   var colors = [["#ff0000", "#ffb200", "#ffd400"], ["#fff200", "#2eff00", "#01a82b"], ["#00fff6", "#0050f2", "#cd62ea"], ["#754d2a","#dddddd", "#000000"]];
   var columnNum = 3;
   var rowNum = 4;
-  
+
   for(var i = ZERO; i < rowNum; i++){
     var row = document.createElement("tr");
     row.className = "row";
