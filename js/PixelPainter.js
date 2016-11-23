@@ -115,7 +115,9 @@ var genPaintGrid = (function() {
 
   // generate grid
   function _render() {
-    _makeNewRow();
+    if(currentHeight !== height && currentWidth !== width) {
+      _makeNewRow();
+    }
     _renderFromArray();
   }
 
@@ -270,4 +272,15 @@ toolButtons = createButtons();
 // use color palette to select color
 $(CLASS.SELECTOR + CLASS.COLORS).onEvent(DEVICES.MOUSE, MOUSE.CLICK, function() {
   foregroundColor = this.style.backgroundColor;
+});
+
+// button functions 
+$(".button-clear").onEvent(DEVICES.MOUSE, MOUSE.CLICK, function () {
+  console.log("sanity check");
+  paint.render();
+});
+
+$(".button-erase").onEvent(DEVICES.MOUSE, MOUSE.CLICK, function () {
+  console.log("erase me");
+  foregroundColor = COLOR.WHITE;
 });
