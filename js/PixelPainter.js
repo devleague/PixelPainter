@@ -111,14 +111,13 @@ var genPaintGrid = (function() {
       currentWidth = $('.rows').item[FIRST - INDEX_OFFSET].childNodes.length;
     }
   }
-  _findCurrentCanvasSize();
 
   // generate grid
   function _render() {
+    _findCurrentCanvasSize();
     if(currentHeight !== height && currentWidth !== width) {
       _makeNewRow();
     }else{
-      $('.rows').delete();
       _renderFromArray();
     }
   }
@@ -127,8 +126,7 @@ var genPaintGrid = (function() {
   function _renderFromArray() {
     for(var rowNum = FIRST; rowNum <= currentHeight; rowNum++) {
       for(var columnNum = FIRST; columnNum <= currentWidth; columnNum++) {
-        _grid(rowNum, columnNum).style.backgroundColor =
-          canvas[rowNum - INDEX_OFFSET][columnNum - INDEX_OFFSET];
+        _grid(rowNum, columnNum).style.backgroundColor = canvas[rowNum - INDEX_OFFSET][columnNum - INDEX_OFFSET];
       }
     }
   }
@@ -171,8 +169,8 @@ var genPaintGrid = (function() {
   // grid location selector
   function _grid(row, column) {
     var searchQuery;
-    searchQuery = CLASS.SELECTOR + CLASS.ROW_INIT + row + CLASS.COLUMN_INIT + column;
-    return $(searchQuery)[0];
+    searchQuery = CLASS.SELECTOR + CLASS.ROW_INIT + row + CLASS.COLUMN_INIT + column + SPACE + CLASS.PIXELS;
+    return $(searchQuery).item[0];
   }
 
   return {
