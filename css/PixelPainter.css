@@ -1,7 +1,67 @@
-html {
-  font-family: helvetica neue;
-  font-size: 20px;
-  text-align: center;
-  background-color: #ccffff;
+body {
+/*  background-color: #DCDCDD;
+*/  border-radius: 5px;
+  color: black;
 }
+
+#pallet {
+/*  background-color: #1985A1;
+*/  font-family: helvetica neue;
+  padding: 5;
+  font-size: 50px;
+}
+
+.ppCanvas {
+/*  background-color: yellow;
+*/  width: 500px;
+  height: 500px;
+  margin: 5px;
+}
+
+.canvasPixelCell {
+  background-color: white;
+  width: 8px;
+  height: 8px;
+  border: 1px solid black;
+  display: inline-block;
+}
+
+.colorCanvas {
+  background-color: green;
+  width: 90px;
+  height: 210px;
+  border: 1px solid black;
+  display: inline-block;
+  margin: 5px;
+}
+
+.swatchCanvasPixel {
+  background-color: white;
+  width: 43px;
+  height: 40px;
+  border: 1px solid black;
+  display: inline-block;
+}
+
+.colorSwatch{
+  border: 1px solid black;
+  display: inline-block;
+}
+
+#swatchCanvasPixel{
+  height: 50px;
+  width: 50px;
+}
+
+/*.clrButton {
+  background-color: yellow;
+  width: 43px;
+  height: 40px;
+}
+
+button{
+  font-family: helvetica neue;
+  font size: 12px;
+  border-radius: 4px;
+}*/
 
