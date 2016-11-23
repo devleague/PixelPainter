@@ -226,25 +226,25 @@ function savePaintToCanvas(pixel) {
 
 // generate palette grid
 var generatePaletteGrid = (function() {
-  var table = document.createElement("table");
-  var colors = [["#ff0000", "#ffb200", "#ffd400"], ["#fff200", "#2eff00", "#01a82b"], ["#00fff6", "#0050f2", "#cd62ea"], ["#754d2a","#dddddd", "#000000"]];
+  var tableDiv = document.createElement("div");
+  var colors = [["#ff0000", "#ff6a00", "#ffaa00"], ["#fff200", "#2eff00", "#0a7218"], ["#00fff6", "#0050f2", "#cd62ea"], ["#9400ff","#b5b5b5", "#000000"]];
   var columnNum = 3;
   var rowNum = 4;
 
   for(var i = ZERO; i < rowNum; i++){
-    var row = document.createElement("tr");
-    row.className = "row";
-    table.appendChild(row);
+    var rowDiv = document.createElement("div");
+    rowDiv.className = "row";
+    tableDiv.appendChild(rowDiv);
 
 
     for(var j = ZERO; j < columnNum; j++){
-      var td = document.createElement("td");
-      td.className = CLASS.ROW_INIT + (i + INDEX_OFFSET) + CLASS.COLUMN_INIT + (j + INDEX_OFFSET) + SPACE + CLASS.COLORS;
-      td.style.backgroundColor = colors[i][j];
-      row.appendChild(td);
+      var tdDiv = document.createElement("div");
+      tdDiv.className = CLASS.ROW_INIT + (i + INDEX_OFFSET) + CLASS.COLUMN_INIT + (j + INDEX_OFFSET) + SPACE + CLASS.COLORS;
+      tdDiv.style.backgroundColor = colors[i][j];
+      rowDiv.appendChild(tdDiv);
     }
   }
-  page.palette.appendChild(table);
+  page.palette.appendChild(tableDiv);
 });
 
 colorPalette = generatePaletteGrid();
