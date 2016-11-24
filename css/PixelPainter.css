@@ -1,0 +1,11 @@
+#box{
+	width: 500px;
+}
+
+.miniDiv{
+	display: inline-block;
+	background-color: #fff;
+	border: 1px solid;
+	width: 10px;
+	height: 10px;
+}
