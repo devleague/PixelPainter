@@ -29,6 +29,21 @@ var outline = document.getElementById('grid');
 	if(colorPallette.getContext){
 		var colorCtx = colorPallette.getContext('2d');
 
+//Trying to set a loop to create each pallete. Currently, code runs 12x and puts every color in each square. 
+/*var colorPix = ['red', 'green', 'blue', 'yellow', 'orange', 'purple', 'pink', 'brown', 'black', 'gray', 'white', 'gold'];
+		
+	for (var h=0; h<colorPix.length; h++){
+		for (var i=0; i<colorPix.length; i++){
+			for (var j=0; j<colorPix.length; j++){
+				colorCtx.fillStyle = colorPix[h];
+				console.log(colorPix[h]);
+				colorCtx.fillRect(j*50,i*50,50,50);
+				colorCtx.strokeRect(j*50, i*50, 50, 50);
+			}
+		}
+	}*/
+
+//Manually created a color pallete
 		colorCtx.fillStyle = 'red';
 		colorCtx.fillRect(0,0, 50, 50);
 		colorCtx.strokeRect(0,0, 50, 50);
@@ -76,14 +91,11 @@ var outline = document.getElementById('grid');
 		colorCtx.fillStyle = 'gold';
 		colorCtx.fillRect(100,150,50,50);
 		colorCtx.strokeRect(100,150, 50, 50);
-
-
-
-
-
-
-
 	}
+
+	return{
+
+	};
 }
 
 grid();
