@@ -10,12 +10,14 @@ canvas.style.border = '1px solid';
 pixelPainter.appendChild(canvas);
 var outline = document.getElementById('grid');
 
+for (var i=0; i<24; i++){
+	for (var j=0; j<24; j++)
 	if(outline.getContext){
 		var ctx = outline.getContext('2d');
 
-		ctx.strokeRect(0,25,25,25);
+		ctx.strokeRect(j*25,i*25,25,25);
 	}
-
+}
 //Create a function to draw on the canvas
 
 	var pallette = document.createElement('canvas');
