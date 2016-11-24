@@ -2,19 +2,19 @@ body {
   background-color: #DCDCDD;
   border-radius: 5px;
   color: black;
-
+  background-image: url('http://www.clipartbest.com/cliparts/4ib/4Bd/4ib4Bdbig.png')
 }
 
-#pallet {
-/*  background-color: #1985A1;
-*/  font-family: helvetica neue;
+h1 {
+  font-family: helvetica neue;
   padding: 5px;
+  font-family: Rockwell Extra Bold;
+  padding: 5;
   font-size: 50px;
 }
 
 .ppCanvas {
-/*  background-color: yellow;
-*/  width: 500px;
+  width: 500px;
   height: 500px;
   margin: 5px;
 }
@@ -28,8 +28,7 @@ body {
 }
 
 .colorCanvas {
-/*  background-color: green;
-*/  width: 90px;
+  width: 90px;
   height: 210px;
   border: 1px solid black;
   display: inline-block;
@@ -65,4 +64,3 @@ button{
   font size: 12px;
   border-radius: 4px;
 }*/
-
