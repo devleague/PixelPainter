@@ -6,6 +6,12 @@ function grid() {
 	container.id = 'box';
 	pixelPainter.appendChild(container);
 
+//Create Erase and Clear buttons
+	var eraser = document.createElement('button');
+	eraser.id = 'erase';
+	eraser.innerHTML = 'ERASE';
+	pixelPainter.appendChild(eraser);
+
 //Multiple Divs or 'Pixels'
 
 	function renderGrids(x){
@@ -15,6 +21,14 @@ function grid() {
 			container.appendChild(pixels);
 		}
 	}
+
+//Clear the grid
+
+/*	function clearGrids(x){
+		var clear = document.getElementByTagName('miniDiv');
+		clear.className = 'clear';
+
+	}*/
 
 renderGrids(1722);
 }
