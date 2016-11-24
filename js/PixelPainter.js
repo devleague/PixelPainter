@@ -1,14 +1,12 @@
 //function pixelPainter (width, height) {
-  var pixelPainter = document.createElement('div');
-  pixelPainter.id = 'palettte';
-  document.body.appendChild(pixelPainter);
-
   var pixelPainterCanvas = document.createElement('div');
   var colorSwatchesCanvas = document.createElement('div');
-
+  var pixelPainter = document.createElement('div');
   var whenClicked = null;
+  var color = ['262c04', 'ffc0cb', 'f2df4f', 'eeeeee', 'c6e2ff', '4169e1', '3b411d', 'f10714', '0d8163', '255083', '5f4236', '3496fa', 'fa02d4', '3ff206', '560e3f', '00fa9a', 'fadea', '8b0000',  'ff6666', 'c6e2ff', 'd3ffce', '7ffd4', 'b0e0e6', 'b6bb54', 'aa3b4e', 'b08125', 'orange', 'blue', 'purple', 'gray', 'black', 'teal'];
 
-  var color = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink', 'black', 'brown', 'gray'];
+  pixelPainter.id = 'palettte';
+  document.body.appendChild(pixelPainter);
 
   pixelPainterCanvas.className = 'ppCanvas';
   pixelPainter.appendChild(pixelPainterCanvas);
@@ -25,7 +23,6 @@
       swatchCanvasPixel.style.backgroundColor = color[x];
       swatchCanvasPixel.addEventListener('click', storeColorPicker);
     }
-     // pixelPainter.appendChild(swatchCanvasPixel);
   }
 
   //Pixel Painter Canvas
@@ -42,14 +39,10 @@
       });
       canvasPixel.addEventListener('mouseup', function(event) {mouseUp(event);
       });
-
     }
   }
 
-  ppCanvas(2500);
-  swCanvas(10);
-
-  // // colorPick is supposed to click the color from the swatches and store that vaule
+  // colorPick is supposed to click the color from the swatches and store that vaule
   function storeColorPicker(event) {
     currentColor = event.target.style.backgroundColor;
     console.log(event);
@@ -111,6 +104,5 @@
     }
   }
 
-
-
-//}
+  ppCanvas(2500);
+  swCanvas(32);
