@@ -25,7 +25,8 @@ h1 {
 }
 
 .colorCanvas {
-  width: 350px;
+  width: 150px;
+  height: 350px;
 /*  border: 1px solid black;
 */  display: inline-block;
   margin: 5px;
