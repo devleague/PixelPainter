@@ -1,13 +1,14 @@
 body {
-/*  background-color: #DCDCDD;
-*/  border-radius: 5px;
+  background-color: #DCDCDD;
+  border-radius: 5px;
   color: black;
+
 }
 
 #pallet {
 /*  background-color: #1985A1;
 */  font-family: helvetica neue;
-  padding: 5;
+  padding: 5px;
   font-size: 50px;
 }
 
@@ -27,8 +28,8 @@ body {
 }
 
 .colorCanvas {
-  background-color: green;
-  width: 90px;
+/*  background-color: green;
+*/  width: 90px;
   height: 210px;
   border: 1px solid black;
   display: inline-block;

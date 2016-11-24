@@ -26,7 +26,7 @@
       swatchCanvasPixel.style.backgroundColor = color[x];
       swatchCanvasPixel.addEventListener('click', storeColorPicker);
     }
-    // pixelPainter.appendChild(swatchCanvasPixel);
+     // pixelPainter.appendChild(swatchCanvasPixel);
   }
 
   //Pixel Painter Canvas
@@ -35,53 +35,61 @@
       var canvasPixel = document.createElement('div');
       canvasPixel.className = 'canvasPixelCell';
       pixelPainterCanvas.appendChild(canvasPixel);
-      canvasPixel.addEventListener('click', insertColorPicker);
-      canvasPixel.addEventListener('mouseDown', mouseDown);
-      // canvasPixel.addEventListener('mouseOver', mouseOver);
-      // canvasPixel.addEventListener('mouseUp', mouseUp);
+      // --------- EVENTLISTENERS -----------
+      canvasPixel.addEventListener('click', function() {insertColorPicker(this);
+      });
+      // canvasPixel.addEventListener('mouseDown', function() {mouseDown(this);
+      // });
+      canvasPixel.addEventListener('mouseOver', function() {colorContinous(this);
+      });
+      // canvasPixel.addEventListener('mouseUp', function() {mouseUp(this);
+      // });
     }
-   }
-
+  }
 
   ppCanvas(2500);
   swCanvas(10);
 
-
   // // colorPick is supposed to click the color from the swatches and store that vaule
   function storeColorPicker(event){
     currentColor = event.target.style.backgroundColor;
-    // console.log('hit');
     console.log(event);
   }
 
   function insertColorPicker(event){
-    if (event.target.style.backgroundColor === 'white'){
-      event.target.style.backgroundColor = currentColor;
-    }else if(event.target.style.backgroundColor !== 'white') {
-      event.target.style.backgroundColor = currentColor;
+    if (event.style.backgroundColor === 'white'){
+      event.style.backgroundColor = currentColor;
+    }else if(event.style.backgroundColor !== 'white') {
+      event.style.backgroundColor = currentColor;
     }
   }
 
-  function mouseDown(){
+  function mouseDown(event){
     whenClicked = true;
     if (whenClicked === true){
-      this.style.backgroundColor = currentColor;
+      event.style.backgroundColor = currentColor;
     }
   }
 
-  function mouseOver(){
+  function mouseOver(event){
     if (whenClicked === true){
-      this.style.backgroundColor = currentColor;
+      event.style.backgroundColor = currentColor;
     }
+  }
 
-  function mouseUp(){
+  function mouseUp(event){
     whenClicked = false;
     if (whenClicked === false){
-      this.style.backgroundColor = currentColor;
+      event.style.backgroundColor = currentColor;
     }
   }
 
+  function colorContinous(){
+    if('mouseDown'){
+      event.target.style.backgroundColor = currentColor;
+    }
   }
+
 
 
 
