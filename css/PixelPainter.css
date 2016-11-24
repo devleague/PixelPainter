@@ -1,19 +1,20 @@
 body {
 /*  background-color: #DCDCDD;
-*/  border-radius: 5px;
+*/border-radius: 5px;
   color: black;
+  background-image: url('http://www.clipartbest.com/cliparts/4ib/4Bd/4ib4Bdbig.png')
 }
 
-#pallet {
+h1 {
 /*  background-color: #1985A1;
-*/  font-family: helvetica neue;
+*/font-family: Rockwell Extra Bold;
   padding: 5;
   font-size: 50px;
 }
 
 .ppCanvas {
 /*  background-color: yellow;
-*/  width: 500px;
+*/width: 500px;
   height: 500px;
   margin: 5px;
 }
@@ -64,4 +65,3 @@ button{
   font size: 12px;
   border-radius: 4px;
 }*/
-
