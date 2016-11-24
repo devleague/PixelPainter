@@ -58,10 +58,11 @@ function createCanvas() {
         canvas.className = "canvasCells";
         canvas.style.height = pixelSize + "px";
         canvas.style.width = pixelSize + "px";
-        canvas.addEventListener("click",function() {
+        canvas.addEventListener("mousedown",function() {
         this.style.backgroundColor = cellColor});
         canvas.style.backgroundColor = 'white';
         insideCanvas.appendChild(canvas);
+        }
     }
     paintContainer.appendChild(insideCanvas);
   }
