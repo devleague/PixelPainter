@@ -73,16 +73,15 @@ let eraseButton = document.createElement("button");
  paintContainer.appendChild(eraseButton);
  eraseButton.addEventListener("click", eraseCell);
 
- function eraseCell(event) {
-   Array.prototype.forEach.call(canvasCells, function (cell) {
-     cell.addEventListener("click", function (event) {
-       event.target.style.backgroundColor = "#FFFFFF";
-     });
-   });
+ function eraseCell() {
+       cellColor = "#FFFFFF";
  }
+
 
  let clearButton = document.createElement("button");
  clearButton.className = "clearBtn";
  clearButton.innerHTML = "CLEAR";
  paintContainer.appendChild(clearButton);
  clearButton.addEventListener("click", clearCanvas);
+
+ let drawColor = instanceOfMouseEvent.buttons === 1;

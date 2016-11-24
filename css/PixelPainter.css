@@ -1,5 +1,5 @@
 body {
-  background-image: url("../img/BG-Image-PixelPainter.jpg");
+  background-image: url("../img/space.jpg");
   background-size: cover; 
   overflow: hidden;
 }
@@ -12,8 +12,8 @@ h1 {
   margin-left: 20px;
   padding: 15px;
   border-radius: 10%;
-  border: 2px #000 solid;
-  color: #000;
+  border: 2px white solid;
+  color: white;
   box-shadow: 20%;
  }
 
@@ -60,28 +60,29 @@ float: right;
 }
 
 .eraseBtn {
-margin-bottom: 20%;
+/* margin-bottom: 20%;
 clear: left;
-}
+ */}
 
 .clearBtn {
 clear: right;
-margin-top: 20%;
-margin-left: 5%
+/* margin-top: 20%;
+ */margin-left: 5%
 }
 
 button {
 display: inline;
+border-radius: 50%;
 width: 125px;
 height: 125px;
-margin: 5px auto;
-padding: 5px;
 font-size: 25px;
 font-style: oblique;
-color: black;
-border-radius: 50%;
 border: none;
- }
+/* margin: 5px auto;
+ padding: 5px;
+ color: black;
+
+  */ }
 
 button:hover {
   background-color: green;
