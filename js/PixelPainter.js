@@ -35,14 +35,14 @@
       canvasPixel.className = 'canvasPixelCell';
       pixelPainterCanvas.appendChild(canvasPixel);
       // --------- EVENTLISTENERS -----------
-      canvasPixel.addEventListener('click', function() {insertColorPicker(this);
+      canvasPixel.addEventListener('click', insertColorPicker);
+      canvasPixel.addEventListener('mousedown', function(event) {mouseDown(event);
       });
-      // canvasPixel.addEventListener('mouseDown', function() {mouseDown(this);
-      // });
-      canvasPixel.addEventListener('mouseOver', function() {colorContinous(this);
+      canvasPixel.addEventListener('mouseover', function(event) {mouseOver(event);
       });
-      // canvasPixel.addEventListener('mouseUp', function() {mouseUp(this);
-      // });
+      canvasPixel.addEventListener('mouseup', function(event) {mouseUp(event);
+      });
+
     }
   }
 
@@ -63,24 +63,25 @@
     }
   }
 
-  function mouseDown() {
+  function mouseDown(event) {
     whenClicked = true;
     if (whenClicked === true) {
-      this.style.backgroundColor = currentColor;
+      event.target.style.backgroundColor = currentColor;
     }
   }
 
-  function mouseOver() {
+  function mouseOver(event) {
     if (whenClicked === true) {
-      this.style.backgroundColor = currentColor;
+      event.target.style.backgroundColor = currentColor;
     }
+    console.log(evt);
   }
 
 
-  function mouseUp() {
+  function mouseUp(event) {
     whenClicked = false;
     if (whenClicked === false) {
-      this.style.backgroundColor = currentColor;
+      event.target.style.backgroundColor = currentColor;
     }
   }
 
