@@ -44,7 +44,7 @@ function createCanvas() {
         canvas.parentNode.removeChild(canvas);
     }
 
-    let canvasTotal = 50;
+    let canvasTotal = 45;
     let pixelSize = 15;
 
     let insideCanvas = document.createElement("div");
@@ -85,5 +85,21 @@ let eraseButton = document.createElement("button");
  paintContainer.appendChild(clearButton);
  clearButton.addEventListener("click", clearCanvas);
 
- let drawColor = instanceOfMouseEvent.buttons === 1;
+ function clearCanvas() {
+  for (var i = 0; i < document.querySelectorAll('.canvasCells').length; i++){
+    document.querySelectorAll('.canvasCells')[i].style.backgroundColor = 'white';
+  }
+ }
+
+ let drawColor = document.createElement("button");
+ drawColor.className = "draw";
+ drawColor.innerHTML = "DRAW";
+ paintContainer.appendChild(drawColor);
+ drawColor.addEventListener("click", drag);
+
+ function drag() {
+  if (event.drag === 1){
+    return cellColor;
+  }
+ }
 
