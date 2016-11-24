@@ -1,43 +1,89 @@
 
-//This is the container that holds the paint palette and buttons
-var paintContainer = document.querySelector("pixelPainter");
+let paintContainer = document.querySelector("#pixelPainter");
+let cellColor = '';
+function createGrid() {
 
-//These are the containers for the left side and title
-var colorGrid = document.createElement("div");
-colorGrid.className = "colorGrid";
+    let grid = document.getElementById("colorSelector");
+    if (grid) {
+        grid.parentNode.removeChild(grid);
+    }
 
+    let gridTotal = 10;
+    let size = 25;
 
-var title = document.createElement("div");
-title.className = "title";
+    let container = document.createElement("div");
+    container.id = "colorSelector";
+    container.className = "container";
+    container.style.width = (gridTotal * size) + "px";
+    container.style.height = (gridTotal * size) + "px";
 
-
-var header = document.querySelector("h1");
-header.className = "header";
-colorGrid.appendChild(title);
-
-//grid for color palette
-var paintTable = document.createElement("table");
-paintTable.id = "pp-colors";
-
-
-// function for erase
-
-//function for reset
-
-//function to create paint grid
-
-var paintGrid = createGrid(12, 5, {class: "paint"});
-paintGrid.id = "paintcolors";
-paintGrid.appendChild(colorGrid);
-
-//for loop to create a random color palette
-function randomColor(colors) {
-  var rbgValue = '0123456789ABCDEF'.split(' ');
-  var color = '#';
-  for(var i = 0; i < 6; i++){
-    color += rbgValue[Math.floor(Math.random() * 25)].toString(25);
+    for (let i = 0, len = gridTotal * gridTotal; i < len; i++) {
+        grid = document.createElement("div");
+        grid.className = "cell";
+        grid.style.height = size + "px";
+        grid.style.width = size + "px";
+        grid.addEventListener("click",function() {
+        cellColor = this.style.backgroundColor});
+        grid.style.backgroundColor = magic();
+        container.appendChild(grid);
+    }
+    paintContainer.appendChild(container);
   }
-  return color;
-}
 
+function magic()
+  {let r = function () { return Math.floor(Math.random()*256);};
+    return "rgb(" + r() + "," + r() + "," + r() + ")";
+  }
+
+createGrid();
+
+function createCanvas() {
+
+    let canvas = document.getElementById("randomBlock");
+    if (canvas) {
+        canvas.parentNode.removeChild(canvas);
+    }
+
+    let canvasTotal = 50;
+    let pixelSize = 15;
+
+    let insideCanvas = document.createElement("div");
+    insideCanvas.id = "randomBlock";
+    insideCanvas.className = "insideCanvas";
+    insideCanvas.style.width = (canvasTotal * pixelSize) + "px";
+    insideCanvas.style.height = (canvasTotal * pixelSize) + "px";
+
+    for (let i = 0, len = canvasTotal * canvasTotal; i < len; i++) {
+        canvas = document.createElement("div");
+        canvas.className = "canvasCells";
+        canvas.style.height = pixelSize + "px";
+        canvas.style.width = pixelSize + "px";
+        canvas.addEventListener("click",function() {
+        this.style.backgroundColor = cellColor});
+        canvas.style.backgroundColor = 'white';
+        insideCanvas.appendChild(canvas);
+    }
+    paintContainer.appendChild(insideCanvas);
+  }
+
+  createCanvas();
+
+let eraseButton = document.createElement("button");
+ eraseButton.className = "eraseBtn";
+ eraseButton.innerHTML = "ERASE";
+ paintContainer.appendChild(eraseButton);
+ eraseButton.addEventListener("click", eraseCell);
+
+ function eraseCell() {
+       cellColor = "#FFFFFF";
+ }
+
+
+ let clearButton = document.createElement("button");
+ clearButton.className = "clearBtn";
+ clearButton.innerHTML = "CLEAR";
+ paintContainer.appendChild(clearButton);
+ clearButton.addEventListener("click", clearCanvas);
+
+ let drawColor = instanceOfMouseEvent.buttons === 1;
 
