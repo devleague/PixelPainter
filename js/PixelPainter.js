@@ -48,61 +48,66 @@
     console.log(event);
   }
 
-  function insertColorPicker(event) {
-    if (event.target.style.backgroundColor === 'white') {
-      event.target.style.backgroundColor = currentColor;
-    } else if (event.target.style.backgroundColor !== 'white') {
-      event.target.style.backgroundColor = currentColor;
-    }
+ppCanvas(2500);
+swCanvas(10);
+
+function storeColorPicker(event) {
+  currentColor = event.target.style.backgroundColor;
+  console.log(event);
+}
+
+function insertColorPicker(event) {
+  if (event.target.style.backgroundColor === 'white') {
+    event.target.style.backgroundColor = currentColor;
+  } else if (event.target.style.backgroundColor !== 'white') {
+    event.target.style.backgroundColor = currentColor;
   }
+}
 
-  function mouseDown(event) {
-    whenClicked = true;
-    if (whenClicked === true) {
-      event.target.style.backgroundColor = currentColor;
-    }
+function mouseDown(event) {
+  whenClicked = true;
+  if (whenClicked === true) {
+    event.target.style.backgroundColor = currentColor;
   }
+}
 
-  function mouseOver(event) {
-    if (whenClicked === true) {
-      event.target.style.backgroundColor = currentColor;
-    }
-    console.log(evt);
+function mouseOver(event) {
+  if (whenClicked === true) {
+    event.target.style.backgroundColor = currentColor;
   }
+}
 
-
-  function mouseUp(event) {
-    whenClicked = false;
-    if (whenClicked === false) {
-      event.target.style.backgroundColor = currentColor;
-    }
+function mouseUp(event) {
+  whenClicked = false;
+  if (whenClicked === false) {
+    event.target.style.backgroundColor = currentColor;
   }
+}
 
-  function colorContinous(){
-    if('mouseDown'){
-      event.target.style.backgroundColor = currentColor;
-    }
+function colorContinous(){
+  if('mouseDown'){
+    event.target.style.backgroundColor = currentColor;
   }
+}
 
-  var eraseButton = document.createElement('button');
-  eraseButton.innerHTML = "Erase";
-  pixelPainter.appendChild(eraseButton);
-  eraseButton.addEventListener('click', erase);
+var eraseButton = document.createElement('button');
+eraseButton.className = 'buttons';
+eraseButton.innerHTML = "Erase";
+pixelPainter.appendChild(eraseButton);
+eraseButton.addEventListener('click', erase);
 
-  var clearButton = document.createElement('button');
-  clearButton.innerHTML = "Clear";
-  pixelPainter.appendChild(clearButton);
-  clearButton.addEventListener('click', clear);
+var clearButton = document.createElement('button');
+clearButton.className = 'buttons';
+clearButton.innerHTML = "Clear";
+pixelPainter.appendChild(clearButton);
+clearButton.addEventListener('click', clear);
 
-  function erase(event) {
-    currentColor = 'white';
+function erase(event) {
+  currentColor = 'white';
+}
+
+function clear(event) {
+  for(var i = 0; i < document.querySelectorAll('.canvasPixelCell').length; i++) {
+    document.querySelectorAll('.canvasPixelCell')[i].style.backgroundColor = 'white';
   }
-
-  function clear(event) {
-    for(var i = 0; i < document.querySelectorAll('.canvasPixelCell').length; i++) {
-        document.querySelectorAll('.canvasPixelCell')[i].style.backgroundColor = 'white';
-    }
-  }
-
-  ppCanvas(2500);
-  swCanvas(33);
+}
