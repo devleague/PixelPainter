@@ -1,3 +1,4 @@
+
 /* ----------- Non-Retina Screens ----------- */
 @media screen
   and (min-device-width: 1200px)
@@ -97,12 +98,13 @@ border: none;
  padding: 5px;
  color: black;
 
-  */ }
+  */
+}
 
 button:hover {
   background-color: green;
-
  }
+
 
  button:active {
    background-color: red;

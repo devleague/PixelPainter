@@ -30,7 +30,9 @@ function createGrid() {
     paintContainer.appendChild(container);
   }
 
+
 function magic()
+
   {let r = function () { return Math.floor(Math.random()*256);};
     return "rgb(" + r() + "," + r() + "," + r() + ")";
   }
@@ -44,7 +46,8 @@ function createCanvas() {
         canvas.parentNode.removeChild(canvas);
     }
 
-    let canvasTotal = 45;
+    let canvasTotal = 50;
+
     let pixelSize = 15;
 
     let insideCanvas = document.createElement("div");
@@ -58,11 +61,11 @@ function createCanvas() {
         canvas.className = "canvasCells";
         canvas.style.height = pixelSize + "px";
         canvas.style.width = pixelSize + "px";
-        canvas.addEventListener("mousedown",function() {
+        canvas.addEventListener("click",function() {
         this.style.backgroundColor = cellColor});
         canvas.style.backgroundColor = 'white';
         insideCanvas.appendChild(canvas);
-        }
+
     }
     paintContainer.appendChild(insideCanvas);
   }
@@ -91,16 +94,3 @@ let eraseButton = document.createElement("button");
     document.querySelectorAll('.canvasCells')[i].style.backgroundColor = 'white';
   }
  }
-
- let drawColor = document.createElement("button");
- drawColor.className = "draw";
- drawColor.innerHTML = "DRAW";
- paintContainer.appendChild(drawColor);
- drawColor.addEventListener("click", drag);
-
- function drag() {
-  if (event.drag === 1){
-    return cellColor;
-  }
- }
-
