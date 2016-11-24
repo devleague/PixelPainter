@@ -12,6 +12,11 @@ function grid() {
 	eraser.innerHTML = 'ERASE';
 	pixelPainter.appendChild(eraser);
 
+	var clear = document.createElement('button');
+	clear.id = 'clears';
+	clear.innerHTML = 'CLEAR';
+	pixelPainter.appendChild(clear);
+
 //Multiple Divs or 'Pixels'
 
 	function renderGrids(x){
