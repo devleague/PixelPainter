@@ -1,6 +1,5 @@
 function grid() {
 
-<<<<<<< HEAD
 //Container for the multiple divs
 	var container = document.createElement('div');
 	container.id = 'box';
@@ -41,7 +40,7 @@ renderGrids(1722);
 
 clearGrids();
 }
-=======
+
 	function colorSelector(){
 
 		var pallet = document.createElement('div');
@@ -88,5 +87,4 @@ clearGrids();
 
 	}
 
->>>>>>> master
 grid();
