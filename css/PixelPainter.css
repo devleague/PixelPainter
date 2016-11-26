@@ -36,7 +36,7 @@ h1 {
 #pixelPainter {
   container for all elements
   margin: 25px auto;
-  width: 85%;
+  width: 80%;
   height: 700px;
   box-sizing: border-box;
   margin-left: 30px;
@@ -77,12 +77,12 @@ float: right;
 }
 
 .eraseBtn {
-margin-left: 30px;}
+margin-left: 40px;}
 
 .clearBtn {
 clear: right;
  margin-top: 15px;
- margin-left: 30px;
+ margin-left: 40px;
 
 }
 
