@@ -49,7 +49,7 @@
   }
 
 ppCanvas(2500);
-swCanvas(10);
+swCanvas(33);
 
 function storeColorPicker(event) {
   currentColor = event.target.style.backgroundColor;

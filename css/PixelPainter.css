@@ -50,12 +50,11 @@ h1 {
   display: inline-block;
 }
 
-<<<<<<< HEAD
 #swatchCanvasPixel{
   height: 100px;
   width: 100px;
 }
-=======
+
 #swatchCanvasPixel {
   height: 50px;
   width: 50px;
