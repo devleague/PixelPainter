@@ -21,8 +21,8 @@ body {
 }
 
 h1 {
-  width: 125px;
-  height: 100px;
+  width: 200px;
+  height: 50px;
   line-height: 40px;
   margin-top: 18px;
   margin-left: 20px;
@@ -36,9 +36,10 @@ h1 {
 #pixelPainter {
   container for all elements
   margin: 25px auto;
-  width: 75%;
+  width: 85%;
   height: 700px;
   box-sizing: border-box;
+  margin-left: 30px;
 }
 
 .cell {
@@ -76,14 +77,13 @@ float: right;
 }
 
 .eraseBtn {
-/* margin-bottom: 20%;
-clear: left;
- */}
+margin-left: 30px;}
 
 .clearBtn {
 clear: right;
-/* margin-top: 20%;
- */margin-left: 5%
+ margin-top: 15px;
+ margin-left: 30px;
+
 }
 
 button {

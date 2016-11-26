@@ -65,9 +65,17 @@ function createCanvas() {
         this.style.backgroundColor = cellColor});
         canvas.style.backgroundColor = 'white';
         insideCanvas.appendChild(canvas);
-
-    }
-    paintContainer.appendChild(insideCanvas);
+        canvas.addEventListener('mouseover', function(){
+        if (event.buttons === 1) {
+            if (event.shiftKey) {
+              this.style.backgroundColor = 'white';
+            } else {
+              this.style.backgroundColor = cellColor;
+            }
+          }
+        });
+       }
+        paintContainer.appendChild(insideCanvas);
   }
 
   createCanvas();
@@ -82,7 +90,6 @@ let eraseButton = document.createElement("button");
        cellColor = "#FFFFFF";
  }
 
-
  let clearButton = document.createElement("button");
  clearButton.className = "clearBtn";
  clearButton.innerHTML = "CLEAR";
@@ -93,4 +100,4 @@ let eraseButton = document.createElement("button");
   for (var i = 0; i < document.querySelectorAll('.canvasCells').length; i++){
     document.querySelectorAll('.canvasCells')[i].style.backgroundColor = 'white';
   }
- }
+}
