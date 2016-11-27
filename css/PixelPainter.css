@@ -15,36 +15,58 @@
 }
 
 body {
-  background-image: url("../img/space.jpg");
-  background-size: cover;
-  overflow: hidden;
+  background-image: url("../img/Pastel background.png");
+  /*background-size: cover;*/
+  /*overflow: hidden;*/
 }
 
 h1 {
-  width: 200px;
-  height: 50px;
+  width: 220px;
+  height: 40px;
+  position: relative;
+  text-align: center;
   line-height: 40px;
-  margin-top: 18px;
-  margin-left: 30px;
+  margin-left: 285px;
   padding: 15px;
-  border-radius: 10%;
-  border: 2px white solid;
   color: white;
+  font-size: 50px;
   box-shadow: 20%;
  }
 
 #pixelPainter {
   container for all elements
   margin: 25px auto;
-  width: 80%;
+  background-image: url("../img/light_background-t2.jpg");
+  background-repeat: no-repeat;
+  width: 100%;
+  align-content: stretch;
   height: 700px;
   box-sizing: border-box;
-  margin-left: 30px;
-  margin-top: 30px;
+  margin-left: 40px;
+  margin-top: 40px;
+  }
+
+.paintDiv {
+  display: inline-flex;
+  flex-direction: column;
+
+  width: 25%;
+  height: 100%;
+  float: left;
+  align-items: center;
+  margin-right: 30px;
+
 }
 
 .cell {
 float: left;
+opacity: 0.5;
+}
+
+.cell:hover {
+  width: 50px;
+  height: 50px;
+  opacity: 1.0;
 }
 
 .canvasCells {
@@ -55,7 +77,7 @@ box-sizing: border-box;
 }
 
 .container {
-float: left;
+
 border: solid #000;
 border-style: solid;
 border-width: 5px;
@@ -67,6 +89,7 @@ border-style: solid;
 border-width: 4px;
 border-color: black;
 float: right;
+
 }
 
 #insideCanvas {
@@ -77,24 +100,65 @@ box-sizing: border-box;
 float: right;
 }
 
-.eraseBtn {
-margin-left: 40px;}
 
-.clearBtn {
-clear: right;
- margin-top: 15px;
- margin-left: 40px;
+
+.canvasDiv {
+  display: flex;
+  align-items: center;
 
 }
 
+.buttons {
+  width:260px;
+  margin-top: 10px;
+  font-family: inherit;
+
+}
+
+.eraseBtn {
+/*margin-left: 40px;*/
+background-color: #ffb3b3;
+width: 260px;
+height: 75px;
+
+}
+
+.clearBtn {
+/*clear: right;*/
+ /*margin-top: px;
+ margin-left: 10px;*/
+background-color: #b3f0ff;
+width: 260px;
+height: 75px;
+
+}
+
+.saveBtn {
+  /*float: right;*/
+  /*margin-top: 10px;
+  margin-right: 10px;*/
+background-color: #ffff99;
+width: 260px;
+height: 75px;
+
+}
+
+.loadBtn {
+background-color: #99ff99;
+width: 260px;
+height: 75px;
+
+  /*margin-top: 10px;*/
+}
+
 button {
-display: inline;
-border-radius: 50%;
+/*border-radius: 50%;*/
 width: 125px;
 height: 125px;
 font-size: 25px;
 font-style: oblique;
 border: none;
+opacity: 0.5;
 /* margin: 5px auto;
  padding: 5px;
  color: black;
@@ -103,12 +167,16 @@ border: none;
 }
 
 button:hover {
-  background-color: green;
+  /*background-color: green;*/
+  opacity: 1.0;
  }
 
 
  button:active {
    background-color: red;
+
  }
+
+
 
 
