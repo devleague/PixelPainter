@@ -113,6 +113,9 @@ Array.prototype.forEach.call(canvasCells, function (cell) {
   cell.addEventListener("mouseup", endColor);
 });
 
+//stops painting when mouse leaves canvas
+canvasGrid.addEventListener("mouseleave", endColor);
+
 //set default paint color to white
 var getColor = "#FFFFFF";
 //function to pick and store color chosen
