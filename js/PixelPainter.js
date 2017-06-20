@@ -1,41 +1,51 @@
 window.PixelPainter = (function(){
 
-  let module = {};
+  let pixelPainter = {};
 
   const doc = document;
   const body = document.querySelector('body');
+  let currColor = "color";
+  let e = event;
 
+  pixelPainter.setColor = function(color){
+    currColor = color;
+  }
 
+  pixelPainter.getColor = function(){
+    return currColor;
+  }
 
-  module.createGrid  = function(width, height, fill){
+  pixelPainter.createGrid  = function(width, height, className, fill){
     doc.documentElement.style.setProperty("--rowNum", width);
     doc.documentElement.style.setProperty("--colNum", height);
     let mainDiv = doc.createElement("div");
     mainDiv.setAttribute("class", "wrapper");
     for (var i = 0; i < width * height; i++) {
 
-      let classVar = "box " + i;
+      let classVar = className + i;
       let idVar = "id_" + i;
       let subDiv = document.createElement("div");
       subDiv.setAttribute("class", classVar);
       subDiv.setAttribute("id", idVar);
-
-      let newP = doc.createElement("p");
-      newP.setAttribute("background-color", fill[i]);
-      newP.innerHTML = i;
-      subDiv.appendChild(newP);
+      subDiv.setAttribute("style", "background-color:" + fill[i]);
+      subDiv.addEventListener("click", PixelPainter.assignColor);
 
       mainDiv.append(subDiv);
     }
     doc.body.appendChild(mainDiv);
   }
 
+  pixelPainter.assignColor = function(e){
+        currentColor = e.currentTarget.style.getPropertyValue("background-color");
+        currColor = currentColor;
+        PixelPainter.setColor(currentColor);
+  }
 
-
-  return module;
+  return pixelPainter;
 
 })();
 
-var fill = ["#fff", "red", "yellow", "rgb(251, 183, 255)"];
+var fill = ["orange", "red", "yellow", "rgb(251, 183, 255)"];
 
-PixelPainter.createGrid(2, 2, fill);
+PixelPainter.createGrid(2, 2, "box ", fill);
+
