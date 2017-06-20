@@ -1,0 +1,27 @@
+:root {
+  --rowNum: 4;
+  --colNum: 5;
+  --gridRows: 25px;
+  --wrapperH: 40px; // for demonstrating the use of CSS Variables
+}
+
+
+body {
+  margin: 40px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(var(--colNum), 25px);
+  grid-template-rows: repeat(var(--rowNum), 25px);
+  background-color: #fff;
+  color: #fff;
+}
+
+.box {
+  background-color: #fff;
+  color: 444;
+  border: 1px solid black;
+  padding: 0px;
+
+}
