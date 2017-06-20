@@ -12,13 +12,21 @@ body {
 
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(var(--colNum), 25px);
-  grid-template-rows: repeat(var(--rowNum), 25px);
+  grid-template-columns: repeat(var(--colNum), 15px);
+  grid-template-rows: repeat(var(--rowNum), 15px);
   /*background-color: #fff;
   color: #fff;*/
 }
 
 .box {
+  /*background-color: #fff;*/
+  /*color: 444;*/
+  border: 1px solid black;
+  /*padding: 0px;*/
+
+}
+
+.grid {
   /*background-color: #fff;*/
   /*color: 444;*/
   border: 1px solid black;
