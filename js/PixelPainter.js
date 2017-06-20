@@ -7,8 +7,6 @@ window.PixelPainter = (function(){
   let currColor = "color";
   let e = event;
 
-
-
   pixelPainter.setColor = function(color){
     currColor = color;
   }
@@ -17,10 +15,10 @@ window.PixelPainter = (function(){
     return currColor;
   }
 
-  pixelPainter.createGrid = function(width, height, className, func, fill) {
+  pixelPainter.createGrid = function(width, height, className, evnt, func, fill) {
     var f;
     if (func === 1) { f = PixelPainter.assignColor; };
-    if (func === 2) { f = PixelPainter.paint; }
+    if (func === 2) { f = PixelPainter.paint; };
 
     doc.documentElement.style.setProperty("--rowNum", width);
     doc.documentElement.style.setProperty("--colNum", height);
@@ -33,21 +31,34 @@ window.PixelPainter = (function(){
       let subDiv = document.createElement("div");
       subDiv.setAttribute("class", classVar);
       subDiv.setAttribute("id", idVar);
-      subDiv.setAttribute("style", "background-color:" + fill[i]);
-      subDiv.addEventListener("click", f);
+      var myColor = "";
+      if (fill[i] === undefined && func === 1) {
+        myColor = generateColor();
+      }
+      else if (func === 1) { myColor = fill[i]; }
+      else { myColor = "white"; }
+
+      subDiv.setAttribute("style", "background-color:" + myColor);
+      subDiv.addEventListener(evnt, f);
 
       mainDiv.append(subDiv);
     }
     doc.body.appendChild(mainDiv);
   }
 
+  function generateColor() {
+    var r = Math.floor(Math.random() * 256);
+    var g = Math.floor(Math.random() * 256);
+    var b = Math.floor(Math.random() * 256);
+    return "rgb(" + r + "," + g + "," + b + ")";
+  }
+
   pixelPainter.paint = function(e){
-      e.currentTarget.style.setPropertyValue("background-color") = pixelPainter.getColor();
-      alert(e.currentTarget.style.setPropertyValue("background-color"));
+      e.currentTarget.style.setProperty("background-color", PixelPainter.getColor());
   }
 
   pixelPainter.assignColor = function(e){
-        currentColor = e.currentTarget.style.setPropertyValue("background-color");
+        currentColor = e.currentTarget.style.getPropertyValue("background-color");
         currColor = currentColor;
         PixelPainter.setColor(currentColor);
   }
@@ -58,9 +69,7 @@ window.PixelPainter = (function(){
 
 
   var fill = ["orange", "red", "yellow", "rgb(251, 183, 255)"];
-
-  PixelPainter.createGrid(2, 30, "box ", 1, fill);
+  PixelPainter.createGrid(2, 30, "box ", 'click', 1, fill);
 
   var fill2 = ["white", "white"];
-
-  PixelPainter.createGrid(3, 30, "box ", 2, fill2);
+  PixelPainter.createGrid(10, 30, "grid ", 'mousemove', 2, fill2);

@@ -12,8 +12,8 @@ body {
 
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(var(--colNum), 15px);
-  grid-template-rows: repeat(var(--rowNum), 15px);
+  grid-template-columns: repeat(var(--colNum), 10px);
+  grid-template-rows: repeat(var(--rowNum), 10px);
   /*background-color: #fff;
   color: #fff;*/
 }
@@ -29,6 +29,7 @@ body {
 .grid {
   /*background-color: #fff;*/
   /*color: 444;*/
+  border-top: 1px solid black;
   border: 1px solid black;
   /*padding: 0px;*/
 
