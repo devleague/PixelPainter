@@ -1,0 +1,74 @@
+:root {
+  --rowNum1: 4;
+  --colNum1: 5;
+  --rowNum2: 4;
+  --colNum2: 5;
+  --gridRows: 25px;
+  --wrapperH: 40px; // for demonstrating the use of CSS Variables
+}
+
+
+body {
+  margin: 40px;
+  background-color: darkgray;
+
+}
+
+h1{
+  text-align: center;
+  font: Arial;
+  border: 2px solid black;
+  background-color: white;
+}
+
+button {
+  margin: 10px;
+  background-color: blue; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 8px;
+  /*float:left;*/
+}
+
+button:hover {
+    background-color: purple; /* Green */
+    color: white;
+}
+
+/*color-swatch grid*/
+.wrapper1 {
+  display: grid;
+  grid-template-columns: repeat(var(--colNum1), 15px);
+  grid-template-rows: repeat(var(--rowNum1), 15px);
+  margin: 10px;
+  float: left;
+
+}
+
+/*canvas grid*/
+.wrapper2 {
+  display: grid;
+  grid-template-columns: repeat(var(--colNum2), 10px);
+  grid-template-rows: repeat(var(--rowNum2), 10px);
+  float: center;
+
+}
+
+/*divs in color-swatch grid*/
+.box {
+  border: 1px solid black;
+}
+
+.box:hover {
+  border: 1px solid red;
+}
+
+/*divs in canvas grid*/
+.grid {
+  border: .1px solid lightgray;
+}
