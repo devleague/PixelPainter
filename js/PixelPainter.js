@@ -44,7 +44,7 @@ window.PixelPainter = (function(){
       if (f === 2) {
         let func = PixelPainter.paint;
         subDiv.addEventListener("mousedown", func);
-        subDiv.addEventListener("mousemove", func);
+        //subDiv.addEventListener("mousemove", func);
         subDiv.addEventListener("mouseup", func);
       };
 
@@ -57,11 +57,15 @@ window.PixelPainter = (function(){
     if (e.type == "mousedown"){
       console.log("Mouse Down");
       e.target.style.setProperty("background-color", PixelPainter.getColor());
+      let func = PixelPainter.paint;
+      e.target.addEventListener("mousemove", func);
     } else if (e.type == "mousemove") {
       console.log("Mouse Move");
-      e.target.style.setProperty("background-color", PixelPainter.getColor());
+      e.currentTarget.style.setProperty("background-color", PixelPainter.getColor());
     } else if (e.type == "mouseup"){
       console.log("Mouse Up");
+      let func = PixelPainter.paint;
+      e.target.removeEventListener("mousemove", func);
     }
   }
 
