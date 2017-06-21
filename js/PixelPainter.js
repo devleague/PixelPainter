@@ -18,10 +18,10 @@ window.PixelPainter = (function(){
 
   paint.createGrid = function(width, height, className, f, fill) {
 
-    doc.documentElement.style.setProperty("--rowNum", width);
-    doc.documentElement.style.setProperty("--colNum", height);
+    doc.documentElement.style.setProperty("--rowNum" + String(f), width);
+    doc.documentElement.style.setProperty("--colNum" + String(f), height);
     let mainDiv = doc.createElement("div");
-    mainDiv.setAttribute("class", "wrapper");
+    mainDiv.setAttribute("class", "wrapper" + f);
     for (var i = 0; i < width * height; i++) {
 
       let classVar = className + i;
@@ -62,7 +62,7 @@ window.PixelPainter = (function(){
       flag = true;
     } else if (e.type == "mousemove") {
       console.log("Mouse Move");
-      if (flag) { e.currentTarget.style.setProperty("background-color", PixelPainter.getColor()); }
+      if (flag) { e.target.style.setProperty("background-color", PixelPainter.getColor()); }
     } else if (e.type == "mouseup"){
       console.log("Mouse Up");
       flag = false;
@@ -79,6 +79,8 @@ window.PixelPainter = (function(){
     newButton.innerHTML = name;
     newButton.addEventListener("click", f);
     doc.body.appendChild(newButton);
+    let br = doc.createElement("br");
+    doc.body.appendChild(br);
   }
 
   paint.erase = function(e){
@@ -116,8 +118,8 @@ window.PixelPainter = (function(){
   PixelPainter.createButton("Clear", 2);
 
   //generate grids
-  var fill = ["orange", "red", "yellow", "rgb(251, 183, 255)"];
-  PixelPainter.createGrid(2, 30, "box ", 1, fill);
+  var fill = ["black", "white", "brown", "gray", "red", "orange", "yellow", "green", "blue", "indigo", "violet", "purple"];
+  PixelPainter.createGrid(30, 2, "box ", 1, fill);
 
   var fill2 = ["white", "white"];
-  PixelPainter.createGrid(10, 30, "grid ", 2, fill2);
+  PixelPainter.createGrid(50, 50, "grid ", 2, fill2);

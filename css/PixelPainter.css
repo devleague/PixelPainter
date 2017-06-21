@@ -1,6 +1,8 @@
 :root {
-  --rowNum: 4;
-  --colNum: 5;
+  --rowNum1: 4;
+  --colNum1: 5;
+  --rowNum2: 4;
+  --colNum2: 5;
   --gridRows: 25px;
   --wrapperH: 40px; // for demonstrating the use of CSS Variables
 }
@@ -8,12 +10,33 @@
 
 body {
   margin: 40px;
+
 }
 
-.wrapper {
+title {
+  text-align: center;
+  font: Arial;
+}
+
+button {
+  margin: 10px;
+}
+
+.wrapper1 {
   display: grid;
-  grid-template-columns: repeat(var(--colNum), 10px);
-  grid-template-rows: repeat(var(--rowNum), 10px);
+  grid-template-columns: repeat(var(--colNum1), 15px);
+  grid-template-rows: repeat(var(--rowNum1), 15px);
+  margin: 10px;
+  float: left;
+  /*background-color: #fff;
+  color: #fff;*/
+}
+
+.wrapper2 {
+  display: grid;
+  grid-template-columns: repeat(var(--colNum2), 10px);
+  grid-template-rows: repeat(var(--rowNum2), 10px);
+  float: center;
   /*background-color: #fff;
   color: #fff;*/
 }
@@ -29,8 +52,8 @@ body {
 .grid {
   /*background-color: #fff;*/
   /*color: 444;*/
-  border-top: 1px solid black;
-  border: 1px solid black;
+  border: 1px solid lightgray;
+  ;*/
   /*padding: 0px;*/
 
 }
