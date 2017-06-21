@@ -10,50 +10,65 @@
 
 body {
   margin: 40px;
+  background-color: darkgray;
 
 }
 
-title {
+h1{
   text-align: center;
   font: Arial;
+  border: 2px solid black;
+  background-color: white;
 }
 
 button {
   margin: 10px;
+  background-color: blue; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 8px;
+  /*float:left;*/
 }
 
+button:hover {
+    background-color: purple; /* Green */
+    color: white;
+}
+
+/*color-swatch grid*/
 .wrapper1 {
   display: grid;
   grid-template-columns: repeat(var(--colNum1), 15px);
   grid-template-rows: repeat(var(--rowNum1), 15px);
   margin: 10px;
   float: left;
-  /*background-color: #fff;
-  color: #fff;*/
+
 }
 
+/*canvas grid*/
 .wrapper2 {
   display: grid;
   grid-template-columns: repeat(var(--colNum2), 10px);
   grid-template-rows: repeat(var(--rowNum2), 10px);
   float: center;
-  /*background-color: #fff;
-  color: #fff;*/
+
 }
 
+/*divs in color-swatch grid*/
 .box {
-  /*background-color: #fff;*/
-  /*color: 444;*/
   border: 1px solid black;
-  /*padding: 0px;*/
-
 }
 
-.grid {
-  /*background-color: #fff;*/
-  /*color: 444;*/
-  border: 1px solid lightgray;
-  ;*/
-  /*padding: 0px;*/
+.box:hover {
+  border: 1px solid red;
+}
 
+/*divs in canvas grid*/
+.grid {
+  border: .1px solid lightgray;
 }
