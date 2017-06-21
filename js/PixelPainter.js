@@ -1,21 +1,21 @@
 window.PixelPainter = (function(){
 
-  let pixelPainter = {};
+  let paint = {};
 
   const doc = document;
   const body = document.querySelector('body');
-  let currColor = "color";
+  let currentColor = "color";
   let e = event;
 
-  pixelPainter.setColor = function(color){
-    currColor = color;
+  paint.setColor = function(color){
+    currentColor = color;
   }
 
-  pixelPainter.getColor = function(){
-    return currColor;
+  paint.getColor = function(){
+    return currentColor;
   }
 
-  pixelPainter.createGrid = function(width, height, className, evnt, func, fill) {
+  paint.createGrid = function(width, height, className, evnt, func, fill) {
     var f;
     if (func === 1) { f = PixelPainter.assignColor; };
     if (func === 2) { f = PixelPainter.paint; };
@@ -46,6 +46,30 @@ window.PixelPainter = (function(){
     doc.body.appendChild(mainDiv);
   }
 
+  paint.createButton = function(name, f){
+    if (f === 1) { f = PixelPainter.erase; };
+    if (f === 2) { f = PixelPainter.clear; };
+
+    let newButton = doc.createElement("button");
+    newButton.setAttribute("id", name);
+    newButton.innerHTML = name;
+    newButton.addEventListener("click", f);
+    doc.body.appendChild(newButton);
+  }
+
+  paint.erase = function(e){
+    PixelPainter.setColor("white");
+  }
+
+  paint.clear = function(e){
+    var gridDivs = doc.getElementsByClassName("grid");
+    i = gridDivs.length;
+    while (i--){
+      gridDivs[i].style.backgroundColor = "white";
+
+    }
+  }
+
   function generateColor() {
     var r = Math.floor(Math.random() * 256);
     var g = Math.floor(Math.random() * 256);
@@ -53,21 +77,25 @@ window.PixelPainter = (function(){
     return "rgb(" + r + "," + g + "," + b + ")";
   }
 
-  pixelPainter.paint = function(e){
+  paint.paint = function(e){
       e.currentTarget.style.setProperty("background-color", PixelPainter.getColor());
   }
 
-  pixelPainter.assignColor = function(e){
+  paint.assignColor = function(e){
         currentColor = e.currentTarget.style.getPropertyValue("background-color");
-        currColor = currentColor;
         PixelPainter.setColor(currentColor);
   }
 
-  return pixelPainter;
+  return paint;
 
 })();
 
+  //generate buttons
+  PixelPainter.createButton("Erase", 1);
 
+  PixelPainter.createButton("Clear", 2);
+
+  //generate grids
   var fill = ["orange", "red", "yellow", "rgb(251, 183, 255)"];
   PixelPainter.createGrid(2, 30, "box ", 'click', 1, fill);
 
