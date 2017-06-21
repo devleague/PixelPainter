@@ -6,6 +6,7 @@ window.PixelPainter = (function(){
   const body = document.querySelector('body');
   let currentColor = "color";
   let e = event;
+  let flag = false;
 
   paint.setColor = function(color){
     currentColor = color;
@@ -44,7 +45,7 @@ window.PixelPainter = (function(){
       if (f === 2) {
         let func = PixelPainter.paint;
         subDiv.addEventListener("mousedown", func);
-        //subDiv.addEventListener("mousemove", func);
+        subDiv.addEventListener("mousemove", func);
         subDiv.addEventListener("mouseup", func);
       };
 
@@ -53,19 +54,18 @@ window.PixelPainter = (function(){
     doc.body.appendChild(mainDiv);
   }
 
+
   paint.paint = function(e){
     if (e.type == "mousedown"){
       console.log("Mouse Down");
       e.target.style.setProperty("background-color", PixelPainter.getColor());
-      let func = PixelPainter.paint;
-      e.target.addEventListener("mousemove", func);
+      flag = true;
     } else if (e.type == "mousemove") {
       console.log("Mouse Move");
-      e.currentTarget.style.setProperty("background-color", PixelPainter.getColor());
+      if (flag) { e.currentTarget.style.setProperty("background-color", PixelPainter.getColor()); }
     } else if (e.type == "mouseup"){
       console.log("Mouse Up");
-      let func = PixelPainter.paint;
-      e.target.removeEventListener("mousemove", func);
+      flag = false;
     }
   }
 
