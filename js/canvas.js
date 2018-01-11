@@ -3,7 +3,7 @@ console.log("canvas");
 let _height = 30;
 let _width = 30;
 
-let _startingColor = "white";
+let _backgroundColor = "white";
 
 function canvasModule(){
 
@@ -161,8 +161,10 @@ function canvasModule(){
     chooseCanvasSize();
 
     let gridChoices = function(){
-
+        let 
     }
+
+    gridChoices();
 
     let scriptAttacher = function(){
 
