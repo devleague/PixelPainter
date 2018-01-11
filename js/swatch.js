@@ -177,8 +177,6 @@ for (var i = 0; i<14; i++){
         let cVar = [c];
         let keyColor = iVar.toString() + cVar.toString();
         colorButton.className= 'colorChoice';
-        colorButton.id = 'a' + keyColor;
-        console.log(keyColor);
         cell.appendChild(colorButton);
         colorButton.style.background = colorsObj[keyColor];
         row.appendChild(cell);
@@ -186,7 +184,7 @@ for (var i = 0; i<14; i++){
 swatchTable.appendChild(row);
 }
 
-//appends table to body
+//appends table container and then to body
 swatchContainer.appendChild(swatchTable);
 body.appendChild(swatchContainer);
 
@@ -194,14 +192,17 @@ body.appendChild(swatchContainer);
 // createTableModule()
 
 //This section creates the functionality for the swatch buttons. It allows the user to select a color and assigns it to a variable.
+let colorSelector = document.querySelector('#swatch_table');
 
-let colorSelector = document.querySelector('.colorChoice');
-colorSelector.addEventListener('click', currentColor);
 
-let currentColor = function(x){
-    let btnValue = x.target.id;
+let currentColor = function(event){
+    let btnValue = event.target;
+    console.log(btnValue.style.background)
     return btnValue.style.background;
 }
+
+colorSelector.addEventListener('click', currentColor);
+
 
 
 
@@ -240,20 +241,4 @@ let availableColors = function(value){
     return 'rgb(' + r + '",' + g + '",' + b + ')';
 }
 
-*/
-
-
-
-
-
-/*
-//test button 
-
-let button1 = document.createElement('button');
-let button2 = document.createElement('button');
-// button1.innerHTML = "button1";
-// button2.innerHTML = "button2";
-body.appendChild(button1);
-body.appendChild(button2);
-button1.style.background='rgb(255",0",0)';
 */

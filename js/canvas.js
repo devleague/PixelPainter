@@ -161,7 +161,7 @@ function canvasModule(){
     chooseCanvasSize();
 
     let gridChoices = function(){
-        let 
+        
     }
 
     gridChoices();
