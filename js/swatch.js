@@ -1,5 +1,7 @@
 console.log('swatch is connected');
 
+
+
 function swatchModule(){
     // this object hard stores the colors to be used on the palette.
     let colorsObj = {
@@ -177,7 +179,7 @@ for (var i = 0; i<14; i++){
         let cVar = [c];
         let keyColor = iVar.toString() + cVar.toString();
         colorButton.className= 'colorChoice';
-        colorButton.id = 'a' + keyColor;
+        colorButton.id = keyColor;
         console.log(keyColor);
         cell.appendChild(colorButton);
         colorButton.style.background = colorsObj[keyColor];
@@ -194,16 +196,6 @@ body.appendChild(swatchContainer);
 // createTableModule()
 
 //This section creates the functionality for the swatch buttons. It allows the user to select a color and assigns it to a variable.
-
-let colorSelector = document.querySelector('.colorChoice');
-colorSelector.addEventListener('click', currentColor);
-
-let currentColor = function(x){
-    let btnValue = x.target.id;
-    return btnValue.style.background;
-}
-
-
 
 
 
