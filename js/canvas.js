@@ -3,6 +3,8 @@ console.log("canvas");
 let _height = 30;
 let _width = 30;
 
+let _startingColor = "white";
+
 function canvasModule(){
 
     let ppId = document.getElementById("pixelPainter");
@@ -14,6 +16,8 @@ function canvasModule(){
     let _cellSize = "15px";
     
     canvId.style.marginTop = "30px";
+
+    canvId.style.outline = "3px solid gray";
 
     //helper function for making and appending
     function eleMaker(elem, parent, num, elClass){
@@ -30,15 +34,20 @@ function canvasModule(){
     }
 
     let submitForm = function(){
-        let xPoint = document.getElementsByName("xWidth").innerHTML;
-        let yPoint = document.getElementsByName("yHeight").values[0];
-        console.log(xPoint + " " + yPoint);
-        console.log(_width + " " + _height);
+        let xPoint = document.getElementsByName("xWidth");
+        let yPoint = document.getElementsByName("yHeight");
+        console.log(xPoint, " " , yPoint);
+        _width = xPoint;
+        _height = yPoint;
+        console.log(_width , " " , _height);
+        makeCanvas(_width,_height);
     }
-    submitForm();
+    console.log('calling it way up here');
+
 
     let makeCanvas = function(x, y){
 
+        document.getElementById("choice").style.display = "none";
         // document.getElementById("prompt").style.display = "none";
 
         let canGrid = document.createElement("table");
@@ -75,7 +84,8 @@ function canvasModule(){
         but.id = "d" + x + "x" + y;
         but.innerHTML = x + " x " + y;
         but.className = "canvasButton";
-        but.addEventListener("mouseup", makeCanvas(x,y));
+        but.addEventListener("mouseup", function(){makeCanvas(x,y)});
+
 
         but.style.textAlign = "center";
         // but.style.marginLeft = "auto";
@@ -108,6 +118,7 @@ function canvasModule(){
 
         let form = document.createElement("form");
         form.id = "canvasForm";
+        console.log('creating these dom elements way down here');
         let formX = '<input type="text" name="xWidth" value="Width"><br>';
         let formY = '<input type="text" name="yHeight" value="Height"><br>';
         let formInp = '<input type="submit" id="formButton" value="Make Canvas"><br>';
@@ -119,7 +130,7 @@ function canvasModule(){
     }
     // makePrompt();
 
-    let chooseCanvasSize = function(){
+    let chooseCanvasSize = function(){ //makes a list of buttons that generate tables of set dimensions
 
         let choices = document.createElement("div");
         choices.id = "choice";
@@ -144,21 +155,21 @@ function canvasModule(){
         dimenButton[2].appendChild(canvasButtonMaker(20,20));
         dimenButton[3].appendChild(canvasButtonMaker(30,30));
         dimenButton[4].appendChild(canvasButtonMaker(30,50));
-        dimenButton[5].appendChild(canvasButtonMaker(50,80));
-        dimenButton[6].appendChild(canvasButtonMaker(80,50));
+        dimenButton[5].appendChild(canvasButtonMaker(50,30));
+        dimenButton[6].appendChild(canvasButtonMaker(50,80));
     }
-
     chooseCanvasSize();
 
-    let scriptAttacher = function(){
-        // let formScript = document.createElement("script");
-        // // formScript.innerHTML = "function submitForm(){document.getElementById('canvasForm').submit()};"
-        // ppId.appendChild(formScript);
+    let gridChoices = function(){
 
-        // fButton = document.getElementById("formButton");
-        // fButton.addEventListener("submit", makeCanvas());
     }
-    scriptAttacher();
+
+    let scriptAttacher = function(){
+
+        fButton = document.getElementById("formButton");
+        fButton.addEventListener("submit", function(){submitForm();});
+    }
+    // scriptAttacher();
 
     return {
         makeCanvas: makeCanvas

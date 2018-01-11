@@ -53,7 +53,7 @@ body.appendChild(swatch);
 //         }
 //         r+= value;
 //     }
-//     return 'rgb(' + r + ',' + g + ',' + b + ')';
+    // return 'rgb(' + r + ',' + g + ',' + b + ')';
 // }
 
 
