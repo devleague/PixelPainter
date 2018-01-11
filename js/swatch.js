@@ -1,7 +1,7 @@
 console.log('swatch is connected');
 
 function swatchModule(){
-    
+    // this object hard stores the colors to be used on the palette.
     let colorsObj = {
         00:"#FAEBD7",
         01:"#00FFFF",
@@ -157,11 +157,13 @@ function swatchModule(){
 var body = document.getElementById('pixelPainter');
 
 //this module includes functions to create the Table including buttons
-// function createTableModule(){
+//function createTableModule(){
 
 //create the color swatch
-let swatch = document.createElement('table');
-swatch.id = 'swatch_base';
+let swatchContainer = document.createElement('div');
+swatchContainer.id = 'swatch_container';
+let swatchTable = document.createElement('table');
+swatchTable.id = 'swatch_table';
 
 //create the rows
 for (var i = 0; i<14; i++){
@@ -175,22 +177,31 @@ for (var i = 0; i<14; i++){
         let cVar = [c];
         let keyColor = iVar.toString() + cVar.toString();
         colorButton.className= 'colorChoice';
+        colorButton.id = 'a' + keyColor;
+        console.log(keyColor);
         cell.appendChild(colorButton);
         colorButton.style.background = colorsObj[keyColor];
         row.appendChild(cell);
         }
-swatch.appendChild(row);
+swatchTable.appendChild(row);
 }
 
 //appends table to body
-
-body.appendChild(swatch);
+swatchContainer.appendChild(swatchTable);
+body.appendChild(swatchContainer);
 
 // };
 // createTableModule()
 
+//This section creates the functionality for the swatch buttons. It allows the user to select a color and assigns it to a variable.
 
+let colorSelector = document.querySelector('.colorChoice');
+colorSelector.addEventListener('click', currentColor);
 
+let currentColor = function(x){
+    let btnValue = x.target.id;
+    return btnValue.style.background;
+}
 
 
 
