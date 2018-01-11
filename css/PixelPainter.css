@@ -7,11 +7,11 @@ body, div, a {
     font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 
-#swatch_base{
+/* #swatch_base{
     height: 10%;
     width: 10%;
     border: solid black;
-}
+} */
 button{
     height: 20px;
     width: 10px;
