@@ -4,6 +4,7 @@ let _height = 30;
 let _width = 30;
 
 let _defaultBackground = "blue";
+let _storedBackground = _defaultBackground;
 
 let gridFiller = function(color){
     console.log("gridFiller");
@@ -190,12 +191,12 @@ function canvasModule(){
         h2.innerHTML = "Canvas Dimensions";
         dimenButton[0].appendChild(h2);
 
-        dimenButton[1].appendChild(canvasButtonMaker(10,10));
+        dimenButton[1].appendChild(canvasButtonMaker(15,15));
         dimenButton[2].appendChild(canvasButtonMaker(20,20));
         dimenButton[3].appendChild(canvasButtonMaker(30,30));
         dimenButton[4].appendChild(canvasButtonMaker(30,50));
         dimenButton[5].appendChild(canvasButtonMaker(50,30));
-        dimenButton[6].appendChild(canvasButtonMaker(50,80));
+        dimenButton[6].appendChild(canvasButtonMaker(50,50));
     }
     chooseCanvasSize();
 

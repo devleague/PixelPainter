@@ -4,16 +4,9 @@
     box-sizing: border-box;
 }
 body, div, a {
-    padding:0;
-    margin:0;
     font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 
-/* #swatch_base{
-    height: 10%;
-    width: 10%;
-    border: solid black;
-} */
 button{
     height: 25px;
     width: 25px;
@@ -28,16 +21,26 @@ button{
     text-align: center;
 }
 
+h1{
+    margin-top: 10px;
+    margin-bottom: 7px;
+}
+
+#swatch_table{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
 #canvasBox{
-    position: relative;
-    /* left: 0; */
-    /* right: 0; */
     width: 79%;
     float: right;
-    /* margin-right: 5px; */
     height: 100%;
-    /* margin-bottom: 5px;  */
-    margin: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+    position: relative;
+    
 }
 
 #buttonBox{
@@ -45,26 +48,28 @@ button{
     border: 1px solid black;
     text-align: center;
     margin-bottom: 10px;
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 .featureButton{
     width: 80%;
     margin: 15px;
+    margin-bottom: 0;
 }
 
 #canGrid{
-    /* position: absolute; */
-    top: auto;
-    margin-left: auto;
-    margin-right: auto;
-    bottom: auto;
-    /* height: 50%; */
-    /* width: 50%; */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 50%;
+    height: 30%;
+    margin: auto;
 }
 
 #colorDisp{
-    background-color: red;
+    background-color: azure;
     border-radius: 50%;
     width: 150px;
     height: 100px;
@@ -74,8 +79,8 @@ button{
     margin-top: 30px;
 }
 
-#clear{
-    margin-bottom: 0;
+#toggleB{
+    margin-bottom: 15px;
 }
 
 #choice{

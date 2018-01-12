@@ -85,16 +85,16 @@ let swatchTable = document.createElement('table');
 swatchTable.id = 'swatch_table';
 
 //create the rows
-for (var i = 0; i<6; i++){
+for (var i = 0; i<10; i++){
     let row = document.createElement('tr');
     
 //create columns and attach buttons to each cell so that the buttons can be selected to choose a color
-    for (var c = 0; c<10; c++){
+    for (var c = 0; c<6; c++){
         let cell = document.createElement('td');
         let colorButton = document.createElement('button');
         let iVar = [i];
         let cVar = [c];
-        let keyColor = iVar.toString() + cVar.toString();
+        let keyColor = cVar.toString() + iVar.toString();
         colorButton.className= 'colorChoice';
         cell.appendChild(colorButton);
         
