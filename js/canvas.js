@@ -3,7 +3,7 @@ console.log("canvas");
 let _height = 30;
 let _width = 30;
 
-let _backgroundColor = "white";
+let _defaultBackground = "blue";
 
 function canvasModule(){
 
@@ -44,6 +44,15 @@ function canvasModule(){
     }
     console.log('calling it way up here');
 
+    let gridFiller = function(color){
+        console.log("gridFiller");
+        let cSquares = document.getElementsByClassName("canvasSquare");
+        console.log(cSquares.length);
+        for(let c = 0; c < cSquares.length; c++){
+            cSquares[c].style.background = color;
+            // console.log("ohai");
+        }
+    }
 
     let makeCanvas = function(x, y){
 
@@ -74,7 +83,9 @@ function canvasModule(){
             }
         }
         let cRow = document.getElementsByClassName("canvasRow");
+        
         canvId.appendChild(canGrid);
+        gridFiller(_defaultBackground);
     }
 
     function canvasButtonMaker(x, y){
@@ -161,7 +172,7 @@ function canvasModule(){
     chooseCanvasSize();
 
     let gridChoices = function(){
-        let 
+        
     }
 
     gridChoices();
@@ -179,3 +190,4 @@ function canvasModule(){
 }
 
 canvasModule();
+
