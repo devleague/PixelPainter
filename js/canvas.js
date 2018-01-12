@@ -71,7 +71,6 @@ function canvasModule(){
                 squareEl.style.width = _cellSize;
                 squareEl.style.paddingBottom = _cellSize;
                 canRow.appendChild(squareEl);
-                console.log('here I am')
             }
         }
         let cRow = document.getElementsByClassName("canvasRow");
@@ -180,4 +179,3 @@ function canvasModule(){
 }
 
 canvasModule();
-console.log('now');
