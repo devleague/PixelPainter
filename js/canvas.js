@@ -5,6 +5,15 @@ let _width = 30;
 
 let _defaultBackground = "blue";
 
+let gridFiller = function(color){
+    console.log("gridFiller");
+    let cSquares = document.getElementsByClassName("canvasSquare");
+    console.log(cSquares.length);
+    for(let c = 0; c < cSquares.length; c++){
+        cSquares[c].style.background = color;
+    }
+}
+
 function canvasModule(){
 
     let ppId = document.getElementById("pixelPainter");
@@ -58,16 +67,6 @@ function canvasModule(){
         makeCanvas(_width,_height);
     }
     console.log('calling it way up here');
-
-    let gridFiller = function(color){
-        console.log("gridFiller");
-        let cSquares = document.getElementsByClassName("canvasSquare");
-        console.log(cSquares.length);
-        for(let c = 0; c < cSquares.length; c++){
-            cSquares[c].style.background = color;
-            // console.log("ohai");
-        }
-    }
 
     let makeCanvas = function(x, y){
 
@@ -187,16 +186,6 @@ function canvasModule(){
         dimenButton[6].appendChild(canvasButtonMaker(50,80));
     }
     chooseCanvasSize();
-
-    let gridChoices = function(){
-        let buttonBox = document.createElement("div");
-        buttonBox.id = "buttonBox";
-
-        let parent = document.getElementById("swatch_container");
-        parent.appendChild(buttonBox);
-    }
-
-    gridChoices();
 
     let scriptAttacher = function(){
 

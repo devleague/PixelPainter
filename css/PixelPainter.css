@@ -15,19 +15,21 @@ body, div, a {
     border: solid black;
 } */
 button{
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
 }
 
 #swatch_container{
-    /* float: left; */
-    position: absolute;
+    float: left;
+    /* position: absolute; */
     padding: 0 10px;
     width: 20%;
+    border: 1px solid black;
+    text-align: center;
 }
 
 #canvasBox{
-    /* position: relative; */
+    position: relative;
     /* left: 0; */
     /* right: 0; */
     width: 79%;
@@ -36,4 +38,47 @@ button{
     height: 100%;
     /* margin-bottom: 5px;  */
     margin: 5px;
+}
+
+#buttonBox{
+    width: 100%;
+    border: 1px solid black;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.featureButton{
+    width: 80%;
+    margin: 15px;
+}
+
+#canGrid{
+    /* position: absolute; */
+    top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: auto;
+    /* height: 50%; */
+    /* width: 50%; */
+    /* margin: -15% 0 10% -5%; */
+}
+
+#colorDisp{
+    background-color: red;
+    border-radius: 50%;
+    width: 150px;
+    height: 100px;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+#clear{
+    margin-bottom: 0;
+}
+
+#choice{
+    margin-top: 15%;
 }
