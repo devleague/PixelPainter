@@ -32,19 +32,31 @@ function canvasModule(){
             parent.appendChild(crEl);
         }
     }
-
-    //new stuff from swatch
-    let canvasSelector = function(){
+    
+    //This module selects the cell on the canvas and 'paints' it with the currentColor
+    let canvasCellSelector = function(){
         let canvasSelected = document.querySelector("#canGrid");
-        
-        
-        let colorCanvas = function (event){
-            let cellValue = event.target;
-            //console.log(cellValue);
+        let draggable = false;
+        let cellValue;
+
+        let colorCanvasStart = function (event){
+            cellValue = event.target;
             cellValue.style.background = currentColor;
+            draggable = true;
+        }
+        let colorCanvasMove = function (event){
+            if (draggable === true){
+                cellValue = event.target;
+                cellValue.style.background = currentColor;
+            }
+        }
+        let colorCanvasEnd = function(){
+            draggable = false;
         }
         
-        canvasSelected.addEventListener('click', colorCanvas);
+        canvasSelected.addEventListener('mousedown', colorCanvasStart);
+        canvasSelected.addEventListener('mouseover', colorCanvasMove);
+        canvasSelected.addEventListener('mouseup', colorCanvasEnd);
     }
     //--------------
 
@@ -102,7 +114,7 @@ function canvasModule(){
         
         canvId.appendChild(canGrid);
         gridFiller(_defaultBackground);
-        canvasSelector();
+        canvasCellSelector();
     }
 
     function canvasButtonMaker(x, y){
