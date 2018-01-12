@@ -1,4 +1,6 @@
 *{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 body, div, a {
@@ -13,6 +15,30 @@ body, div, a {
     border: solid black;
 } */
 button{
+<<<<<<< HEAD
+    height: 20px;
+    width: 10px;
+}
+
+#swatch_container{
+    /* float: left; */
+    position: absolute;
+    padding: 0 10px;
+    width: 20%;
+}
+
+#canvasBox{
+    /* position: relative; */
+    /* left: 0; */
+    /* right: 0; */
+    width: 79%;
+    float: right;
+    /* margin-right: 5px; */
+    height: 100%;
+    /* margin-bottom: 5px;  */
+    margin: 5px;
+=======
     height: 30px;
     width: 30px;
+>>>>>>> ff6e64a094da93f86298dc5479b41e18f2e614d1
 }

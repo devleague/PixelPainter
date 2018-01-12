@@ -1,5 +1,7 @@
 console.log('swatch is connected');
 
+
+
 function swatchModule(){
 
     // this object hard stores the colors to be used on the palette.
