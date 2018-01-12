@@ -7,6 +7,10 @@ body, div, a {
     font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 
+body{
+    background-color: black;
+}
+
 button{
     height: 25px;
     width: 25px;
@@ -19,6 +23,7 @@ button{
     width: 20%;
     border: 1px solid black;
     text-align: center;
+    background-color: gray
 }
 
 h1{
@@ -33,6 +38,7 @@ h1{
 }
 
 #canvasBox{
+    background-color: rgb(48, 43, 43);
     width: 79%;
     float: right;
     height: 100%;
@@ -49,6 +55,7 @@ h1{
     text-align: center;
     margin-bottom: 10px;
     margin-top: 8px;
+    background-color: rgb(65, 65, 65);
 }
 
 .featureButton{
@@ -85,4 +92,5 @@ h1{
 
 #choice{
     margin-top: 15%;
+    background-color: grey;
 }

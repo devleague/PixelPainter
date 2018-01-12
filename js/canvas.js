@@ -3,7 +3,7 @@ console.log("canvas");
 let _height = 30;
 let _width = 30;
 
-let _defaultBackground = "blue";
+let _defaultBackground = "grey";
 let _storedBackground = _defaultBackground;
 
 let gridFiller = function(color){
