@@ -1,6 +1,6 @@
 console.log('swatch is connected');
 
-
+let currentColor;
 
 function swatchModule(){
 
@@ -120,12 +120,12 @@ function colorSelectorModule(){
 let colorSelector = document.querySelector('#swatch_table');
 
 
-let currentColor = function(event){
-    let btnValue = event.target;
-    return btnValue.style.background;
-}
+    let currentColorEventHandler = function(event){
+        let btnValue = event.target;
+        currentColor = btnValue.style.background;
+    }
 
-colorSelector.addEventListener('click', currentColor);
+    colorSelector.addEventListener('click', currentColorEventHandler);
 };
 colorSelectorModule()
 

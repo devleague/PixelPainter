@@ -40,7 +40,7 @@ function canvasModule(){
         
         let colorCanvas = function (event){
             let cellValue = event.target;
-            console.log(cellValue);
+            //console.log(cellValue);
             cellValue.style.background = currentColor;
         }
         
@@ -102,6 +102,7 @@ function canvasModule(){
         
         canvId.appendChild(canGrid);
         gridFiller(_defaultBackground);
+        canvasSelector();
     }
 
     function canvasButtonMaker(x, y){
