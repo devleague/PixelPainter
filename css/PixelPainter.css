@@ -15,7 +15,6 @@ body, div, a {
     border: solid black;
 } */
 button{
-<<<<<<< HEAD
     height: 20px;
     width: 10px;
 }
@@ -37,8 +36,4 @@ button{
     height: 100%;
     /* margin-bottom: 5px;  */
     margin: 5px;
-=======
-    height: 30px;
-    width: 30px;
->>>>>>> ff6e64a094da93f86298dc5479b41e18f2e614d1
 }

@@ -33,6 +33,21 @@ function canvasModule(){
         }
     }
 
+    //new stuff from swatch
+    let canvasSelector = function(){
+        let canvasSelected = document.querySelector("#canGrid");
+        
+        
+        let colorCanvas = function (event){
+            let cellValue = event.target;
+            console.log(cellValue);
+            cellValue.style.background = currentColor;
+        }
+        
+        canvasSelected.addEventListener('click', colorCanvas);
+    }
+    //--------------
+
     let submitForm = function(){
         let xPoint = document.getElementsByName("xWidth");
         let yPoint = document.getElementsByName("yHeight");
@@ -60,6 +75,7 @@ function canvasModule(){
         // document.getElementById("prompt").style.display = "none";
 
         let canGrid = document.createElement("table");
+        canGrid.id = "canGrid";
         canGrid.style.border = "1px solid black";
         canGrid.style.borderCollapse = "collapse";
         canGrid.style.marginLeft = "auto";

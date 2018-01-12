@@ -133,17 +133,6 @@ colorSelectorModule()
 
 //This module allows the user to input a color into the canvas
 
-let canvasSelected = document.querySelector(".canvasSquare");
-
-
-let colorCanvas = function (event){
-    let cellValue = event.target;
-    console.log(cellValue);
-    cellValue.style.background = currentColor;
-}
-
-canvasSelected.addEventListener('click', colorCanvas);
-
 
 
 
