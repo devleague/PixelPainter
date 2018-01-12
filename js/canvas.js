@@ -172,7 +172,11 @@ function canvasModule(){
     chooseCanvasSize();
 
     let gridChoices = function(){
-        
+        let buttonBox = document.createElement("div");
+        buttonBox.id = "buttonBox";
+
+        let parent = document.getElementById("swatch_container");
+        parent.appendChild(buttonBox);
     }
 
     gridChoices();
