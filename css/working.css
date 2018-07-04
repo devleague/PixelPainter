@@ -1,0 +1,66 @@
+body{
+  background-image: url("../img/BG-Image-PixelPainter.jpg");
+  background-size: cover;
+  overflow: hidden;
+  text-align: center;
+  width: 20%;
+}
+
+h1{
+  width: 125px;
+  height: 100px;
+  line-height: 40px;
+  margin-top: 18px;
+  margin-left: 20px;
+  padding: 15px;
+  border-radius: 10%;
+  border: 2px #FFFFFF solid;
+  color: #FFFFFF;
+ }
+
+#pixelPainter {
+  container for all elements
+  margin: 20px auto;
+  width: 900px;
+  height: 600px;
+  box-sizing: border-box;
+}
+
+.cell {
+float: left;
+}
+
+.canvasCells {
+float: right;
+border: solid black 1px;
+
+}
+
+.container {
+float: left;
+border: solid #000;
+border-style: solid;
+border-width: 5px;
+border-color: black;
+width: 200px;
+}
+
+#randomBlock {
+border-style: solid;
+border-width: 4px;
+border-color: black;
+float: right;
+width: 20%;
+overflow: hidden;
+}
+
+#insideCanvas {
+border-style: solid;
+border-width: 4px;
+border-color: black;
+box-sizing: border-box;
+float: right;
+width: 200px;
+
+}
+
