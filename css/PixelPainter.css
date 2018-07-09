@@ -1,0 +1,42 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: #fff;
+    padding: 10px;
+}
+
+button {
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px;
+    width: 90%;
+}
+
+#toolBox {
+    background-color: #3a4476;
+    float: left;
+    width: 30%;
+    height: 100%;
+}
+
+#inputcolor {
+    color: #fff;
+    padding: 10px;
+}
+
+#etchaSketch {
+    position: absolute;
+    bottom: 0;
+    padding: 0;
+    width: 30%
+}
+
+#paintCanvas {
+    float: left;
+    height: 100%;
+}
+
