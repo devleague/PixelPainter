@@ -16,6 +16,29 @@ button {
     width: 90%;
 }
 
+input[type=number]{
+    width: 100%;
+    padding: 10px;
+    margin: 5px;
+}
+table,
+tr,
+td {
+  border: silver 1px dotted;
+}
+table {
+    border-collapse: collapse;
+  }
+  
+tr {
+    height: 20px;
+  }
+  
+td {
+    min-width: 20px;
+    box-sizing: border-box;
+  }
+
 #toolBox {
     background-color: #3a4476;
     float: left;
@@ -37,6 +60,16 @@ button {
 
 #paintCanvas {
     float: left;
+    width: 70%;
     height: 100%;
+}
+
+#gridForm {
+    position: relative;
+    padding: 10px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20%;
 }
 
