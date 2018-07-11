@@ -10,37 +10,52 @@ h1 {
 }
 
 button {
-    background-color: #fff;
     padding: 10px;
     margin: 10px;
-    width: 90%;
+    width: 93%;
+    background-color: #00abff;
+    color: #fff;
+    border-color: #00abff;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: #22234e;
+    outline-style: none;
+}
+
+button:active {
+    background-color: #0289cb;
+    border-color: #0289cb;
+    outline-style: none;
 }
 
 input[type=number]{
-    width: 100%;
+    width: 93%;
     padding: 10px;
-    margin: 5px;
+    margin: 10px;
 }
 table,
 tr,
 td {
-  border: silver 1px dotted;
+  border: #000 1px dotted;
 }
 table {
     border-collapse: collapse;
   }
   
 tr {
-    height: 20px;
+    height: 50px;
   }
   
 td {
-    min-width: 20px;
+    min-width: 50px;
     box-sizing: border-box;
   }
 
 #toolBox {
-    background-color: #3a4476;
+    background-color: #22234e;
     float: left;
     width: 30%;
     height: 100%;
@@ -71,5 +86,9 @@ td {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20%;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #22234e;
+    text-align: center;
 }
 

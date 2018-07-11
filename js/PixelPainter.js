@@ -28,7 +28,7 @@ pixelPainter.appendChild(toolBox);
         inputColor.appendChild(colorSelector);
 
     /// add div container for etchasketch buttons to toolbox
-    var etchaSketch = document.createElement('div');
+    var etchaSketch = document.createElement('form');
     etchaSketch.setAttribute('id', 'etchaSketch');
     toolBox.appendChild(etchaSketch);
 
@@ -43,6 +43,7 @@ pixelPainter.appendChild(toolBox);
         var resetButton = document.createElement('button');
         resetButton.setAttribute('id', 'bttnReset');
         resetButton.setAttribute('type', 'button');
+        resetButton.setAttribute('onClick', 'location.href=location.href');
         resetButton.textContent = 'Reset';
         etchaSketch.appendChild(resetButton);
 
@@ -85,19 +86,19 @@ pixelPainter.appendChild(canvasDiv);
 
 ///make the grid
 function makeGrid () {
-    let rowz = document.getElementById('gridWidth').value;
-    let colz = document.getElementById('gridHeight').value;
+    let rowz = document.getElementById('gridHeight').value;
+    let colz = document.getElementById('gridWidth').value;
 
     /// clears existing grid elements, prevents "adding to" grid
     while (gridTable.firstChild) {
         gridTable.removeChild(gridTable.firstChild);
     }
 
-    for (var i=1; i<=colz; i++) {
+    for (var i=1; i<=rowz; i++) {
         /// makes rows
         let gridRow = document.createElement('tr');
         gridTable.appendChild(gridRow);
-        for (let j=1; j<=rowz; j++) {
+        for (let j=1; j<=colz; j++) {
             /// makes columns
             let gridCell = document.createElement('td');
             gridRow.appendChild(gridCell);
@@ -111,6 +112,17 @@ function makeGrid () {
     }
 }
 
+// function clearGrid () {
+//     let cells = document.getElementsByTagName('td');
+//     if (cells.style.backgroundColor !== null) {
+//         cells.style.backgroundColor = null;
+//     }
+//     else
+// }
+
+
+
+
 /// gridForm button submit to call makeGrid function
 gridForm.addEventListener('submit', function(e) {
     e.preventDefault();
@@ -123,3 +135,11 @@ gridForm.addEventListener('submit', function(e) {
         gridForm.style.display = "none";
     }
 })
+
+
+/// etchasketch clear button to call clearGrid function
+etchaSketch.addEventListener('submit', function(e) {
+    e.preventDefault();
+    clearGrid();
+})
+
