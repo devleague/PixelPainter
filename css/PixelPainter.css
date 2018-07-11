@@ -25,7 +25,7 @@ button:hover {
     outline-style: none;
 }
 
-button:active {
+button:focus {
     background-color: #0289cb;
     border-color: #0289cb;
     outline-style: none;
@@ -74,6 +74,7 @@ td {
 }
 
 #paintCanvas {
+    position: relative;
     float: left;
     width: 70%;
     height: 100%;
@@ -90,5 +91,8 @@ td {
     font-weight: 800;
     color: #22234e;
     text-align: center;
+}
+#gridTable {
+    margin: auto;
 }
 
