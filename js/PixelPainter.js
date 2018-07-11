@@ -35,7 +35,7 @@ pixelPainter.appendChild(toolBox);
         /// add clear button to etchasketch
         var clearButton = document.createElement('button');
         clearButton.setAttribute('id', 'bttnClear');
-        clearButton.setAttribute('type', 'button');
+        clearButton.setAttribute('type', 'submit');
         clearButton.textContent = 'Clear';
         etchaSketch.appendChild(clearButton);
 
@@ -101,6 +101,7 @@ function makeGrid () {
         for (let j=1; j<=colz; j++) {
             /// makes columns
             let gridCell = document.createElement('td');
+            gridCell.setAttribute('class', 'cellElement')
             gridRow.appendChild(gridCell);
 
             /// add color to cells
@@ -112,16 +113,14 @@ function makeGrid () {
     }
 }
 
-// function clearGrid () {
-//     let cells = document.getElementsByTagName('td');
-//     if (cells.style.backgroundColor !== null) {
-//         cells.style.backgroundColor = null;
-//     }
-//     else
-// }
-
-
-
+/// removes color from grid cells
+function clearGrid () {
+    let cellz = document.getElementsByClassName('cellElement');
+    for (var i = 0; i < cellz.length; i++) {
+        cellz[i].style.backgroundColor = null;
+    }
+    console.log(cellz);
+}
 
 /// gridForm button submit to call makeGrid function
 gridForm.addEventListener('submit', function(e) {
