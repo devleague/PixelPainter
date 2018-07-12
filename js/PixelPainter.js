@@ -12,7 +12,7 @@ pixelPainter.appendChild(toolBox);
 
     /// add page title to toolbox div
     var pageTitle = document.createElement('h1');
-    pageTitle.textContent = 'Pixel Painter';
+    pageTitle.textContent = 'PIXEL PAINTR';
     toolBox.appendChild(pageTitle);
 
     /// add div container for color input to toolbox
@@ -108,14 +108,21 @@ function makeGrid () {
             gridCell.addEventListener('mousedown', function () {
                 const color = document.getElementById('bttnColor').value;
                 this.style.backgroundColor = color;
+
             })
         }
     }
 }
+let cellz = document.getElementsByClassName('cellElement');
+function dragColors () {
+    cellz.addEventListener('mousedown', function(){
+        
+    })
+}
+
 
 /// removes color from grid cells
 function clearGrid () {
-    let cellz = document.getElementsByClassName('cellElement');
     for (var i = 0; i < cellz.length; i++) {
         cellz[i].style.backgroundColor = null;
     }
@@ -136,9 +143,11 @@ gridForm.addEventListener('submit', function(e) {
 })
 
 
+
 /// etchasketch clear button to call clearGrid function
 etchaSketch.addEventListener('submit', function(e) {
     e.preventDefault();
     clearGrid();
 })
+
 
