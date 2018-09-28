@@ -1,0 +1,11 @@
+div.column {
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  border: thin solid black;
+  background-color: white;
+}
+
+.column:active{
+  background-color:blue;
+}
