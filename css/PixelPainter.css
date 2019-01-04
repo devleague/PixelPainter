@@ -1,0 +1,46 @@
+#pixelPainter{
+  display: flex;
+  flex-flow: row nowrap;
+}
+.canvas{
+  display: inline-flex;
+  flex-flow: column nowrap;
+  margin: 1%;
+  border-style: solid;
+  border-width: 1px;
+}
+.canvasRow{
+  display: inline-flex;
+  flex-flow: row nowrap;
+}
+.canvasCell{
+  height: 4px;
+  width: 4px;
+}
+.palette{
+  display: inline-flex;
+  flex-flow: column nowrap;
+  margin: 1%;
+  border-style: solid;
+  border-width: 1px;
+}
+.paletteRow{
+  display: flex;
+  flex-flow: row nowrap;
+}
+.paletteCell{
+  border-style: solid;
+  border-width: 1px;
+  height: 15px;
+  width: 15px;
+}
+.buttonBox{
+  flex: 1 0;
+  border-style: solid;
+  border-width: 1px;
+}
+.button{
+  text-align: center;
+  margin: 5%;
+  background-color: grey;
+}
