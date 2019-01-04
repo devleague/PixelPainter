@@ -10,7 +10,6 @@ PixelPainter is a plugin that you will create. It has a color swatch of infinite
 ## Getting Started and Specs
 
 ### PixelPainter(_width_, _height_)
-When instatiated it appends a new PixelPainter object to a HTML div element with an id of **pixelPainter**.
 
 **note**: you can use either the _Module_ or _Classical_ OOP Patterns for this.
 
