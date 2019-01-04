@@ -8,14 +8,17 @@
   margin: 1%;
   border-style: solid;
   border-width: 1px;
+  flex: 1 1;
 }
 .canvasRow{
   display: inline-flex;
   flex-flow: row nowrap;
+  height: .3em;
+  width: 30em;
 }
 .canvasCell{
-  height: 4px;
-  width: 4px;
+  height: .3em;
+  width: .3em;
 }
 .palette{
   display: inline-flex;
@@ -23,19 +26,20 @@
   margin: 1%;
   border-style: solid;
   border-width: 1px;
+  flex: 1 1;
 }
 .paletteRow{
   display: flex;
   flex-flow: row nowrap;
+  flex: 1 1 5%;
 }
 .paletteCell{
   border-style: solid;
   border-width: 1px;
-  height: 15px;
-  width: 15px;
+  flex: 1 1;
 }
 .buttonBox{
-  flex: 1 0;
+  flex: 1 1;
   border-style: solid;
   border-width: 1px;
 }

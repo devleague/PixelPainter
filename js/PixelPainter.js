@@ -3,6 +3,7 @@ const pixelPaint = (function () {
   let pixelBody = document.getElementById('pixelPainter');
   let slctColor;
   let mouseDown = false;
+  let storedArr = [];
 
   //invokes grid generator to make a grid for the canvas and palette
   genGrid(100, 100, 'canvas');
@@ -42,6 +43,8 @@ const pixelPaint = (function () {
       for (let j = 1; j <= c; j++) {
         let cell = document.createElement('div');
         cell.className = name + 'Cell';
+        cell.dataset.y = i;
+        cell.dataset.x = j;
         row.appendChild(cell);
       }
       grid.appendChild(row);
@@ -116,10 +119,21 @@ const pixelPaint = (function () {
         erase();
         break;
       case 'square':
+        break;
       case 'triangle':
+        break;
       case 'circle':
+        break;
       case 'save':
+        console.log('save');
+
+        savePic();
+        break;
       case 'load':
+        console.log('load');
+
+        loadPic();
+        break;
       case 'clear':
         clrGrid();
         break;
@@ -139,6 +153,24 @@ const pixelPaint = (function () {
     }
   }
 
+  function savePic() {
+    let pixels = document.getElementsByClassName('canvasCell');
+    storedArr.length = 0;
+    for (let i = 0; i < pixels.length; i++) {
+      storedArr.push(pixels[i])
+    }
+  }
+
+  function loadPic() {
+    let pixels = document.getElementsByClassName('canvasCell');
+    if (storedArr[1]) {
+      console.log(pixels[0])
+      console.log(storedArr[0])
+      for (let i = 0; i < pixels.length; i++) {
+        pixels[i] = storedArr[i]
+      }
+    }
+  }
   // invoke to create buttons and colors
   mkBtn('erase');
   mkBtn('square');
