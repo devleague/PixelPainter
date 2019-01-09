@@ -1,0 +1,38 @@
+body{
+    cursor: crosshair;
+}
+
+.rows{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.columns{
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.wholeSwatch{
+    padding: 10px;
+    border: 1px solid black;
+    width: 20px;
+    display: inline;
+    margin-top: 20px;
+}
+
+#eraser{
+    border: 1px solid black;
+    margin-top: 20px;
+    text-align: center;
+    width: 80px;
+
+}
+
+#clear{
+    border: 1px solid black;
+    margin-top: 20px;
+    text-align: center;
+    width: 80px;
+}
