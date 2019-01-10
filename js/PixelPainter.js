@@ -80,9 +80,6 @@ pixelPainter.appendChild(clearElem);
 clearElem.addEventListener('click', executeClear);
 
 // add listener to clear
-
-
-
 function executeClear(){
     var findColumn = document.getElementsByClassName('columns');
     for(var i=0; i<findColumn.length; i++){
