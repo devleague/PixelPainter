@@ -10,15 +10,29 @@ for(var i=0; i<30; i++){
         columnElem.className = 'columns';
         // columnElem.innerHTML = 'horizontal';
         rowElem.appendChild(columnElem);
-        columnElem.addEventListener('click', fill); 
+        columnElem.addEventListener('mouseover', fill);
     }
+}
+
+// check html if mouse is up or down
+var mouseDown = 0;
+document.body.onmousedown = function() { 
+    mouseDown = 1;
+}
+document.body.onmouseup = function() {
+    mouseDown = 0;
 }
 
 // add listeners to canvas
 var paint = 'black';
-
+ 
 function fill(){
-    this.style.background = paint;
+    if(mouseDown === 1){
+        this.style.background = paint;
+    }
+    if(mouseDown === 0){
+        this.style.background = undefined;
+    }
 }
 
 // create swatch
