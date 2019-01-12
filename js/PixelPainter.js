@@ -100,3 +100,36 @@ function executeClear(){
         findColumn[i].style.background = 'white';
     }
 }
+
+// create save
+var saveElem = document.createElement('div');
+saveElem.id = 'save';
+saveElem.innerHTML = 'SAVE';
+pixelPainter.appendChild(saveElem);
+saveElem.addEventListener('click', savePic);
+
+var savedArr = [];
+
+function savePic(){
+    var findColumn2 = document.getElementsByClassName('columns');
+    for(var l=0; l<findColumn2.length; l++){
+        savedArr.push(findColumn2[l].style.background);
+    }
+    //console.log(savedArr);
+}
+
+// create load
+var loadElem = document.createElement('div');
+loadElem.id = 'load';
+loadElem.innerHTML = 'LOAD';
+pixelPainter.appendChild(loadElem);
+loadElem.addEventListener('click', loadPic);
+
+function loadPic(){
+    var findColumns3 = document.getElementsByClassName('columns');
+    //console.log(findColumns3)
+    for(var m=0; m<findColumns3.length; m++){
+        findColumns3[m].style.background = savedArr[m];
+    }
+    //console.log(findC)
+}

@@ -41,3 +41,16 @@ body{
     color: white;
 }
 
+ #save{
+    border: 1px solid black;
+    margin-top: 20px;
+    text-align: center;
+    width: 80px;
+ }
+
+ #load{
+    border: 1px solid black;
+    margin-top: 20px;
+    text-align: center;
+    width: 80px; 
+ }
