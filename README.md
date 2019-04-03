@@ -23,7 +23,7 @@ Do not edit the `index.html` file. You will generate all of your html markup usi
 1. Code Review with an instructor or TA
 2. Make the app responsive to tablets and mobile devices using media queries
 3. Make it 'portfolio quality'
-4. Implment stamps or shapes
+4. Implement stamps or shapes
 5. Implement a fill option that fills a shape with a color.
 5. Write a function that saves the data pixel grid.
 6. Deploy the app using [AWS S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/HostingWebsiteOnS3Setup.html)
