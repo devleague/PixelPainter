@@ -1,0 +1,55 @@
+.row {
+  display: flex;
+  border: 1px solid black;
+  height: 11px;
+  width: 1250px;
+}
+.cols {
+  flex: 1 0 10px;
+  border: 1px solid black;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.colorRow {
+  display: flex;
+  height: 100px;
+  width: 300px;
+  border: 1px solid black;
+}
+.colorCols {
+  height: 100%;
+  width: 100%;
+  border: 1px solid black;
+}
+#pixelPainter {
+  display: flex;
+  justify-content: space-between;
+}
+#canvas {
+  display: flex;
+  flex-direction: column;
+}
+body {
+  background-image: url(https://media-dev.overstockart.com/optimized/cache/data/product_images/OAG5276-1000x1000.jpg);
+  background-size: 100%;
+}
+#clear {
+  width: 75px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+#delete {
+  width: 75px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+#save {
+    width: 75px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+#load {
+    width: 75px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
