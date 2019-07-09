@@ -1,44 +1,46 @@
 const pixelPainter = document.querySelector("#pixelPainter");
 const clear = document.createElement("button");
-const remove = document.createElement("button");
+const erase = document.createElement("button");
 const save = document.createElement("button");
 const load = document.createElement("button");
 const canvas = document.createElement("div");
 canvas.id = "canvas";
-remove.id = "delete";
+erase.id = "erase";
 clear.id = "clear";
 save.id = "save";
 load.id = "load";
-remove.innerHTML = "Delete";
+erase.innerHTML = "Erase";
 clear.innerHTML = "Clear";
 save.innerHTML = "Save";
 load.innerHTML = "Load";
 pixelPainter.appendChild(canvas);
-let height = 70;
-let width = 100;
-let savePic;
+let height = 3;
+let width = 3;
+let savePic = [];
+const canvasData = [];
+
 for (let i = 0; i < height; i++) {
   let row = document.createElement("div");
   row.className = "row";
   canvas.appendChild(row);
+  let rowData = [];
+  canvasData.push(rowData);
   for (let j = 0; j < width; j++) {
-    let cols = document.createElement("div");
-    cols.className = "cols";
-    row.appendChild(cols);
-    cols.addEventListener("mousedown", function() {
+    let cell = document.createElement("div");
+    let cellData = null;
+    rowData.push(cellData);
+    cell.className = "cell";
+    row.appendChild(cell);
+    cell.addEventListener("mousedown", function() {
       mousedown = true;
       this.style.backgroundColor = memory;
+      canvasData[i][j] = memory;
     });
-    cols.addEventListener("mouseover", paint);
-    cols.addEventListener("mouseup", stopPaint);
+    cell.addEventListener("mouseover", paint);
+    cell.addEventListener("mouseup", stopPaint);
+    // canvas.addEventListener("mouseout", stopPaint);
     clear.addEventListener("click", function() {
-      cols.style.backgroundColor = clear.style.backgroundColor;
-    });
-    save.addEventListener("click", function() {
-      savePic = cols.style.backgroundColor;
-    });
-    load.addEventListener("click", function() {
-      cols.style.backgroundColor = savePic;
+      cell.style.backgroundColor = clear.style.backgroundColor;
     });
   }
 }
@@ -56,6 +58,22 @@ const colorPalete = [
   "violet",
   "mediumvioletred"
 ];
+save.addEventListener("click", function() {
+  savePic = canvasData.map(function(arr) {
+    return arr.slice();
+  });
+});
+load.addEventListener("click", function() {
+  const canvasEl = document.getElementById("canvas");
+  const rowList = canvasEl.getElementsByClassName("row");
+  for (let i = 0; i < height; i++) {
+    const rowEl = rowList[i];
+    const cellList = rowEl.getElementsByClassName("cell");
+    for (let j = 0; j < width; j++) {
+      cellList[j].style.backgroundColor = savePic[i][j];
+    }
+  }
+});
 const colors = document.createElement("div");
 colors.className = "colors";
 pixelPainter.appendChild(colors);
@@ -86,10 +104,10 @@ function paint() {
 function stopPaint() {
   mousedown = false;
 }
-colors.appendChild(remove);
+colors.appendChild(erase);
 colors.appendChild(clear);
 colors.appendChild(save);
 colors.appendChild(load);
-remove.addEventListener("click", function() {
+erase.addEventListener("click", function() {
   memory = this.style.backgroundColor;
 });
