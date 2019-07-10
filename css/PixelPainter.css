@@ -2,7 +2,7 @@
   display: flex;
   border: 1px solid black;
   height: 11px;
-  width: 1250px;
+  width: 750px;
 }
 .cell {
   flex: 1 0 10px;
@@ -23,7 +23,7 @@
 }
 #pixelPainter {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 #canvas {
   display: flex;

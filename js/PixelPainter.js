@@ -4,18 +4,24 @@ const erase = document.createElement("button");
 const save = document.createElement("button");
 const load = document.createElement("button");
 const canvas = document.createElement("div");
+const clearSave = document.createElement("button");
+const undo = document.createElement("button");
+clearSave.id = "clearSave";
+undo.id = "undo";
 canvas.id = "canvas";
 erase.id = "erase";
 clear.id = "clear";
 save.id = "save";
 load.id = "load";
+clearSave.innerHTML = "Clear Save";
+undo.innerHTML = "Undo";
 erase.innerHTML = "Erase";
 clear.innerHTML = "Clear";
 save.innerHTML = "Save";
 load.innerHTML = "Load";
 pixelPainter.appendChild(canvas);
-let height = 3;
-let width = 3;
+let height = 10;
+let width = 10;
 let savePic = [];
 const canvasData = [];
 
@@ -33,15 +39,17 @@ for (let i = 0; i < height; i++) {
     row.appendChild(cell);
     cell.addEventListener("mousedown", function() {
       mousedown = true;
-      this.style.backgroundColor = memory;
-      canvasData[i][j] = memory;
+      this.style.backgroundColor = activeColor;
+      canvasData[i][j] = activeColor;
     });
-    cell.addEventListener("mouseover", paint);
+    cell.addEventListener("mouseover", function() {
+      if (mousedown === true) {
+        this.style.backgroundColor = activeColor;
+        canvasData[i][j] = activeColor;
+      }
+    });
     cell.addEventListener("mouseup", stopPaint);
     // canvas.addEventListener("mouseout", stopPaint);
-    clear.addEventListener("click", function() {
-      cell.style.backgroundColor = clear.style.backgroundColor;
-    });
   }
 }
 const colorPalete = [
@@ -59,6 +67,7 @@ const colorPalete = [
   "mediumvioletred"
 ];
 save.addEventListener("click", function() {
+  debugger;
   savePic = canvasData.map(function(arr) {
     return arr.slice();
   });
@@ -71,6 +80,17 @@ load.addEventListener("click", function() {
     const cellList = rowEl.getElementsByClassName("cell");
     for (let j = 0; j < width; j++) {
       cellList[j].style.backgroundColor = savePic[i][j];
+    }
+  }
+});
+clear.addEventListener("click", function() {
+  const canvasEl = document.getElementById("canvas");
+  const rowList = canvasEl.getElementsByClassName("row");
+  for (let i = 0; i < height; i++) {
+    const rowEl = rowList[i];
+    const cellList = rowEl.getElementsByClassName("cell");
+    for (let j = 0; j < width; j++) {
+      cellList[j].style.backgroundColor = null;
     }
   }
 });
@@ -91,15 +111,10 @@ for (let x = 0; x < colorHeight; x++) {
     colorCols.addEventListener("click", saveMemory);
   }
 }
-let memory;
+let activeColor;
 let mousedown = false;
 function saveMemory() {
-  memory = this.style.backgroundColor;
-}
-function paint() {
-  if (mousedown === true) {
-    this.style.backgroundColor = memory;
-  }
+  activeColor = this.style.backgroundColor;
 }
 function stopPaint() {
   mousedown = false;
@@ -108,6 +123,8 @@ colors.appendChild(erase);
 colors.appendChild(clear);
 colors.appendChild(save);
 colors.appendChild(load);
+colors.appendChild(clearSave);
+colors.appendChild(undo);
 erase.addEventListener("click", function() {
-  memory = this.style.backgroundColor;
+  activeColor = this.style.backgroundColor;
 });
