@@ -67,7 +67,7 @@ const colorPalete = [
   "mediumvioletred"
 ];
 save.addEventListener("click", function() {
-  debugger;
+  // debugger;
   savePic = canvasData.map(function(arr) {
     return arr.slice();
   });
@@ -91,6 +91,7 @@ clear.addEventListener("click", function() {
     const cellList = rowEl.getElementsByClassName("cell");
     for (let j = 0; j < width; j++) {
       cellList[j].style.backgroundColor = null;
+      canvasData[i][j] = null;
     }
   }
 });
