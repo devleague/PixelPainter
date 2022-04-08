@@ -5,8 +5,8 @@ const saveBtn = document.createElement("button");
 const loadBtn = document.createElement("button");
 const canvas = document.createElement("div");
 const clearSave = document.createElement("button");
-let height = 50;
-let width = 50;
+let height = 100;
+let width = 100;
 let saveData = [];
 let history = [];
 const colorPalete = [
@@ -86,18 +86,14 @@ clearBtn.addEventListener("click", function() {
     cells[i].style.backgroundColor = "rgba(255, 255, 255, 0.5)";
   }
 });
-for (let x = 0; x < colorHeight; x++) {
-  let colorRow = document.createElement("div");
-  colorRow.className = "colorRow";
-  colors.appendChild(colorRow);
-  for (let y = 0; y < colorwidth; y++) {
-    let colorCols = document.createElement("div");
-    colorCols.className = "colorCols";
-    colorRow.appendChild(colorCols);
-    colorCols.style.backgroundColor = colorPalete.pop();
-    colorCols.addEventListener("click", makeActiveColor);
-  }
+for (let x = 0; x < colorPalete.length; x++) {
+    let colorCells = document.createElement("div");
+    colorCells.className = "colorCells";
+    colors.appendChild(colorCells);
+    colorCells.style.backgroundColor = colorPalete[x]
+    colorCells.addEventListener("click", makeActiveColor);  
 }
+
 function makeActiveColor() {
   activeColor = this.style.backgroundColor;
 }

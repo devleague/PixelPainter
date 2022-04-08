@@ -1,61 +1,90 @@
-.row {
-  display: flex;
-  border: 1px solid black;
-  height: 11px;
-  width: 750px;
+html{
+  background-image: url(https://media-dev.overstockart.com/optimized/cache/data/product_images/OAG5276-1000x1000.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
-.cell {
-  flex: 1 0 10px;
-  border: 1px solid black;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
-}
-.colorRow {
-  display: flex;
-  height: 100px;
-  width: 300px;
-  border: 1px solid black;
-}
-.colorCols {
-  height: 100%;
-  width: 100%;
-  border: 1px solid black;
-}
-#pixelPainter {
-  display: flex;
-  justify-content: space-evenly;
-}
-#canvas {
+
+body {
+  margin: 0;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 }
-body {
-  background-image: url(https://media-dev.overstockart.com/optimized/cache/data/product_images/OAG5276-1000x1000.jpg);
-  background-size: 100%;
+
+button{
+  font-size: 1.5em;
 }
-#clear {
-  width: 75px;
-  height: 50px;
-  background-color: rgba(255, 255, 255, 0.6);
+
+h1, button{
+  font-family: 'Brush Script MT', cursive;
 }
-#erase {
-  width: 75px;
-  height: 50px;
-  background-color: rgba(255, 255, 255, 0.6);
-}
-#save {
-    width: 75px;
-    height: 50px;
-    background-color: rgba(255, 255, 255, 0.6);
-}
-#load {
-    width: 75px;
-    height: 50px;
-    background-color: rgba(255, 255, 255, 0.6);
-}
-#clearSave{
+
+#pixelPainter{
   display: flex;
-  width: 75px;
-  height: 50px;
-  background-color: rgba(255, 255, 255, 0.6);
+  flex-direction: column-reverse;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+}
+
+#canvas {
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  border: 5px solid black;
+  border-radius: 6px;
+  height: 60%;
+}
+
+.row {
+  display: flex;
+  height: 1%;
+}
+
+.cell {
+  flex: 1 1 auto;
+  border: 1px solid black;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.colors{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-evenly;
+  width: 100%;
+  height: 30%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius:6px;
+  padding:.5em;
+}
+
+.colorCells,button {
+  height: 23%;
+  width: 19%;
+  border: 1px solid black;
+  border-radius: 12px;
+}
+
+@media(min-width:1024px) {
+  #pixelPainter{
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .colors{
+    width: 30%;
+    height: 70%
+  }
+  #canvas{
+    width: 60%;
+    height: 90%;
+  }
+  .colorCells,button{
+    height: 20%;
+  }
 }
