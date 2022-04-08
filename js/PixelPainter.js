@@ -73,7 +73,7 @@ saveBtn.addEventListener("click", function() {
 });
 clearSave.addEventListener("click", function() {
   for (let i = 0; i < saveData.length; i++) {
-    saveData[i] = "rgba(255, 255, 255, 0.5)";
+    saveData[i] = "rgba(255, 255, 255, 0.75)";
   }
 });
 loadBtn.addEventListener("click", function() {
@@ -83,7 +83,7 @@ loadBtn.addEventListener("click", function() {
 });
 clearBtn.addEventListener("click", function() {
   for (let i = 0; i < cells.length; i++) {
-    cells[i].style.backgroundColor = "rgba(255, 255, 255, 0.5)";
+    cells[i].style.backgroundColor = "rgba(255, 255, 255, 0.75)";
   }
 });
 for (let x = 0; x < colorPalete.length; x++) {
